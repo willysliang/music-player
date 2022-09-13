@@ -21,3 +21,4 @@
 ## 2022年9月13日17:56:23
   - init(初始化项目)
   - chore(引入eslint、prettirer、pinia、typescript、axios、commitizen)
+  - chore(修改配置信息)

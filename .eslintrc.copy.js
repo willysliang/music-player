@@ -11,8 +11,8 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module"
   },
   extends: [
     'eslint:recommended',
@@ -22,23 +22,26 @@ module.exports = {
     // 'plugin:prettier/recommended',
     'plugin:vue/vue3-essential',
     '@vue/standard',
-    '@vue/typescript/recommended',
+    '@vue/typescript/recommended'
   ],
-  overrides: [],
-  plugins: ['vue'],
+  overrides: [
+  ],
+  plugins: [
+    "vue"
+  ],
   globals: {
     document: false,
     navigator: false,
-    window: false,
+    window: false
   },
   rules: {
-    'eslint-disable-next-line': 0,
-    'eslint-disable': 0,
+    "eslint-disable-next-line": 0,
+    "eslint-disable": 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/multi-word-component-names': 'off',
-    'comma-dangle': ['off', 'always'],
+    "comma-dangle": ["off", "always"],
     quotes: 'off',
     semi: 'off',
-  },
+  }
 }
