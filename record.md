@@ -22,3 +22,4 @@
   - init(初始化项目)
   - chore(引入eslint、prettirer、pinia、typescript、axios、commitizen)
   - chore(修改配置信息)
+  - chore(引入stylelint)
