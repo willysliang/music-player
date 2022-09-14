@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年9月14日10:00:55
+  - chore(更新 stylelint 配置信息)
+  - chore(更新 eslint 自动校验配置)
+
 ## 2022年9月13日17:56:23
   - init(初始化项目)
   - chore(引入eslint、prettirer、pinia、typescript、axios、commitizen)

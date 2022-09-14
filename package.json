@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "serve": "vite",
+    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
-    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "eslint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src",
     "prettier:comment": "自动格式化当前目录下的所有文件",
     "prettier": "prettier --write",
     "commit:comment": "引导设置规范化的提交信息",
@@ -62,6 +62,7 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "typescript": "*",
     "vite": "^3.1.0",
+    "vite-plugin-checker": "^0.5.1",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^0.40.4"
   }

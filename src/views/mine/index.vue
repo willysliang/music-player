@@ -1,7 +1,8 @@
 <template>
   <div>ssssBBB</div>
 </template>
-<script>
-export default {}
+
+<script lang="ts" setup>
 </script>
-<style lang=""></style>
+
+<style lang="scss"></style>

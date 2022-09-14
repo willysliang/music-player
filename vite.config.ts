@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
+import checker from 'vite-plugin-checker'
 import * as path from 'path'
 
 export default defineConfig({
@@ -16,7 +17,20 @@ export default defineConfig({
       // 配置
       cache: false, // 禁用 eslint 缓存
     }),
+    checker({
+      vueTsc: true,
+      eslint: {
+        lintCommand: 'eslint "./src/**/*.{ts,vue}"',
+      },
+    }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "src/styles/var.scss";',
+      },
+    },
+  },
   server: {
     port: 8080, // 启动端口
     hmr: {

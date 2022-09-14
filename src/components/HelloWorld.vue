@@ -51,6 +51,7 @@ onMounted(async () => {
   </p>
 
   <h3>测试 vueUse 的鼠标坐标Mouse: {{ x }} x {{ y }}</h3>
+
   <router-view />
 </template>
 
