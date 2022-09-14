@@ -3,13 +3,11 @@ import request from '@/utils/http'
 /**
  * 登录
  */
-export const login = (username, password) => {
+export const getUsers = () => {
   return request({
-    url: '/api/auth/login',
-    method: 'post',
+    url: '/api/getUsers',
+    method: 'get',
     data: {
-      username,
-      password,
     },
   })
 }

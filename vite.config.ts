@@ -1,8 +1,17 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import * as path from 'path'
+// eslint
 import eslintPlugin from 'vite-plugin-eslint'
 import checker from 'vite-plugin-checker'
-import * as path from 'path'
+
+// element-plus
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+// mockjs
+import { viteMockServe } from 'vite-plugin-mock'
 
 export default defineConfig({
   resolve: {
@@ -13,15 +22,27 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    /* eslint取消缓存 */
     eslintPlugin({
-      // 配置
       cache: false, // 禁用 eslint 缓存
     }),
+    /* eslint自动校检 */
     checker({
       vueTsc: true,
       eslint: {
         lintCommand: 'eslint "./src/**/*.{ts,vue}"',
       },
+    }),
+    /* 配置 element-plus */
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+    /* 配置 mockjs */
+    viteMockServe({
+      mockPath: "./mock/"
     }),
   ],
   css: {

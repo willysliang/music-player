@@ -22,7 +22,8 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "types": ["element-plus/global"]
   },
   "include": [
     "src/**/*.ts",

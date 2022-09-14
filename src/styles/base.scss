@@ -1,0 +1,15 @@
+body,
+html {
+	line-height: 1;
+	font-family: "PingFang SC", STHeitiSC-Light, Helvetica-Light, arial,
+		sans-serif, "Droid Sans Fallback";
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+
+	// background: $color-background;
+	// color: $color-text;
+}
+
+html {
+	font-size: 62.5%; // 以10px为基数,此时class为a的标签字体大小为20px
+}

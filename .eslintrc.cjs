@@ -40,5 +40,6 @@ module.exports = {
     'comma-dangle': ['off', 'always'],
     quotes: 'off',
     semi: 'off',
+    "no-tabs": 0,
   },
 }

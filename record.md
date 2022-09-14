@@ -21,6 +21,8 @@
 ## 2022年9月14日10:00:55
   - chore(更新 stylelint 配置信息)
   - chore(更新 eslint 自动校验配置)
+  - chore(引入 tailwindcss ，并配置 css 自动格式化与校验，以及忽略设定文件)
+  - chore(引入 lodash、uuid 工具库、element-plus UI组件库、mockjs模拟数据)
 
 ## 2022年9月13日17:56:23
   - init(初始化项目)
