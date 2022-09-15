@@ -19,7 +19,7 @@ const routes = [
       keepAlive: true,
       requireAuth: true,
     },
-    component: () => import('@/views/mine/index.vue'),
+    component: () => import('@/views/home/index.vue'),
   },
 ];
 

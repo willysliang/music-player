@@ -22,6 +22,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '#': path.resolve(__dirname, 'types'),
+      '@comp': path.resolve(__dirname, 'src/components'),
     },
   },
   plugins: [
