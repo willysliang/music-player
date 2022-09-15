@@ -7,3 +7,10 @@
     footer
   </div>
 </template>
+
+<style scoped lang="scss">
+.footer {
+	width: 100%;
+	border-top: 1px solid red;
+}
+</style>

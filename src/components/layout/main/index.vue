@@ -8,4 +8,9 @@
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.main {
+	width: 100%;
+	height: calc(100vh - 7rem - 7rem);
+}
+</style>
