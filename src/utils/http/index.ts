@@ -1,7 +1,8 @@
 import axios from 'axios'
+// import { baseURL } from '@/config/http'
 
 const service = axios.create({
-  baseURL: 'http://127.0.0.1:7777/',
+  // baseURL,
   timeout: 120000, // request timeout
 })
 

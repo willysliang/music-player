@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
+
 // eslint
 import eslintPlugin from 'vite-plugin-eslint'
 import checker from 'vite-plugin-checker'
@@ -13,11 +14,14 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // mockjs
 import { viteMockServe } from 'vite-plugin-mock'
 
+import server from './config/vite/server'
+
 export default defineConfig({
   resolve: {
     // 设置别名
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      '#': path.resolve(__dirname, 'types'),
     },
   },
   plugins: [
@@ -52,19 +56,5 @@ export default defineConfig({
       },
     },
   },
-  server: {
-    port: 8080, // 启动端口
-    hmr: {
-      host: '127.0.0.1',
-      port: 8080,
-    },
-    // 设置 https 代理
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
+  server,
 })

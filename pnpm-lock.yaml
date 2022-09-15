@@ -15,6 +15,7 @@ specifiers:
   axios: ^0.27.2
   commitizen: ^4.2.5
   commitlint-config-cz: ^0.13.3
+  cross-env: ^7.0.3
   cz-conventional-changelog: ^3.3.0
   cz-customizable: ^7.0.0
   element-plus: ^2.2.16
@@ -82,6 +83,7 @@ devDependencies:
   autoprefixer: 10.4.10_postcss@8.4.16
   commitizen: 4.2.5
   commitlint-config-cz: 0.13.3
+  cross-env: 7.0.3
   cz-conventional-changelog: 3.3.0
   cz-customizable: 7.0.0
   eslint: 8.23.1
@@ -1467,6 +1469,14 @@ packages:
 
   /create-require/1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:

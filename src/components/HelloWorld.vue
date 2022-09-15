@@ -16,7 +16,7 @@ const { x, y } = useMouse()
 onMounted(async () => {
   try {
     const res2 = await API.getUsers()
-    console.log(res2);
+    console.log('bbb', res2)
     const res = await API.login('zhangsan', '123456')
     console.log(res)
   } catch (error) {
@@ -41,7 +41,10 @@ onMounted(async () => {
   <el-icon :size="32" color="#ccc">
     <Edit />
   </el-icon>
-  <el-avatar :size="50" src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
+  <el-avatar
+    :size="50"
+    src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+  />
 
   <div class="card bg-red-400">
     <button type="button" @click="count++">count is {{ count }}</button>

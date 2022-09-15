@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "serve": "vite",
+    "serve": "cross-env NODE_ENV=development vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
@@ -46,6 +46,7 @@
     "autoprefixer": "^10.4.10",
     "commitizen": "^4.2.5",
     "commitlint-config-cz": "^0.13.3",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
     "eslint": "^8.0.1",
