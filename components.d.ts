@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElSlider: typeof import('element-plus/es')['ElSlider']
     Footer: typeof import('./src/components/layout/footer/index.vue')['default']
     Header: typeof import('./src/components/layout/header/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
