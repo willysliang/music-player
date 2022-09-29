@@ -8,7 +8,8 @@ import {
   Fold,
   Microphone,
 } from '@element-plus/icons-vue'
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import { formatZero } from '@/utils/format'
 
 /***
  * 控制播放
@@ -23,6 +24,10 @@ const song = reactive({
   duration: '03:13',
   songName: '慢慢慢慢忘记你',
   singer: '许亚童',
+})
+
+onMounted(() => {
+  console.log(formatZero('000001', 10))
 })
 </script>
 

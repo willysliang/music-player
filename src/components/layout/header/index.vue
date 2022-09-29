@@ -1,94 +1,48 @@
 <script setup lang="ts">
-import { Search } from '@element-plus/icons-vue'
-import { ref } from 'vue'
-const search = ref(null)
+import HeaderSearch from '@comp/layout/header/headerSearch/index.vue'
+
+const iconSize = 32
+const iconColor = '#ccc'
 </script>
 
 <template>
-  <div class="header">
-    <!-- logo -->
-    <div class="header-logo">
-      <el-icon :size="32" color="#fff">
+  <div
+    class="header w-full flex items-center justify-between box-border text-xl px-4"
+  >
+    <!-- logo 固定宽150px -->
+    <div class="flex items-center w-60 h-full overflow-hidden box-border">
+      <el-icon :size="iconSize" :color="iconColor">
         <Headset />
       </el-icon>
-      <span class="header-logo-title">MUSIC&nbsp;PLAYER</span>
+      <span class="header-logo-title ml-2">MUSIC&nbsp;PLAYER</span>
     </div>
 
-    <!-- 主内容 -->
-    <div class="header-main">
-      <el-icon :size="20" color="#fff">
-        <ArrowLeftBold />
-      </el-icon>
-      <el-icon :size="20" color="#fff">
-        <ArrowRightBold />
-      </el-icon>
-      <el-input
-        v-model="search"
-        class="header-main-search"
-        placeholder="音乐/视频/电台/用户"
-        :prefix-icon="Search"
+    <div class="flex items-center">
+      <el-icon :size="iconSize - 10" :color="iconColor"><ArrowLeft /></el-icon>
+      <el-icon :size="iconSize - 10" :color="iconColor"><ArrowRight /></el-icon>
+    </div>
+
+    <!-- 搜索栏 -->
+    <HeaderSearch />
+
+    <!-- 设置类 -->
+    <div class="flex items-center justify-between w-48">
+      <el-avatar
+        :size="iconSize"
+        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
       />
-    </div>
-
-    <!-- 我的 -->
-    <div class="header-mine">
-      <div class="header-mine-unlisted">登录</div>
-      <div></div>
+      <span class="text-sm">点击登录</span>
+      <el-icon :size="iconSize - 10" :color="iconColor"><Message /></el-icon>
+      <el-icon :size="iconSize - 10" :color="iconColor"><Calendar /></el-icon>
+      <el-icon :size="iconSize - 10" :color="iconColor"><Setting /></el-icon>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .header {
-	height: 7rem;
-	width: 100%;
-	background-color: var(--theme-header-color);
+	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
-	@include flex(rows, space-between, center);
-	box-sizing: border-box;
-	padding: 0 0.5rem;
-	font-size: 1.5rem;
-}
-
-/* logo */
-.header-logo {
-	height: 100%;
-
-	/* width: 20rem; */
-	background-color: var(--logo-bg-color);
-	@include flex(rows, space-between, center);
-
-	&-title {
-		margin-left: 1rem;
-	}
-}
-
-/* 主内容 */
-.header-main {
-	padding: 0 1rem;
-	flex: 1;
-	height: 100%;
-	@include flex(rows, space-between, center);
-
-	&-search {
-		flex: 1;
-		height: 100%;
-		box-sizing: border-box;
-		padding: 1.5rem 0;
-	}
-}
-
-/* 我的 */
-.header-mine {
-	/* width: 15rem; */
-	height: 100%;
-	@include flex(rows, center);
-
-	&-unlisted {
-		@include flex(rows, flex-end);
-		border-radius: 1.5rem;
-		padding: 1.5rem;
-		border: 0.1rem solid #ccc;
-	}
+	height: 3.5rem;
 }
 </style>

@@ -5,11 +5,12 @@ import MyFooter from './footer/index.vue'
 </script>
 
 <template>
-  <my-header />
-  <my-main />
-  <my-footer />
+  <div class="layout">
+    <my-header />
+    <my-main />
+    <my-footer />
+  </div>
 </template>
 
 <style scoped lang="scss">
-
 </style>

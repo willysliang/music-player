@@ -1,0 +1,94 @@
+/***
+ * 播放数量格式化
+ */
+export const formatQuantity = (number: number): string | number => {
+  if (number > 100000000) {
+    return Number((number / 100000000).toFixed(1)) + '亿'
+  }
+
+  if (number > 10000000) {
+    return Number((number / 10000000).toFixed(1)) + ' 千万'
+  }
+
+  if (number > 10000) {
+    return Number((number / 10000).toFixed(1)) + ' 万'
+  }
+
+  if (number > 1000) {
+    return Number((number / 1000).toFixed(1)) + '千'
+  }
+
+  return number
+}
+
+/***
+ * @formatZero 数字补零
+ * @num 所要转换的数字
+ * @len 数字所需长度
+*/
+export const formatZero = (num: string | number, len: number) => {
+  if (String(num).length >= len) return num;
+  return (Array(len).join('0') + num).slice(-len);
+}
+
+/***
+ * @formatDate 日期格式化
+ * @params time 当前时间
+ * @params spliter 设置格式化规格
+ * @return yyyy-MM-dd hh:mm:ss
+ */
+export const formatDate = (
+  time: Date | string = new Date(),
+  spliter = false,
+): string => {
+  const d = new Date(time)
+  let day: string | number = d.getDate()
+  let month: string | number = d.getMonth() + 1
+  const year: string | number = d.getFullYear()
+  let hour: string | number = d.getHours()
+  let minute: string | number = d.getMinutes()
+  let seconds: string | number = d.getSeconds()
+
+  if (day < 10) {
+    day = '0' + day
+  }
+  if (month < 10) {
+    month = '0' + month
+  }
+  if (hour < 10) {
+    hour = '0' + hour
+  }
+  if (minute < 10) {
+    minute = '0' + minute
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds
+  }
+
+  if (spliter) {
+    return year + '年' + month + '月' + day + '日 ' + hour + ':' + minute
+  }
+  return (
+    year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + seconds
+  )
+}
+
+/***
+ * @formatDateTemp 时间格式化
+ * @params 当前时间
+ * @return yyyy-mm-dd
+ */
+export const formatDateTemp = (time: string | Date = new Date()) => {
+  const d = new Date(time)
+  let day: string | number = d.getDate()
+  let month: string | number = d.getMonth() + 1
+  const year: string | number = d.getFullYear()
+
+  if (day < 10) {
+    day = '0' + day
+  }
+  if (month < 10) {
+    month = '0' + month
+  }
+  return year + '-' + month + '-' + day
+}

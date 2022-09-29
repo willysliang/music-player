@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useUserStore } from '@/store/user'
 import { useMouse } from '@vueuse/core'
-import API from '@/api'
+// import API from '@/api'
 
 const userStore = useUserStore()
 userStore.updateName('李四')
@@ -15,10 +15,10 @@ const { x, y } = useMouse()
 
 onMounted(async () => {
   try {
-    const res2 = await API.getUsers()
-    console.log('bbb', res2)
-    const res = await API.login('zhangsan', '123456')
-    console.log(res)
+    // const res2 = await API.getUsers()
+    // console.log('bbb', res2)
+    // const res = await API.login('zhangsan', '123456')
+    // console.log(res)
   } catch (error) {
     console.log(error)
   }
