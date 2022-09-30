@@ -5,7 +5,7 @@ import { useMouse } from '@vueuse/core'
 // import API from '@/api'
 
 const userStore = useUserStore()
-userStore.updateName('李四')
+// userStore.updateName('李四')
 
 defineProps<{ msg: string }>()
 
