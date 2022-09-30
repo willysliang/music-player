@@ -16,7 +16,6 @@ export const useSearchStore = defineStore('search', {
   actions: {
     /* 搜索 */
     async suggest () {
-      console.log("search", this.searchKeyword);
       this.suggestData = await useSearchSuggest(this.searchKeyword)
     },
   },

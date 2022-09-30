@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import HeaderSearch from '@comp/layout/header/headerSearch/index.vue'
+import UserInfo from '@comp/layout/header/userInfo/index.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 
-const { iconColor, iconSize } = storeToRefs(useAppStore())
+const { iconColor, iconSize, logoName } = storeToRefs(useAppStore())
 </script>
 
 <template>
@@ -15,7 +16,7 @@ const { iconColor, iconSize } = storeToRefs(useAppStore())
       <el-icon :size="iconSize + 10" :color="iconColor">
         <Headset />
       </el-icon>
-      <span class="header-logo-title ml-2">MUSIC&nbsp;PLAYER</span>
+      <span class="header-logo-title ml-2">{{ logoName }}</span>
     </div>
 
     <div class="flex items-center">
@@ -28,11 +29,7 @@ const { iconColor, iconSize } = storeToRefs(useAppStore())
 
     <!-- 设置类 -->
     <div class="flex items-center justify-between w-48">
-      <el-avatar
-        :size="iconSize"
-        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-      />
-      <span class="text-sm">点击登录</span>
+      <UserInfo />
       <el-icon :size="iconSize" :color="iconColor"><Message /></el-icon>
       <el-icon :size="iconSize" :color="iconColor"><Calendar /></el-icon>
       <el-icon :size="iconSize" :color="iconColor"><Setting /></el-icon>

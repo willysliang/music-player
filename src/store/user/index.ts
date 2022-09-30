@@ -6,7 +6,7 @@ interface IUserState {
 }
 
 export const useUserStore = defineStore({
-  id: 'user', // id必填，且需要唯一
+  id: 'user',
   state: (): IUserState => ({
     name: '张三',
     token: '',
