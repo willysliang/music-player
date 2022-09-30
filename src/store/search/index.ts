@@ -11,12 +11,12 @@ export const useSearchStore = defineStore('search', {
     }
   },
   getters: {
-    showHot: (state) => {
-      return state.searchKeyword === ''
-    },
+    showHot: (state) => !state.searchKeyword,
   },
   actions: {
+    /* 搜索 */
     async suggest () {
+      console.log("search", this.searchKeyword);
       this.suggestData = await useSearchSuggest(this.searchKeyword)
     },
   },

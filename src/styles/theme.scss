@@ -3,7 +3,7 @@
 	--theme-color: #fff;
 	--theme-bg-color: #242424;
 	--theme-header-color: #e60026;
-	--theme-border-color: #6b6868;	// 边框色
+	--theme-border-color: #6b6868; // 边框色
 
 	/* logo色 */
 	--logo-color: #fff;
@@ -15,4 +15,82 @@
 
 	/* 主背景色 */
 	--main-bg-color: #29b8db;
+}
+
+/* 头部色号配置 */
+.header {
+	background-color: var(--theme-bg-color);
+	color: var(--theme-color);
+	height: 3.5rem;
+}
+
+.bg-main {
+	@apply bg-gray-50;
+	@apply dark:bg-[#171718];
+}
+
+.hover-bg-main {
+	@apply hover:bg-gray-200;
+	@apply dark:hover:bg-stone-700;
+}
+
+/* 鼠标悬浮搜索框所在列的颜色 */
+.hover-text {
+	@apply hover:text-green-300;
+}
+
+/* 搜索框中与关键字相关内容的颜色 */
+.text-active {
+	@apply text-emerald-400;
+}
+
+// 尚未调用
+.bg-dc {
+	@apply bg-gray-100;
+	@apply dark:bg-stone-800;
+}
+
+.bg-view {
+	@apply bg-white;
+	@apply dark:bg-[#1e1e1f];
+}
+
+.hover-bg-view {
+	@apply hover:bg-stone-100;
+	@apply dark:hover:bg-stone-800;
+}
+
+.bg-active {
+	@apply bg-emerald-400 text-white;
+}
+
+.text-main {
+	@apply text-slate-700;
+	@apply dark:text-slate-200;
+}
+
+.text-dc {
+	@apply text-slate-400;
+	@apply dark:text-slate-400;
+}
+
+.button {
+	@apply flex bg-emerald-600 rounded-full justify-center items-center h-8 text-sm transition-all;
+	@apply text-white;
+	@apply hover:bg-emerald-700;
+}
+
+.button-outline {
+	@apply flex rounded-full justify-center items-center h-8 text-sm transition-all border;
+	@apply hover:border-emerald-500 hover:text-emerald-500;
+}
+
+.button-sm {
+	@apply h-7 text-xs;
+}
+
+.button-dc {
+	@apply flex bg-[#e6e6e6] rounded justify-center items-center h-8 text-sm transition-all cursor-pointer;
+	@apply dark:bg-[#303031] dark:text-white;
+	@apply hover:text-emerald-500;
 }
