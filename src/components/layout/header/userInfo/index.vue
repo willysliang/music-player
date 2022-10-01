@@ -54,8 +54,8 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
 }
 
 const getCode = async () => {
-  const res = await useMock();
-  console.log(res);
+  const res = await useMock()
+  console.log(res)
 }
 </script>
 
