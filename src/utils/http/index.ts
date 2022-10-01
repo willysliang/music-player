@@ -1,51 +1,81 @@
-import axios, { type AxiosRequestConfig } from 'axios'
-const API_TARGET_URL = 'http://localhost:4000';
+import axios, { type AxiosRequestConfig, AxiosResponse } from 'axios'
+import { errorMessage } from './status'
+// import { ElMessage } from 'element-plus'
 
 // axios.defaults.baseURL = localStorage.getItem('BASE_URL')?.toString()
-axios.defaults.baseURL = API_TARGET_URL
-axios.defaults.timeout = 20 * 1000
-axios.defaults.maxBodyLength = 5 * 1024 * 1024
-axios.defaults.withCredentials = true
+axios.defaults.timeout = 20 * 1000 // 如果请求超时，请求将被中断
+axios.defaults.maxBodyLength = 5 * 1024 * 1024 // 请求参数最长度
+axios.defaults.withCredentials = true // 允许携带cookie
+axios.defaults.headers.post['Access-Control-Allow-Origin-Type'] = '*' // 允许跨域
+axios.defaults.headers.post['Content-Type'] = 'application/json' // 默认使用 application/json 形式
 
+// 请求拦截器
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     config.params = {
       ...config.params,
       timeNow: Date.now(),
     }
+    if (config?.headers?.Authorization) {
+      config.headers.Authorization = `Bearer willysliang`
+    }
     return config
   },
-  function (error) {
-    return Promise.reject(error)
-  },
+  (err) => Promise.reject(err),
 )
 
 // 添加响应拦截器
 axios.interceptors.response.use(
-  (response) => {
-    return response
+  (res: AxiosResponse) => {
+    if (res.status === 200) {
+      return res
+    }
+    errorMessage(res.status)
+    return Promise.reject(res)
   },
-  function (error) {
-    return Promise.reject(error)
+  (error) => {
+    const { res } = error
+    if (res) {
+      // 请求已发出，但是不在2xx的范围
+      errorMessage(res.status)
+      return Promise.reject(res.data)
+    }
+    errorMessage('网络连接异常,请稍后再试!')
   },
 )
 
 interface Http {
-  get<T>(url: string, params?: unknown): Promise<T>
+  get<T>(uconfig: AxiosRequestConfig): Promise<T>
 
-  post<T>(url: string, params?: unknown): Promise<T>
+  post<T>(config: AxiosRequestConfig): Promise<T>
 
-  upload<T>(url: string, params: unknown): Promise<T>
+  upload<T>(config: AxiosRequestConfig): Promise<T>
 
-  put<T>(url: string, params: unknown): Promise<T>
+  put<T>(config: AxiosRequestConfig): Promise<T>
 
-  delete<T>(url: string, params: unknown): Promise<T>
+  delete<T>(config: AxiosRequestConfig): Promise<T>
 
-  download(url: string): void
+  download(config: AxiosRequestConfig): void
 }
 
+// export const get = <T>({
+//   url = '',
+//   params,
+// }: AxiosRequestConfig): Promise<T> => {
+//   return new Promise((resolve, reject) => {
+//     axios
+//       .get(url, { params })
+//       .then((res) => {
+//         resolve(res.data)
+//       })
+//       .catch((err) => {
+//         reject(err.data)
+//       })
+//   })
+// }
+
 const http: Http = {
-  get (url, params) {
+  get ({ url = '', params }) {
     return new Promise((resolve, reject) => {
       axios
         .get(url, { params })
@@ -58,7 +88,7 @@ const http: Http = {
     })
   },
 
-  post (url, params) {
+  post ({ url = '', params }) {
     return new Promise((resolve, reject) => {
       axios
         .post(url, JSON.stringify(params))
@@ -71,7 +101,7 @@ const http: Http = {
     })
   },
 
-  put (url, params) {
+  put ({ url = '', params }) {
     return new Promise((resolve, reject) => {
       axios
         .put(url, JSON.stringify(params))
@@ -84,7 +114,7 @@ const http: Http = {
     })
   },
 
-  delete (url, params) {
+  delete ({ url = '', params }) {
     return new Promise((resolve, reject) => {
       axios
         .delete(url, { params })
@@ -97,7 +127,7 @@ const http: Http = {
     })
   },
 
-  upload (url, file) {
+  upload ({ url = '', params: file }) {
     return new Promise((resolve, reject) => {
       axios
         .post(url, file, {
@@ -112,7 +142,7 @@ const http: Http = {
     })
   },
 
-  download (url) {
+  download ({ url = '' }) {
     const iframe = document.createElement('iframe')
     iframe.style.display = 'none'
     iframe.src = url

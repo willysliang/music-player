@@ -17,6 +17,10 @@ import { viteMockServe } from 'vite-plugin-mock'
 import server from './config/vite/server'
 
 export default defineConfig({
+  build: {
+    // es2020 支持 import.meta 语法
+    target: 'es2020',
+  },
   resolve: {
     // 设置别名
     alias: {
@@ -47,7 +51,14 @@ export default defineConfig({
     }),
     /* 配置 mockjs */
     viteMockServe({
-      mockPath: "./mock/"
+      mockPath: './mock',
+      localEnabled: true,
+      prodEnabled: false, // 实际开发请关闭，会影响打包体积
+      // https://github.com/anncwb/vite-plugin-mock/issues/9
+      injectCode: `
+       import { setupProdMockServer } from './mock/_createProdMockServer';
+       setupProdMockServer();
+       `,
     }),
   ],
   css: {

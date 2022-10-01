@@ -27,27 +27,21 @@ export const useUserStore = defineStore({
   actions: {
     /* 登录 */
     async login (phone: string, password: string) {
-      try {
-        const res = await useLogin(phone, password)
-        if (res.code === 200) {
-          this.token = res.token
-          this.cookie = res.cookie
-          document.cookie = res.cookie
-          localStorage.setItem(USER_TOKEN, this.token)
-          localStorage.setItem(USER_COOKIE, this.cookie)
-          this.checkLogin()
-        }
-      } catch {}
+      const res = await useLogin(phone, password)
+      this.token = res?.token || ''
+      this.cookie = res?.cookie || ''
+      document.cookie = res?.cookie || ''
+      localStorage.setItem(USER_TOKEN, this.token)
+      localStorage.setItem(USER_COOKIE, this.cookie)
+      this.checkLogin()
     },
 
     /* 检查登录状态 */
     async checkLogin () {
       try {
         const { data } = await useLoginStatus()
-        if (data.code === 200) {
-          this.profile = data.profile
-          this.showLogin = false
-        }
+        this.profile = data.profile
+        this.showLogin = false
       } catch {}
     },
   },

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { Lock, Iphone } from '@element-plus/icons-vue'
 import { reactive, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useUserStore } from '@/store/user'
 import type { FormInstance, FormRules } from 'element-plus'
+import { useMock } from '@/api/module/mock'
 
 const { iconSize } = useAppStore()
 const { isLogin, profile, showLogin } = storeToRefs(useUserStore())
@@ -16,7 +18,7 @@ onMounted(() => {
 /***
  * 控制弹层模块切换
  */
-const dialogCurrent = ref<number>(1)
+const dialogCurrent = ref<number>(0)
 
 /***
  * 表单信息
@@ -50,6 +52,11 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
     }
   })
 }
+
+const getCode = async () => {
+  const res = await useMock();
+  console.log(res);
+}
 </script>
 
 <template>
@@ -72,24 +79,54 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
     <template #header="{ titleId, titleClass }">
       <div
         :id="titleId"
-        class="flex flex-row justify-around items-center h-12"
+        class="flex flex-row justify-around items-center"
         :class="titleClass"
       >
-        <div @click="dialogCurrent = 0">扫码登录</div>
-        <div @click="dialogCurrent = 1">账号登录</div>
+        <div
+          :class="[dialogCurrent === 0 ? 'border-main' : '', 'px-4', 'py-2']"
+          @click="dialogCurrent = 0"
+        >
+          扫码登录
+        </div>
+        <div
+          :class="[dialogCurrent === 1 ? 'border-main' : '', 'px-4', 'py-2']"
+          @click="dialogCurrent = 1"
+        >
+          账号登录
+        </div>
       </div>
     </template>
-    <div v-if="dialogCurrent === 1">
+    <div
+      v-show="dialogCurrent === 0"
+      class="w-full flex justify-center items-center"
+    >
+      <img
+        src="@/assets/images/code.png"
+        alt=""
+        class="w-40 h-40"
+        @click="getCode"
+      />
+    </div>
+    <div v-show="dialogCurrent === 1">
       <el-form ref="loginFormRef" :model="loginForm" :rules="rules">
         <el-form-item prop="phone">
-          <el-input v-model="loginForm.phone" placeholder="手机号码" />
+          <el-input
+            v-model="loginForm.phone"
+            placeholder="手机号码"
+            clearable
+            :prefix-icon="Iphone"
+            maxlength="11"
+          />
         </el-form-item>
         <el-form-item prop="password">
           <el-input
             v-model="loginForm.password"
             placeholder="登录密码"
-            type="password"
+            show-password
             autocomplete="off"
+            clearable
+            maxlength="15"
+            :prefix-icon="Lock"
           />
         </el-form-item>
       </el-form>

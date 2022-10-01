@@ -44,6 +44,16 @@
 	@apply text-emerald-400;
 }
 
+.border-main {
+	@apply border-b-2 border-solid border-green-300;
+}
+
+.button {
+	@apply flex bg-emerald-600 rounded-full justify-center items-center h-8 text-sm transition-all;
+	@apply text-white;
+	@apply hover:bg-emerald-700;
+}
+
 // 尚未调用
 .bg-dc {
 	@apply bg-gray-100;
@@ -72,12 +82,6 @@
 .text-dc {
 	@apply text-slate-400;
 	@apply dark:text-slate-400;
-}
-
-.button {
-	@apply flex bg-emerald-600 rounded-full justify-center items-center h-8 text-sm transition-all;
-	@apply text-white;
-	@apply hover:bg-emerald-700;
 }
 
 .button-outline {

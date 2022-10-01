@@ -41,5 +41,6 @@ module.exports = {
     quotes: 'off',
     semi: 'off',
     "no-tabs": 0,
+    "@typescript-eslint/no-explicit-any": ["off"]
   },
 }
