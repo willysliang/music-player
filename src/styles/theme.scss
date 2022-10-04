@@ -5,6 +5,10 @@
 	--theme-header-color: #e60026;
 	--theme-border-color: #6b6868; // 边框色
 
+	/* 滑块色 */
+	--theme-slider-color: #e60026;	// 滑块主色
+	--theme-slider-stop-color: #ccc;	// 滑块超出停止区域颜色
+
 	/* logo色 */
 	--logo-color: #fff;
 	--logo-bg-color: #e60026;
@@ -22,6 +26,13 @@
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
 	height: 3.5rem;
+}
+
+.footer {
+	background-color: var(--theme-bg-color);
+	color: var(--theme-color);
+	height: 4rem;
+	border-bottom: 1px solid var(--theme-border-color);
 }
 
 .bg-main {

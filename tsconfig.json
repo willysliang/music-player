@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // "allowJs": true, // 允许在ts中使用普通 JS 代码
     "noImplicitAny": false,
     "target": "esnext",
     "module": "esnext",
@@ -15,7 +16,7 @@
     "paths": {
       "@/*": ["src/*"],
       "#/*": ["types/*"],
-      "@comp/*": ["src/components/*"],
+      "@comp/*": ["src/components/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "types": ["vite/client", "element-plus/global"]

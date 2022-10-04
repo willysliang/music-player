@@ -4,6 +4,7 @@ specifiers:
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
   '@element-plus/icons-vue': ^2.0.9
+  '@icon-park/vue-next': ^1.4.2
   '@types/node': ^18.7.17
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
@@ -59,6 +60,7 @@ specifiers:
 
 dependencies:
   '@element-plus/icons-vue': 2.0.9_vue@3.2.39
+  '@icon-park/vue-next': 1.4.2_vue@3.2.39
   '@typescript-eslint/parser': 5.37.0_irgkl5vooow2ydyo6aokmferha
   '@vueuse/core': 9.2.0_vue@3.2.39
   axios: 0.27.2
@@ -407,6 +409,15 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+
+  /@icon-park/vue-next/1.4.2_vue@3.2.39:
+    resolution: {integrity: sha512-+QklF255wkfBOabY+xw6FAI0Bwln/RhdwCunNy/9sKdKuChtaU67QZqU67KGAvZUTeeBgsL+yaHHxqfQeGZXEQ==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.2.39
+    dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}

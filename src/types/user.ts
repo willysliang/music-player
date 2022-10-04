@@ -1,3 +1,6 @@
+/***
+ * 用户信息接口
+*/
 export interface UserProfile {
   userId: number
   userType: number

@@ -1,3 +1,6 @@
+/***
+ * 最热查询详情接口
+*/
 export interface SearchHotDetail {
   searchWord: string
   score: number

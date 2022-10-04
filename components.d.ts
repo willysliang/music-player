@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     HeaderSearch: typeof import('./src/components/layout/header/headerSearch/index.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']
     Main: typeof import('./src/components/layout/main/index.vue')['default']
+    PlayerSlider: typeof import('./src/components/layout/footer/PlayerSlider.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchSuggest: typeof import('./src/components/layout/header/headerSearch/SearchSuggest.vue')['default']

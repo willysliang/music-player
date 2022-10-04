@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="main flex">
@@ -11,6 +10,6 @@
 <style scoped lang="scss">
 .main {
 	width: 100%;
-	height: calc(100vh - 7rem - 7rem);
+	height: calc(100vh - 3.5rem - 4rem);
 }
 </style>

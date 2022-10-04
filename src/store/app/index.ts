@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const useAppStore = defineStore('app', {
+export const useAppStore = defineStore({
+  id: 'app',
   state: () => ({
     logoName: 'MUSIC  PLAYER',
-    iconColor: '#ccc',
+    iconColor: '#fff',
     iconSize: 22,
   }),
 })
