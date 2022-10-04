@@ -47,37 +47,37 @@ const onSliderInput = () => {
 
 <style lang="scss">
 .el-slider {
-  height: 7px;
+	height: 7px;
 
-  --el-slider-main-bg-color: var(--theme-slider-color);
-  --el-slider-stop-bg-color: var(--theme-slider-stop-color);
+	--el-slider-main-bg-color: var(--theme-slider-color);
+	--el-slider-stop-bg-color: var(--theme-slider-stop-color);
 
-  .el-slider__bar,
-  .el-slider__runway {
-    height: 3px;
-  }
+	.el-slider__bar,
+	.el-slider__runway {
+		height: 3px;
+	}
 
-  .el-slider__button,
-  .el-slider__button-wrapper {
-    height: 9px;
-    width: 9px;
-  }
+	.el-slider__button,
+	.el-slider__button-wrapper {
+		height: 9px;
+		width: 9px;
+	}
 
-  .el-slider__button-wrapper {
-    top: -7px;
+	.el-slider__button-wrapper {
+		top: -7px;
 
-    @apply opacity-0 transition-opacity;
-  }
+		@apply opacity-0 transition-opacity;
+	}
 
-  &:hover {
-    .el-slider__button-wrapper {
-      @apply opacity-100;
-    }
-  }
+	&:hover {
+		.el-slider__button-wrapper {
+			@apply opacity-100;
+		}
+	}
 
-  .el-slider__button {
-    width: 8px;
-    height: 8px;
-  }
+	.el-slider__button {
+		width: 8px;
+		height: 8px;
+	}
 }
 </style>
