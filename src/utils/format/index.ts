@@ -92,3 +92,16 @@ export const formatDateTemp = (time: string | Date = new Date()) => {
   }
   return year + '-' + month + '-' + day
 }
+
+/***
+ * 时间段转换
+*/
+export const formatDuring = (during: number) => {
+  const s = Math.floor(during) % 60
+  const i = Math.floor(during / 60) % 60
+
+  const ss = s < 10 ? `0${s}` : s
+  const ii = s < 10 ? `0${i}` : i
+
+  return `${ii}:${ss}`
+}

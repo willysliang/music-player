@@ -6,19 +6,15 @@
 	--theme-border-color: #6b6868; // 边框色
 
 	/* 滑块色 */
-	--theme-slider-color: #e60026;	// 滑块主色
-	--theme-slider-stop-color: #ccc;	// 滑块超出停止区域颜色
+	--theme-slider-color: #34d399; // 滑块主色
+	--theme-slider-stop-color: #ccc; // 滑块超出停止区域颜色
 
-	/* logo色 */
-	--logo-color: #fff;
-	--logo-bg-color: #e60026;
+	/* icon 色号 */
+	--theme-icon-color: #ccc; // icon 默认颜色
 
-	/* 菜单色 */
-	--menu-bg-color: #6b6868;
-	--menu-active-bg-color: #000;
-
-	/* 主背景色 */
-	--main-bg-color: #29b8db;
+	/* 字体颜色 */
+	--theme-text-color: #6b6868;
+	--theme-text-bg-color: #ccc;
 }
 
 /* 头部色号配置 */
@@ -28,11 +24,17 @@
 	height: 3.5rem;
 }
 
+/* 脚部色号配置 */
 .footer {
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
 	height: 4rem;
 	border-bottom: 1px solid var(--theme-border-color);
+}
+
+/* icon色号 */
+.icon-main {
+	color: var(--theme-icon-color);
 }
 
 .bg-main {
@@ -47,7 +49,7 @@
 
 /* 鼠标悬浮搜索框所在列的颜色 */
 .hover-text {
-	@apply hover:text-green-300;
+	@apply hover:text-green-300 cursor-pointer;
 }
 
 /* 搜索框中与关键字相关内容的颜色 */
@@ -55,6 +57,7 @@
 	@apply text-emerald-400;
 }
 
+/* 边框背景色 */
 .border-main {
 	@apply border-b-2 border-solid border-green-300;
 }
