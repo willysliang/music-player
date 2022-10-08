@@ -10,6 +10,7 @@ import {
   PlayOnce,
   GoEnd,
   GoStart,
+  TextMessage,
 } from '@icon-park/vue-next'
 import { formatDuring } from '@/utils/format'
 
@@ -34,23 +35,40 @@ const { loopType, isPlaying, toggleLoop, togglePlay, toggleNextSong } = toRefs(
         size="24"
         :stroke-width="3"
         class="hover-text"
+        :title="
+          loopType === 0 ? '单曲循环' : loopType === 1 ? '列表循环' : '随机播放'
+        "
         @click="toggleLoop"
       />
-      <IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" />
+      <IconPark
+        :icon="GoStart"
+        size="28"
+        theme="filled"
+        class="hover-text"
+        title="上一首"
+      />
       <IconPark
         :icon="!isPlaying ? Play : PauseOne"
         size="30"
         theme="filled"
         class="hover-text text-active"
+        :title="!isPlaying ? '播放' : '暂停'"
         @click="togglePlay"
       />
       <IconPark
         :icon="GoEnd"
         size="28"
         class="hover-text"
+        title="下一首"
         @click="toggleNextSong"
       />
-      <span class="text-lg">词</span>
+      <IconPark
+        :icon="TextMessage"
+        size="24"
+        :stroke-width="3"
+        class="hover-text"
+        title="歌词"
+      />
     </div>
     <div class="w-full flex flex-row items-center justify-between">
       <span>{{ formatDuring(currentTime) }}</span>
