@@ -5,13 +5,9 @@ import PlayerAction from './PlayerAction.vue';
 </script>
 
 <template>
-  <div
-    class="footer flex flex-row item-stretch justify-between items-center box-border p-1 w-full"
-  >
-    <PlayerSongInfo />
-    <PlayerController />
-    <PlayerAction />
-  </div>
+  <PlayerSongInfo />
+  <PlayerController />
+  <PlayerAction />
 </template>
 
 <style lang="scss"></style>

@@ -1,13 +1,16 @@
 :root {
 	/* 主题色 */
-	--theme-color: #fff;
-	--theme-bg-color: #242424;
+	--theme-color: #242424;
+	--theme-bg-color: #fff;
 	--theme-header-color: #e60026;
-	--theme-border-color: #6b6868; // 边框色
+	--theme-border-color: #ccc; // 边框色
 
 	/* 滑块色 */
 	--theme-slider-color: #34d399; // 滑块主色
 	--theme-slider-stop-color: #ccc; // 滑块超出停止区域颜色
+
+	/* 菜单栏配置 */
+	--theme-menu-bg-color: rgb(249 250 251);
 
 	/* icon 色号 */
 	--theme-icon-color: #ccc; // icon 默认颜色
@@ -15,21 +18,6 @@
 	/* 字体颜色 */
 	--theme-text-color: #6b6868;
 	--theme-text-bg-color: #ccc;
-}
-
-/* 头部色号配置 */
-.header {
-	background-color: var(--theme-bg-color);
-	color: var(--theme-color);
-	height: 3.5rem;
-}
-
-/* 脚部色号配置 */
-.footer {
-	background-color: var(--theme-bg-color);
-	color: var(--theme-color);
-	height: 4rem;
-	border-bottom: 1px solid var(--theme-border-color);
 }
 
 /* icon色号 */
@@ -55,6 +43,11 @@
 /* 搜索框中与关键字相关内容的颜色 */
 .text-active {
 	@apply text-emerald-400;
+}
+
+.text-main {
+	@apply text-slate-700;
+	@apply dark:text-slate-200;
 }
 
 /* 边框背景色 */
@@ -86,11 +79,6 @@
 
 .bg-active {
 	@apply bg-emerald-400 text-white;
-}
-
-.text-main {
-	@apply text-slate-700;
-	@apply dark:text-slate-200;
 }
 
 .text-dc {

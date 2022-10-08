@@ -1,5 +1,5 @@
 <template>
-  <div ref="searchRef" class="flex-1 box-border px-12">
+  <div ref="searchRef" class="search flex-1 box-border mx-12">
     <el-popover
       v-model:visible="showSearchView"
       placement="bottom"
@@ -12,7 +12,6 @@
           placeholder="搜索音乐、MV、歌单"
           :prefix-icon="Search"
           maxlength="30"
-          class="rounded-2xl overflow-hidden"
           clearable
           @input="handleSearch"
           @focus="showSearchView = true"
@@ -45,8 +44,8 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import SearchSuggestDOM from '@comp/layout/header/headerSearch/SearchSuggest.vue'
-import { ref, onMounted, onBeforeMount } from 'vue'
-import { debounce } from 'lodash'
+import { ref, onBeforeMount, onUnmounted } from 'vue'
+import { debounce, throttle } from 'lodash'
 import type {
   SearchHotDetail,
   SearchSuggest as typeSearchSuggest,
@@ -56,11 +55,26 @@ import { formatQuantity } from '@/utils/format'
 
 /***
  * 计算 input 框的长度，来让下拉框响应式显示宽度
+ * @getSearchWidth 动态监听屏幕的宽度变化，来响应式改变弹层大小
+ * - 在挂载在页面前，添加监听方法
+ * - 在销毁前，移除所添加的监听方法
  */
 const searchRef = ref<HTMLElement>()
-const popoverWidth = ref<unknown>('250px')
-onMounted(() => {
-  popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+const popoverWidth = ref<string | number>('250px')
+const getSearchWidth = () => {
+  return throttle(
+    () => {
+      popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+    },
+    500,
+    { trailing: true },
+  )
+}
+onBeforeMount(() => {
+  window.addEventListener('resize', getSearchWidth())
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', getSearchWidth())
 })
 
 /***
@@ -88,4 +102,10 @@ onBeforeMount(async () => {
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.search {
+	:deep(.el-input__wrapper) {
+		@apply rounded-full text-xs bg-slate-100;
+	}
+}
+</style>
