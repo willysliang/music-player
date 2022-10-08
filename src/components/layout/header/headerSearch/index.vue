@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import SearchSuggestDOM from '@comp/layout/header/headerSearch/SearchSuggest.vue'
-import { ref, onBeforeMount, onUnmounted } from 'vue'
+import { ref, onBeforeMount, onMounted, onUnmounted } from 'vue'
 import { debounce, throttle } from 'lodash'
 import type {
   SearchHotDetail,
@@ -56,8 +56,9 @@ import { formatQuantity } from '@/utils/format'
 /***
  * 计算 input 框的长度，来让下拉框响应式显示宽度
  * @getSearchWidth 动态监听屏幕的宽度变化，来响应式改变弹层大小
- * - 在挂载在页面前，添加监听方法
- * - 在销毁前，移除所添加的监听方法
+ * - 在挂载页面前，添加监听方法
+ * - 在挂载页面后，获取 input 框的宽度进行赋值（因为 resize 只有在改变页面大小时才会触发，所以一般情况下是不会调用的，此时则需要赋初值）
+ * - 在销毁页面前，移除所添加的监听方法
  */
 const searchRef = ref<HTMLElement>()
 const popoverWidth = ref<string | number>('250px')
@@ -72,6 +73,9 @@ const getSearchWidth = () => {
 }
 onBeforeMount(() => {
   window.addEventListener('resize', getSearchWidth())
+})
+onMounted(() => {
+  popoverWidth.value = searchRef.value?.offsetWidth || '250px'
 })
 onUnmounted(() => {
   window.removeEventListener('resize', getSearchWidth())

@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import MyLayout from '@comp/layout/layout.vue'
+import Banner from './Banner.vue'
 </script>
 
 <template>
-  <my-layout />
+  <div>
+    <Banner />
+  </div>
 </template>
 
 <style lang="scss"></style>

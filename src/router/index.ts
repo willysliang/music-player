@@ -9,7 +9,7 @@ const routes = [
       keepAlive: true,
       requireAuth: false,
     },
-    component: () => import('@/views/home/index.vue'),
+    component: () => import('@/views/login.vue'),
   },
   {
     path: '/',
@@ -19,7 +19,19 @@ const routes = [
       keepAlive: true,
       requireAuth: true,
     },
-    component: () => import('@/views/home/index.vue'),
+    component: () => import('@/views/root.vue'),
+    children: [
+      {
+        path: 'discover',
+        name: 'discover',
+        component: () => import("@/views/discover/index.vue"),
+        meta: {
+          key: 'discover',
+          title: '推荐',
+          keepAlive: true,
+        }
+      },
+    ]
   },
 ];
 

@@ -22,6 +22,9 @@
   - feat(layout -> footer): 歌曲列表模块
   - feat(layoout -> menu): 菜单模块开发
   - perf(layout): 完善页面总体框
+  - chore(引入 swiper 轮播图插件)
+  - feat(discover -> banner): 推荐页轮播图实现
+  - style(新添代码头部注释说明)
 
 ## 2022年10月7日12:29:58
   - feat(页面内容大框): 脚部页面功能实现
