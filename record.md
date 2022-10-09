@@ -22,6 +22,7 @@
   - feat(discover -> PersonalizedSongList): 个性化歌单页实现
   - feat(components -> Collapses): 新增折叠面板组件
   - feat(playlist -> index): 歌单详情页实现
+  - feat(playlist -> Songlist): 歌单列表歌曲页
 
 ## 2022年10月8日11:54:40
   - feat(layout -> footer): 歌曲列表模块

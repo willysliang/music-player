@@ -63,9 +63,9 @@ const {
 
 <style lang="scss">
 .play-list {
-	top: 3.5rem !important;
-	bottom: 4rem !important;
-	height: calc(100% - 3.5rem - 4rem) !important;
+	// top: 3.5rem !important;
+	// bottom: 4rem !important;
+	// height: calc(100% - 3.5rem - 4rem) !important;
 
 	.el-drawer__body {
 		padding: 0;
@@ -79,7 +79,7 @@ const {
 		}
 
 		&:nth-child(2n + 1) {
-			@apply bg-slate-600;
+			@apply bg-slate-200;
 		}
 	}
 }

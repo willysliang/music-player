@@ -2,11 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 12:47:43
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 17:29:44
+ * @ Modified time: 2022-10-09 17:49:23
  * @ Description: 歌单列表详情页
  -->
 <script setup lang="ts">
 import PlayListInfo from './playlistInfo.vue'
+import SongList from './Songlist.vue'
 import type { PlayListDetail } from '@/types/playlist'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -28,9 +29,25 @@ const getData = async () => {
   }
 }
 getData()
+
+/***
+ * 歌单列表详情
+ */
+const tab = ref<string>('tracks')
 </script>
 
 <template>
   <!-- 歌单列表头部信息 -->
   <PlayListInfo :playlist="playlist" :songlist="songlist" />
+
+  <!-- 歌单列表详情 -->
+  <el-tabs v-model="tab" class="mt-3">
+    <el-tab-pane lazy :label="`歌曲 ${songlist.length}`" name="tracks">
+      <SongList :songlist="songlist" />
+    </el-tab-pane>
+    <el-tab-pane lazy label="评论" name="comments" />
+  </el-tabs>
 </template>
+
+<style lang="scss" scoped>
+</style>
