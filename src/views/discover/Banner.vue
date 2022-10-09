@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-08 18:26:12
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-08 19:08:57
+ * @ Modified time: 2022-10-09 09:18:05
  * @ Description: 推荐页的轮播图
  -->
 
@@ -33,15 +33,30 @@ const handlePlayer = (banner: Banner) => {
 </script>
 
 <template>
-  <Swiper :slides-per-view="3" :space-between="50">
-    <swiper-slide v-for="banner in banners" :key="banner.targetId">
+  <Swiper
+    slides-per-group-auto
+    slides-per-view="auto"
+    :navigation="true"
+    :grab-cursor="true"
+  >
+    <swiper-slide v-for="banner in banners" :key="banner.targetId" style="">
       <img
         :src="banner.imageUrl"
         :alt="banner.typeTitle || '轮播图'"
+        class="banner-image"
         @click="handlePlayer(banner)"
       />
     </swiper-slide>
   </Swiper>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.swiper-slide {
+	@apply sm:w-full md:w-full lg:w-1/2 xl:w-1/3 2xl:w-1/4 px-2.5;
+}
+
+.banner-image {
+	@apply rounded-lg cursor-pointer transition-all object-cover;
+	@apply hover:shadow hover:opacity-80;
+}
+</style>

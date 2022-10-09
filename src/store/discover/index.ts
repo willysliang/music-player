@@ -2,26 +2,40 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-08 18:41:13
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-08 18:53:09
+ * @ Modified time: 2022-10-09 09:37:35
  * @ Description: 推荐页存储的数据
  */
-import { useBanner } from '@/api/module/discover'
-import { Banner } from '@/types/discover'
+import { useBanner, usePersonalizedSongList } from '@/api/module/discover'
+import { Banner, PersonalizedSongList } from '@/types/discover'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useDiscoverStore = defineStore('discover', () => {
   /***
-   * 轮播图数据
+   * 轮播图
    */
-  const banners = ref<Banner[]>([])
+  const banners = ref<Banner[]>([]) // 轮播图数据
   const getBanners = async () => {
     if (banners.value.length > 0) return undefined
     banners.value = await useBanner()
   }
 
+  /***
+   * 推荐歌单
+  */
+  const personalizedSongList = ref<PersonalizedSongList[]>([]) // 推荐歌单数据
+  const getPersonalizedSongList = async () => {
+    if (personalizedSongList.value.length > 0) return undefined
+    personalizedSongList.value = await usePersonalizedSongList()
+  }
+
   return {
+    /* 轮播图 */
     banners,
     getBanners,
+
+    /* 推荐歌单 */
+    personalizedSongList,
+    getPersonalizedSongList,
   }
 })

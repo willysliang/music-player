@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年10月9日12:17:40
+  - feat(discover -> PersonalizedSongList): 个性化歌单页实现
+
 ## 2022年10月8日11:54:40
   - feat(layout -> footer): 歌曲列表模块
   - feat(layoout -> menu): 菜单模块开发
