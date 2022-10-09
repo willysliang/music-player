@@ -132,7 +132,7 @@ const getCode = async () => {
       </el-form>
       <button
         style="border-radius: 5px"
-        class="button w-full mt-5 py-5"
+        class="button flex justify-center items-center w-full mt-5 py-5"
         @click="handleSubmit(loginFormRef)"
       >
         登录

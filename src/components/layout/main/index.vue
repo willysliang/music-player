@@ -2,7 +2,7 @@
 
 <template>
   <el-scrollbar>
-    <div class="container mx-auto">
+    <div class="container mx-auto p-5 box-border">
       <router-view />
     </div>
   </el-scrollbar>

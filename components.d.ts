@@ -7,6 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Collapse: typeof import('./src/components/common/Collapse.vue')['default']
+    Collapses: typeof import('./src/components/common/Collapses.vue')['default']
+    Collaspe: typeof import('./src/components/common/collaspe.vue')['default']
     CoverPlay: typeof import('./src/components/common/CoverPlay.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
@@ -29,6 +32,7 @@ declare module '@vue/runtime-core' {
     Layout: typeof import('./src/components/layout/layout.vue')['default']
     Main: typeof import('./src/components/layout/main/index.vue')['default']
     Menu: typeof import('./src/components/layout/menu/index.vue')['default']
+    MoreText: typeof import('./src/components/common/MoreText.vue')['default']
     PlayerAction: typeof import('./src/components/layout/footer/PlayerAction.vue')['default']
     PlayerController: typeof import('./src/components/layout/footer/PlayerController.vue')['default']
     PlayerList: typeof import('./src/components/layout/footer/PlayerList.vue')['default']

@@ -41,6 +41,7 @@ module.exports = {
     quotes: 'off',
     semi: 'off',
     "no-tabs": 0,
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "vue/no-v-html": "off", // 关闭 v-html 的校验
   },
 }

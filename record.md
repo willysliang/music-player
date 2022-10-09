@@ -20,6 +20,8 @@
 
 ## 2022年10月9日12:17:40
   - feat(discover -> PersonalizedSongList): 个性化歌单页实现
+  - feat(components -> Collapses): 新增折叠面板组件
+  - feat(playlist -> index): 歌单详情页实现
 
 ## 2022年10月8日11:54:40
   - feat(layout -> footer): 歌曲列表模块

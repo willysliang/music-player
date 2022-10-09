@@ -18,6 +18,9 @@
 	/* 字体颜色 */
 	--theme-text-color: #6b6868;
 	--theme-text-bg-color: #ccc;
+
+	/* 叙述字体 */
+	--theme-desc-color: #6b6868;
 }
 
 /* icon色号 */
@@ -50,53 +53,28 @@
 	@apply dark:text-slate-200;
 }
 
+/* 叙述字体 */
+.desc-main {
+	color: var(--theme-desc-color);
+}
+
 /* 边框背景色 */
 .border-main {
 	@apply border-b-2 border-solid border-green-300;
 }
 
+/* 按钮 */
 .button {
-	@apply flex bg-emerald-600 rounded-full justify-center items-center h-8 text-sm transition-all;
+	@apply bg-emerald-600 rounded-full h-8 text-sm transition-all;
 	@apply text-white;
 	@apply hover:bg-emerald-700;
-}
-
-// 尚未调用
-.bg-dc {
-	@apply bg-gray-100;
-	@apply dark:bg-stone-800;
-}
-
-.bg-view {
-	@apply bg-white;
-	@apply dark:bg-[#1e1e1f];
-}
-
-.hover-bg-view {
-	@apply hover:bg-stone-100;
-	@apply dark:hover:bg-stone-800;
-}
-
-.bg-active {
-	@apply bg-emerald-400 text-white;
-}
-
-.text-dc {
-	@apply text-slate-400;
-	@apply dark:text-slate-400;
+	@apply box-border;
+	@apply items-center;
 }
 
 .button-outline {
-	@apply flex rounded-full justify-center items-center h-8 text-sm transition-all border;
+	@apply rounded-full h-8 text-sm transition-all border;
 	@apply hover:border-emerald-500 hover:text-emerald-500;
-}
-
-.button-sm {
-	@apply h-7 text-xs;
-}
-
-.button-dc {
-	@apply flex bg-[#e6e6e6] rounded justify-center items-center h-8 text-sm transition-all cursor-pointer;
-	@apply dark:bg-[#303031] dark:text-white;
-	@apply hover:text-emerald-500;
+	@apply box-border;
+	@apply items-center;
 }

@@ -30,6 +30,14 @@ const routes = [
           title: '推荐',
           keepAlive: true,
         }
+      }, {
+        path: 'playlist',
+        name: 'playlist',
+        component: () => import("@/views/playlist/index.vue"),
+        meta: {
+          key: 'playlist',
+          title: '歌单列表详情',
+        }
       },
     ]
   },
