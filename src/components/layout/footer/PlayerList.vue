@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-10-10 18:06:25
+ * @ Description: 页面大框 - 歌曲列表弹层
+ -->
+
 <script setup lang="ts">
 import IconPark from '@comp/common/IconPark.vue'
 import { Delete } from '@icon-park/vue-next'

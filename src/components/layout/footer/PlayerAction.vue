@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-10-10 18:16:28
+ * @ Description: 页面脚部 -> 操作按钮组件
+ -->
+
 <script setup lang="ts">
 import PlayerList from './PlayerList.vue'
 import IconPark from '@comp/common/IconPark.vue'
@@ -46,14 +54,16 @@ const { showPlayList } = toRefs(usePlayerStore())
       @click="showPlayList = true"
     />
   </div>
+
+  <!-- 歌曲列表弹层 -->
   <PlayerList />
 </template>
 
 <style lang="scss">
 .badge {
 	.el-badge__content {
-		color: var(--theme-text-color);
-		background-color: var(--theme-text-bg-color);
+		color: var(--theme-second-color);
+		background-color: var(--theme-second-bg-color);
 		font-size: 0.1rem;
 		padding: 0 3px;
 		height: 0.8rem;

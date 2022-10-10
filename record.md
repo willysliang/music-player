@@ -21,6 +21,7 @@
 ## 2022年10月10日18:02:27
   - feat(album): 专辑详情页实现
   - perf(components -> songlist): 封装歌单列表详情页组件
+  - style(styles -> theme.scss): 主题色配置 - 样式统一化
 
 ## 2022年10月9日12:17:40
   - feat(discover -> PersonalizedSongList): 个性化歌单页实现

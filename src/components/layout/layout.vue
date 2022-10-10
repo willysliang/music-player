@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-08 18:48:46
+ * @ Modified time: 2022-10-10 18:42:55
  * @ Description: 页面大框
  -->
 
@@ -52,7 +52,7 @@ import MyFooter from './footer/index.vue'
 /* 主内容框配置 */
 .content {
 	width: 100%;
-	height: calc(100vh - 3.5rem - 4rem);
+	height: calc(100vh - 3.5rem - 4.5rem);
 	display: flex;
 	flex-direction: row;
 }
@@ -60,7 +60,7 @@ import MyFooter from './footer/index.vue'
 /* 菜单栏配置 */
 .menu {
 	width: 12rem;
-	background-color: var(--theme-menu-bg-color);
+	background-color: var(--theme-second-bg-color);
 	box-sizing: border-box;
 }
 
@@ -73,7 +73,9 @@ import MyFooter from './footer/index.vue'
 .footer {
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
-	height: 4rem;
+	height: 4.5rem;
 	border-top: 1px solid var(--theme-border-color);
+	box-sizing: border-box;
+	padding-bottom: .5rem;
 }
 </style>

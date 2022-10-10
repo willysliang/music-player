@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-10-10 18:41:44
+ * @ Description: 页面脚部 -> 播放控制器
+ -->
+
 <script setup lang="ts">
 import { toRefs } from 'vue'
 import { usePlayerStore } from '@/store/player'
@@ -51,7 +59,7 @@ const { loopType, isPlaying, toggleLoop, togglePlay, toggleNextSong } = toRefs(
         :icon="!isPlaying ? Play : PauseOne"
         size="30"
         theme="filled"
-        class="hover-text text-active"
+        class="button-active"
         :title="!isPlaying ? '播放' : '暂停'"
         @click="togglePlay"
       />
@@ -88,14 +96,14 @@ const { loopType, isPlaying, toggleLoop, togglePlay, toggleNextSong } = toRefs(
 
 <style lang="scss">
 .el-slider {
-	height: 7px;
+	height: 8px;
 
-	--el-slider-main-bg-color: var(--theme-slider-color);
-	--el-slider-stop-bg-color: var(--theme-slider-stop-color);
+	--el-slider-main-bg-color: var(--theme-tool-bg-color);
+	--el-slider-stop-bg-color: var(--theme-tool-second-bg-color);
 
 	.el-slider__bar,
 	.el-slider__runway {
-		height: 3px;
+		height: 4px;
 	}
 
 	.el-slider__button,
@@ -105,7 +113,7 @@ const { loopType, isPlaying, toggleLoop, togglePlay, toggleNextSong } = toRefs(
 	}
 
 	.el-slider__button-wrapper {
-		top: -7px;
+		top: -6px;
 
 		@apply opacity-0 transition-opacity;
 	}
