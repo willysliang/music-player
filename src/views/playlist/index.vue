@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 12:47:43
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 12:08:03
+ * @ Modified time: 2022-10-10 17:42:21
  * @ Description: 歌单列表详情页
  -->
 <script setup lang="ts">
-import PlayListInfo from './playlistInfo.vue'
-import SongList from './Songlist.vue'
+import PlayListInfo from './PlaylistInfo.vue'
+import SongList from '@/components/songList/SongList.vue'
 import type { PlayListDetail } from '@/types/playlist'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -20,9 +20,10 @@ import { Song } from '@/types/song'
  */
 const route = useRoute()
 const playlist = ref<PlayListDetail>({} as PlayListDetail) // 歌单详情信息
-const songlist = ref<Song[]>([] as Song[])
+const songlist = ref<Song[]>([] as Song[]) // 歌曲列表
 const getData = async () => {
-  const id: number = Number.parseInt(route.query.id as string)
+  /* 对route传递的参数进行断言 & 获取 */
+  const id: number = Number.parseInt((route.query?.id || 0) as string)
   playlist.value = await usePlayListDetail(id)
   songlist.value = await usePlayListTrackAll(id)
 }
@@ -36,7 +37,7 @@ const tab = ref<string>('tracks')
 
 <template>
   <!-- 歌单列表头部信息 -->
-  <PlayListInfo :playlist="playlist" :songlist="songlist" />
+  <PlayListInfo :songlist="songlist" :playlist="playlist" />
 
   <!-- 歌单列表详情 -->
   <el-tabs v-model="tab" class="mt-3">

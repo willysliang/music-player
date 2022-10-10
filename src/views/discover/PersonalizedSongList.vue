@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:19:50
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 12:07:43
+ * @ Modified time: 2022-10-10 16:21:14
  * @ Description: 个性化歌单
  -->
 
@@ -13,7 +13,7 @@ import { useDiscoverStore } from '@/store/discover'
 import { onBeforeMount, toRefs } from 'vue'
 import { sampleSize } from 'lodash'
 import { useRouter } from 'vue-router'
-import type { PersonalizedSongList } from '@/types/discover'
+import { playlistType } from '@/config/constant'
 
 /* 获取推荐歌单 */
 const { personalizedSongList } = toRefs(useDiscoverStore())
@@ -24,10 +24,10 @@ onBeforeMount(async () => {
 
 /* 跳转歌单详情页 */
 const router = useRouter()
-const navToPlayList = (song: PersonalizedSongList) => {
+const navToPlayList = (id: number) => {
   router.push({
     path: 'playlist',
-    query: { id: song.id },
+    query: { id, type: playlistType.SONG },
   })
 }
 </script>
@@ -38,7 +38,7 @@ const navToPlayList = (song: PersonalizedSongList) => {
     <div
       v-for="song in sampleSize(personalizedSongList, 15)"
       :key="song.id"
-      @click="navToPlayList(song)"
+      @click="navToPlayList(song.id)"
     >
       <CoverPlay
         :pic-url="song.picUrl"

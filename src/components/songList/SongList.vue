@@ -2,8 +2,8 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 17:47:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 11:00:05
- * @ Description: 歌单列表歌曲页
+ * @ Modified time: 2022-10-10 17:42:34
+ * @ Description: 歌曲列表
  -->
 
 <script setup lang="ts">
@@ -21,6 +21,7 @@ import {
 } from '@icon-park/vue-next'
 import { usePlayerStore } from '@/store/player'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 
 defineProps<{
   songlist: Song[]
@@ -35,6 +36,17 @@ const { getPlay } = usePlayerStore()
 /* like 按钮 */
 const handleLike = (item) => {
   item.isLike = !item?.isLike
+}
+
+/***
+ * 跳转专辑详情页
+ */
+const router = useRouter()
+const navToAlbum = (id: number) => {
+  router.push({
+    path: 'album',
+    query: { id },
+  })
 }
 </script>
 
@@ -113,7 +125,9 @@ const handleLike = (item) => {
 
       <!-- 专辑名称 -->
       <div class="w-1/4">
-        <span>{{ song.al.name }}</span>
+        <span class="truncate hover-text" @click="navToAlbum(song.al.id)">{{
+          song.al.name
+        }}</span>
       </div>
 
       <!-- 时长 -->

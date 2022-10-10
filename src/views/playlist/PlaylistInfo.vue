@@ -2,34 +2,24 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 16:32:54
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 17:29:20
+ * @ Modified time: 2022-10-10 17:42:41
  * @ Description: 歌单列表详情页 - 头部
  -->
 <script setup lang="ts">
 import { avactor } from '@/assets/images'
 import Collapses from '@/components/common/Collapses.vue'
-import IconPark from '@/components/common/IconPark.vue'
-import { PlayOne, Like, More } from '@icon-park/vue-next'
+import SongHeadLabel from '@comp/songlist/SongHeadLabel.vue'
 import { formatDateTemp, formatQuantity } from '@/utils/format'
-import { usePlayerStore } from '@/store/player'
 import type { PlayListDetail } from '@/types/playlist'
 import type { Song } from '@/types/song'
 
 /***
  * 获取父组件传递过来歌单详情信息
-*/
-const props = defineProps<{
+ */
+defineProps<{
   playlist: PlayListDetail
   songlist: Song[]
 }>()
-
-/***
- * 播放音乐
- */
-const { pushPlayList } = usePlayerStore()
-const playAll = () => {
-  pushPlayList(...props.songlist)
-}
 </script>
 
 <template>
@@ -63,26 +53,10 @@ const playAll = () => {
       </div>
 
       <!-- 触件 -->
-      <div class="flex items-center justify-self-stretch my-2">
-        <button
-          class="w-40 button flex flex-row justify-between items-center px-4"
-          @click="playAll"
-        >
-          <IconPark :icon="PlayOne" size="22" class="mr-1" />
-          <span class="flex-1 text-center">播放全部</span>
-          <span></span>
-        </button>
-        <button
-          class="w-40 button-outline flex flex-row justify-between px-4 ml-4"
-        >
-          <IconPark :icon="Like" size="18" class="mr-1" />
-          <span>收藏</span>
-          <div>({{ formatQuantity(playlist.subscribedCount) }})</div>
-        </button>
-        <button class="button-outline w-8 flex flex-row justify-center ml-4">
-          <IconPark :icon="More" />
-        </button>
-      </div>
+      <SongHeadLabel
+        :songlist="songlist"
+        :subscribed-count="playlist?.subscribedCount || 0"
+      />
 
       <!-- 标签 -->
       <div v-if="playlist.tags?.length > 0" class="my-2">

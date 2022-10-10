@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 13:22:20
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 13:26:06
+ * @ Modified time: 2022-10-10 15:34:47
  * @ Description: 歌单列表详情页的定义类型约束
  */
 
@@ -169,7 +169,9 @@ export interface PlayListDetailTrackIds {
   sc?: any
 }
 
-/* 歌单列表详情 */
+/***
+ * 歌单列表详情
+*/
 export interface PlayListDetail {
   id: number
   name: string

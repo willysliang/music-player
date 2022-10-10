@@ -10,7 +10,7 @@ const routes = [
       keepAlive: true,
       requireAuth: false,
     },
-    component: () => import('@/views/login.vue'),
+    component: () => import('../views/login.vue'),
   },
   {
     path: '/',
@@ -21,12 +21,12 @@ const routes = [
       requireAuth: true,
     },
     redirect: { name: Pages.DISCOVER },
-    component: () => import('@/views/root.vue'),
+    component: () => import('../views/root.vue'),
     children: [
       {
         path: 'discover',
         name: Pages.DISCOVER,
-        component: () => import('@/views/discover/index.vue'),
+        component: () => import('../views/discover/index.vue'),
         meta: {
           key: Pages.DISCOVER,
           title: '推荐',
@@ -36,10 +36,19 @@ const routes = [
       {
         path: 'playlist',
         name: Pages.PLAYLIST,
-        component: () => import('@/views/playlist/index.vue'),
+        component: () => import('../views/playlist/index.vue'),
         meta: {
           key: Pages.PLAYLIST,
           title: '歌单列表详情',
+        },
+      },
+      {
+        path: 'album',
+        name: Pages.ALBUM,
+        component: () => import('../views/album/index.vue'),
+        meta: {
+          key: Pages.ALBUM,
+          title: '专辑列表详情',
         },
       },
     ],
