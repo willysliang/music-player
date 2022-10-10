@@ -79,7 +79,7 @@ const {
 		}
 
 		&:nth-child(2n + 1) {
-			@apply bg-slate-200;
+			@apply bg-slate-100;
 		}
 	}
 }

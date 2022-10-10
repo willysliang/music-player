@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 12:47:43
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 17:49:23
+ * @ Modified time: 2022-10-10 12:08:03
  * @ Description: 歌单列表详情页
  -->
 <script setup lang="ts">
@@ -22,11 +22,9 @@ const route = useRoute()
 const playlist = ref<PlayListDetail>({} as PlayListDetail) // 歌单详情信息
 const songlist = ref<Song[]>([] as Song[])
 const getData = async () => {
-  if (typeof route.query?.id === 'string') {
-    const id: number = Number.parseInt(route.query.id)
-    playlist.value = await usePlayListDetail(id)
-    songlist.value = await usePlayListTrackAll(id)
-  }
+  const id: number = Number.parseInt(route.query.id as string)
+  playlist.value = await usePlayListDetail(id)
+  songlist.value = await usePlayListTrackAll(id)
 }
 getData()
 
@@ -49,5 +47,4 @@ const tab = ref<string>('tracks')
   </el-tabs>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -11,6 +11,7 @@ import {
 import { Icon } from '@icon-park/vue-next/lib/runtime'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { Pages } from '@/router/constant'
 
 interface IMenu {
   name: string // 菜单名称
@@ -33,7 +34,7 @@ export function useMixinMenu () {
       children: [
         {
           name: '推荐',
-          key: 'discover',
+          key: Pages.DISCOVER,
           icon: Planet,
           theme: 'outline',
         },

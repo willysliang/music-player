@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 17:47:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 18:34:54
+ * @ Modified time: 2022-10-10 11:00:05
  * @ Description: 歌单列表歌曲页
  -->
 
@@ -10,34 +10,113 @@
 import type { Song } from '@/types/song'
 import { first } from 'lodash'
 import { formatDuring } from '@/utils/format'
+import IconPark from '@/components/common/IconPark.vue'
+import {
+  Add,
+  DownTwo,
+  Like,
+  MoreTwo,
+  PlayOne,
+  PlayTwo,
+} from '@icon-park/vue-next'
+import { usePlayerStore } from '@/store/player'
+import { storeToRefs } from 'pinia'
 
 defineProps<{
   songlist: Song[]
 }>()
+
+/***
+ * 播放控制
+ */
+const { playId } = storeToRefs(usePlayerStore())
+const { getPlay } = usePlayerStore()
+
+/* like 按钮 */
+const handleLike = (item) => {
+  item.isLike = !item?.isLike
+}
 </script>
 
 <template>
   <div class="mt-2 text-main">
-    <div class="flex flex-row items-center text-xs  desc-main py-3">
-      <div class="w-20 text-center">操作</div>
+    <div class="song-item desc-main">
+      <div class="w-16 text-center">操作</div>
       <div class="flex-auto">歌曲</div>
       <div class="w-1/4">歌手</div>
       <div class="w-1/4">专辑</div>
       <div class="w-20">时长</div>
     </div>
-    <div v-for="(song, index) in songlist" :key="song.id" class="hover-bg-main song-item">
-      <div class="w-20">
+    <div
+      v-for="(song, index) in songlist"
+      :key="song.id"
+      class="song-item"
+      :class="{ playing: playId === song.id }"
+      @dblclick="getPlay(song.id)"
+    >
+      <!-- 歌单排列 && 添加/移除喜欢 -->
+      <div class="w-16 flex flex-row items-center">
         <span>{{ String(index + 1).padStart(2, '0') }}</span>
+        <IconPark
+          :icon="Like"
+          :theme="song?.isLike ? 'filled' : 'outline'"
+          size="18"
+          :stroke-width="3"
+          class="pl-1 hover:text-red-400 ml-2"
+          :class="[song?.isLike ? 'text-red-500' : 'text-gray-300']"
+          @click="handleLike(song)"
+        />
       </div>
-      <div class="flex-auto">
-        <span>{{ song.name }}</span>
+
+      <!-- 歌曲信息 && 操作 -->
+      <div class="flex-1 flex flex-row items-center">
+        <div class="flex-1 flex flex-row items-center">
+          <span>{{ song.name }}</span>
+          <IconPark
+            v-if="song.mv > 0"
+            class="ml-2 text-orange-400 cursor-pointer"
+            size="18"
+            :icon="PlayTwo"
+          />
+        </div>
+        <!-- 鼠标悬停该行时，浮现此列按钮 -->
+        <div class="hidden icon-action flex-shrink-0">
+          <div class="flex flex-row items-center gap-x-1 text-gray-400 mx-2">
+            <IconPark
+              title="播放"
+              :icon="PlayOne"
+              size="18"
+              class="hover-text"
+              @click="getPlay(song.id)"
+            />
+            <IconPark title="添加到" :icon="Add" size="18" class="hover-text" />
+            <IconPark
+              title="下载"
+              :icon="DownTwo"
+              size="18"
+              class="hover-text"
+            />
+            <IconPark
+              title="更多操作"
+              :icon="MoreTwo"
+              size="18"
+              class="hover-text"
+            />
+          </div>
+        </div>
       </div>
+
+      <!-- 歌手信息 -->
       <div class="w-1/4">
         <span>{{ first(song.ar).name }}</span>
       </div>
+
+      <!-- 专辑名称 -->
       <div class="w-1/4">
         <span>{{ song.al.name }}</span>
       </div>
+
+      <!-- 时长 -->
       <div class="w-20">
         <span>{{ formatDuring(song.dt / 1000) }}</span>
       </div>
@@ -48,10 +127,24 @@ defineProps<{
 <style lang="scss" scoped>
 .song-item {
 	@apply flex flex-row items-center;
-	@apply w-full text-xs box-border py-2 pl-2;
+	@apply w-full text-xs box-border py-4 pl-2;
 
-	&:nth-child(2n+1) {
-		background-color: var(--theme-tab-bg-color);
+	@apply border-b border-solid border-gray-300;
+
+	&:nth-child(2n + 1) {
+		// background-color: var(--theme-tab-bg-color);
 	}
+
+	&:hover {
+		background-color: var(--theme-tab-hover-color);
+
+		.icon-action {
+			@apply inline-block;
+		}
+	}
+}
+
+.playing {
+	@apply bg-emerald-50 dark:bg-stone-800;
 }
 </style>

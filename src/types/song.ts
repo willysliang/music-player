@@ -72,6 +72,7 @@ export interface Song {
   cp: number
   mv: number
   publishTime: number
+  isLike?: boolean
 }
 
 /***

@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
+import { Pages } from './constant'
 
 const routes = [
   {
     path: '/login',
-    name: 'Login',
+    name: Pages.LOGIN,
     meta: {
       title: '登录',
       keepAlive: true,
@@ -13,39 +14,41 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Index',
+    name: Pages.INDEX,
     meta: {
       title: '首页',
       keepAlive: true,
       requireAuth: true,
     },
+    redirect: { name: Pages.DISCOVER },
     component: () => import('@/views/root.vue'),
     children: [
       {
         path: 'discover',
-        name: 'discover',
-        component: () => import("@/views/discover/index.vue"),
+        name: Pages.DISCOVER,
+        component: () => import('@/views/discover/index.vue'),
         meta: {
-          key: 'discover',
+          key: Pages.DISCOVER,
           title: '推荐',
           keepAlive: true,
-        }
-      }, {
-        path: 'playlist',
-        name: 'playlist',
-        component: () => import("@/views/playlist/index.vue"),
-        meta: {
-          key: 'playlist',
-          title: '歌单列表详情',
-        }
+        },
       },
-    ]
+      {
+        path: 'playlist',
+        name: Pages.PLAYLIST,
+        component: () => import('@/views/playlist/index.vue'),
+        meta: {
+          key: Pages.PLAYLIST,
+          title: '歌单列表详情',
+        },
+      },
+    ],
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router
