@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:35:48
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 15:32:07
+ * @ Modified time: 2022-10-11 16:49:17
  * @ Description: 歌手详情的接口
  */
 import type { ArtistDetail } from '@/types/artist'
@@ -29,7 +29,7 @@ export const useArtistSongs = async (
   limit = 10,
   offset = 0,
 ) => {
-  const { songs } = await http.get<{ songs: Song[] }>({
+  const { songs, total } = await http.get<{ songs: Song[]; total?: number }>({
     url: '/api/artist/songs',
     params: {
       id,
@@ -38,5 +38,5 @@ export const useArtistSongs = async (
       offset,
     },
   })
-  return songs
+  return { songs, total }
 }

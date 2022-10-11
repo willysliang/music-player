@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:19:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 16:14:32
+ * @ Modified time: 2022-10-11 16:39:21
  * @ Description: 专辑详情页
  -->
 
@@ -27,9 +27,11 @@ watch(
   async () => {
     /* 对route传递的参数进行断言 & 获取 */
     const id: number = Number.parseInt((route.query?.id || 0) as string)
-    const { album, songs } = await useAlbum(id)
-    albumData.value = album
-    songlist.value = songs
+    try {
+      const { album, songs } = await useAlbum(id)
+      albumData.value = album
+      songlist.value = songs
+    } catch {}
   },
   { immediate: true, deep: true },
 )
