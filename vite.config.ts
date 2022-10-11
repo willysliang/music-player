@@ -27,6 +27,11 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
       '#': path.resolve(__dirname, 'types'),
       '@comp': path.resolve(__dirname, 'src/components'),
+      '@view': path.resolve(__dirname, 'src/views'),
+      '@type': path.resolve(__dirname, 'src/types'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@api': path.resolve(__dirname, 'src/api/module'),
+      '@util': path.resolve(__dirname, 'src/utils'),
     },
   },
   plugins: [

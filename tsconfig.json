@@ -16,7 +16,12 @@
     "paths": {
       "@/*": ["src/*"],
       "#/*": ["types/*"],
-      "@comp/*": ["src/components/*"]
+      "@comp/*": ["src/components/*"],
+      "@view/*": ["src/views/*"],
+      "@type/*": ["src/types/*"],
+      "@store/*": ["src/store/*"],
+      "@api/*": ["src/api/module/*"],
+      "@util/*": ["src/utils/*"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "types": ["vite/client", "element-plus/global"]
