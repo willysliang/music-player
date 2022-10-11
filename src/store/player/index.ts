@@ -211,6 +211,17 @@ export const usePlayerStore = defineStore({
     },
 
     /***
+     * 播放按钮
+    */
+    /* 播放全部 */
+    playAll (list: Song[]) {
+      this.pushPlayList(...list)
+      if (this.playListCount > 0) {
+        this.getPlay(first(this.playList).id)
+      }
+    },
+
+    /***
      * 播放滚动条
      */
     /* 修改播放时间 */

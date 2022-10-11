@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:19:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 17:42:09
+ * @ Modified time: 2022-10-11 16:14:32
  * @ Description: 专辑详情页
  -->
 
@@ -11,7 +11,7 @@ import AlbumInfo from './AlbumInfo.vue'
 import SongList from '@/components/songList/SongList.vue'
 import type { Album } from '@/types/album'
 import type { Song } from '@/types/song'
-import { ref, onBeforeMount } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAlbum } from '@/api/module/album'
 
@@ -22,13 +22,17 @@ import { useAlbum } from '@/api/module/album'
 const route = useRoute()
 const songlist = ref<Song[]>([] as Song[]) // 歌曲列表
 const albumData = ref<Album>({} as Album)
-onBeforeMount(async () => {
-  /* 对route传递的参数进行断言 & 获取 */
-  const id: number = Number.parseInt((route.query?.id || 0) as string)
-  const { album, songs } = await useAlbum(id)
-  albumData.value = album
-  songlist.value = songs
-})
+watch(
+  () => route.query.id,
+  async () => {
+    /* 对route传递的参数进行断言 & 获取 */
+    const id: number = Number.parseInt((route.query?.id || 0) as string)
+    const { album, songs } = await useAlbum(id)
+    albumData.value = album
+    songlist.value = songs
+  },
+  { immediate: true, deep: true },
+)
 
 /***
  * 专辑列表详情

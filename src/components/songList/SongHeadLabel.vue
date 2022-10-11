@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 16:32:54
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 17:32:41
+ * @ Modified time: 2022-10-11 12:15:49
  * @ Description: 歌曲列表头部触件
  -->
 <script setup lang="ts">
@@ -15,7 +15,7 @@ import type { Song } from '@/types/song'
 /***
  * 获取父组件传递过来歌单详情信息
  */
-const props = defineProps<{
+defineProps<{
   songlist: Song[]
   subscribedCount: number // 收藏数量
 }>()
@@ -23,17 +23,14 @@ const props = defineProps<{
 /***
  * 播放音乐
  */
-const { pushPlayList } = usePlayerStore()
-const playAll = () => {
-  pushPlayList(...(props.songlist as Song[]))
-}
+const { playAll } = usePlayerStore()
 </script>
 
 <template>
   <div class="flex items-center justify-self-stretch my-2">
     <button
       class="w-40 button flex flex-row justify-between items-center px-4"
-      @click="playAll"
+      @click="playAll(songlist)"
     >
       <IconPark :icon="PlayOne" size="22" class="mr-1" />
       <span class="flex-1 text-center">播放全部</span>

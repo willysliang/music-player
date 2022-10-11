@@ -2,14 +2,14 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 12:47:43
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 17:42:21
+ * @ Modified time: 2022-10-11 16:13:17
  * @ Description: 歌单列表详情页
  -->
 <script setup lang="ts">
 import PlayListInfo from './PlaylistInfo.vue'
 import SongList from '@/components/songList/SongList.vue'
 import type { PlayListDetail } from '@/types/playlist'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { usePlayListDetail, usePlayListTrackAll } from '@/api/module/playlist'
 import { Song } from '@/types/song'
@@ -27,7 +27,7 @@ const getData = async () => {
   playlist.value = await usePlayListDetail(id)
   songlist.value = await usePlayListTrackAll(id)
 }
-getData()
+watch(() => route.query.id, getData, { immediate: true, deep: true })
 
 /***
  * 歌单列表详情

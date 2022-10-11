@@ -22,6 +22,8 @@
   - feat(views -> artist): 歌手详情页实现
   - types(types -> constant): 添加常量定义接口
   - chore(vite.config.ts、tsconfig.json): 路径别名配置
+  - perf(utils -> http): 优化 http 请求的错误提示
+  - fix(views -> artist、album、playlist): 修复只更改路由参数的id，页面数据无重新请求
 
 ## 2022年10月10日18:02:27
   - feat(album): 专辑详情页实现

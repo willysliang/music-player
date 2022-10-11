@@ -14,22 +14,24 @@ import { useRoute, useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
 
 interface IMenu {
-  name: string // 菜单名称
+  title?: string // 菜单名称
   key: string // 菜单关键字
   icon: Icon // 菜单图标
   theme: 'outline' | 'filled' | 'two-tone' | 'multi-color' // 图标样式
+  name?: string
 }
 
 interface IMenuList {
-  name: string
+  title?: string
   key: string
   children: IMenu[]
+  name?: string
 }
 
 export function useMixinMenu () {
   const menuList: IMenuList[] = [
     {
-      name: '在线音乐',
+      title: '在线音乐',
       key: 'onlineMusic',
       children: [
         {
@@ -38,19 +40,19 @@ export function useMixinMenu () {
           theme: 'outline',
         },
         {
-          name: '音乐馆',
+          title: '音乐馆',
           key: 'music',
           icon: Music,
           theme: 'outline',
         },
         {
-          name: '视频',
+          title: '视频',
           key: 'video',
           icon: VideoOne,
           theme: 'outline',
         },
         {
-          name: '电台',
+          title: '电台',
           key: 'dj',
           icon: Fm,
           theme: 'outline',
@@ -58,29 +60,29 @@ export function useMixinMenu () {
       ],
     },
     {
-      name: '我的音乐',
+      title: '我的音乐',
       key: 'mineMusic',
       children: [
         {
-          name: '我喜欢',
+          title: '我喜欢',
           key: 'love',
           icon: Like,
           theme: 'outline',
         },
         {
-          name: '本地歌曲',
+          title: '本地歌曲',
           key: 'local',
           icon: Computer,
           theme: 'outline',
         },
         {
-          name: '下载歌曲',
+          title: '下载歌曲',
           key: 'download',
           icon: DownloadThree,
           theme: 'outline',
         },
         {
-          name: '最近播放',
+          title: '最近播放',
           key: 'recently',
           icon: PlayTwo,
           theme: 'outline',
@@ -104,7 +106,7 @@ export function useMixinMenu () {
 
   /* 选择菜单项 */
   const handleMenuSelect = (menu: IMenu) => {
-    router.push({ name: menu.key, replace: true })
+    router.push({ name: menu?.name || menu.key, replace: true })
   }
 
   return {

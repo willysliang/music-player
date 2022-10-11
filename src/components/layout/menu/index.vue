@@ -9,7 +9,7 @@ const { menuList, currentMenuKey, handleMenuSelect } = useMixinMenu()
   <el-scrollbar>
     <div v-for="menuItem in menuList" :key="menuItem.key" class="px-2">
       <div class="text-main text-base pl-4 pr-4 pb-2 pt-4">
-        {{ menuItem.name }}
+        {{ menuItem.title }}
       </div>
       <div
         v-for="menu in menuItem.children"
@@ -19,7 +19,7 @@ const { menuList, currentMenuKey, handleMenuSelect } = useMixinMenu()
         @click="handleMenuSelect(menu)"
       >
         <IconPark :icon="menu.icon" size="18" :theme="menu.theme" />
-        <span class="pl-2">{{ menu.name }}</span>
+        <span class="pl-2">{{ menu.title }}</span>
       </div>
     </div>
   </el-scrollbar>

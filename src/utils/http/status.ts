@@ -1,6 +1,6 @@
 import { ElMessage } from 'element-plus'
 
-export const errorMessage = (status: number | string): string => {
+export const errorMessage = (status: number | string, mes = ''): string => {
   let message = ''
   switch (status) {
     case 400:
@@ -39,6 +39,6 @@ export const errorMessage = (status: number | string): string => {
     default:
       message = `连接出错(${status})!`
   }
-  ElMessage.error(`${message}`)
+  ElMessage.error(`${message} ${mes}`)
   return `${message}，请检查网络或联系管理员！`
 }
