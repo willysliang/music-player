@@ -20,21 +20,29 @@
       </template>
       <div class="h-96">
         <el-scrollbar>
+          <!-- 热门搜索 -->
           <div v-if="!searchKeyword" class="pl-2 pr-3.5">
             <div class="py-2">热门搜索</div>
             <div
               v-for="(item, index) in searchHot"
               :key="index"
               class="flex justify-between items-center box-border py-2 cursor-pointer text-xs hover-text"
+              @click="handleHot(item.searchWord)"
             >
               <div>
                 <span>{{ index + 1 }}.</span>
                 <span>{{ item.searchWord }}</span>
               </div>
-              <div class="text-red-300">{{ formatQuantity(item.score) }}</div>
+              <div class="tool-main">{{ formatQuantity(item.score) }}</div>
             </div>
           </div>
-          <SearchSuggestDOM v-else :suggest-data="suggestData" />
+
+          <!-- 关键词搜索 -->
+          <SearchSuggestDOM
+            v-else
+            v-model:show-search-view="showSearchView"
+            :suggest-data="suggestData"
+          />
         </el-scrollbar>
       </div>
     </el-popover>
@@ -84,18 +92,20 @@ onUnmounted(() => {
 /***
  * 搜索
  */
-const searchKeyword = ref<string>('')
-const showSearchView = ref<boolean>(false)
-const suggestData = ref<typeSearchSuggest>({} as typeSearchSuggest)
-const handleSearch = debounce(
-  async () => {
-    suggestData.value = await useSearchSuggest(searchKeyword.value)
-  },
-  500,
-  {
-    maxWait: 1000,
-  },
-)
+const searchKeyword = ref<string>('') // 搜索关键字
+const showSearchView = ref<boolean>(false) // 控制展现搜索内容弹层的开关
+const suggestData = ref<typeSearchSuggest>({} as typeSearchSuggest) // 请求的搜索数据
+/* 请求搜索接口 */
+const getSuggest = async () => {
+  suggestData.value = await useSearchSuggest(searchKeyword.value)
+}
+/***
+ * 节流获取搜索内容
+ * - 输入内容，使用节流进行获取搜索内容
+ */
+const handleSearch = debounce(getSuggest, 500, {
+  maxWait: 1000,
+})
 
 /***
  * 热门搜索
@@ -104,6 +114,15 @@ const searchHot = ref<SearchHotDetail[]>([])
 onBeforeMount(async () => {
   searchHot.value = await useSearchHotDetail()
 })
+
+/***
+ * 热门搜索内容点击
+ */
+const handleHot = (text: string) => {
+  searchKeyword.value = text
+  getSuggest()
+  showSearchView.value = true
+}
 </script>
 
 <style lang="scss" scoped>

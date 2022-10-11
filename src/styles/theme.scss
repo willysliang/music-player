@@ -3,7 +3,10 @@
 	--theme-color: rgb(51 65 85); // 字体色
 	--theme-second-color: #7b7373; // 次级背景色，常用作叙述性字体
 	--theme-bg-color: #fff; // 主背景色
-	--theme-second-bg-color: rgb(247 234 234); // 次级背景颜色，常用作在主背景色下，该背景色可以展现出
+	--theme-second-bg-color: rgb(
+		247 234 234
+	); // 次级背景颜色，常用作在主背景色下，该背景色可以展现出
+
 	--theme-tool-color: #e23652; // 工具字体色
 	--theme-tool-bg-color: #e60026; // 工具背景色
 	--theme-tool-second-bg-color: #ccc; // 工具次级背景色，常用作该工具停滞、未抵达等状态展现
@@ -36,8 +39,9 @@
 }
 
 .hover-bg-main {
-	@apply hover:bg-gray-200;
-	@apply dark:hover:bg-stone-700;
+	&:hover {
+		background-color: var(--theme-second-bg-color);
+	}
 }
 
 /* 鼠标悬浮搜索框所在列的颜色 */

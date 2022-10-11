@@ -2,18 +2,19 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:22:06
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 11:27:21
+ * @ Modified time: 2022-10-11 18:03:49
  * @ Description: 歌手详情 -> 头部
  -->
 <script setup lang="ts">
 import type { ArtistDetail } from '@/types/artist'
-import { playlistType } from '@/config/constant'
+
 import IconPark from '@comp/common/IconPark.vue'
 import { Plus, Fm, More } from '@icon-park/vue-next'
 import Collapses from '@comp/common/Collapses.vue'
+import { Pages } from '@/router/constant'
 
 defineProps<{
-  type: string // 'SONG' | 'ALBUM' | 'ARTIST'
+  keys: string // 'SONG' | 'ALBUM' | 'ARTIST'
   detailData: ArtistDetail
   coverImg: string // 封面图路径
   title: string // 标题名
@@ -30,16 +31,14 @@ defineProps<{
       :src="coverImg"
       alt="封面图"
       class="w-44 h-44 object-cover flex-shrink-0"
-      :class="[
-        type === playlistType.ARTIST.key ? 'rounded-full' : 'rounded-xl',
-      ]"
+      :class="[keys === Pages.ARTIST.key ? 'rounded-full' : 'rounded-xl']"
     />
 
     <div class="flex-1 flex flex-col items-stretch box-border pl-4">
       <div class="flex flex-row">
         <div class="flex items-center justify-center flex-shrink-0 mr-2">
           <span class="border-main box-border p-1 tool-main">
-            {{ playlistType[type].name }}
+            {{ Pages[keys].name }}
           </span>
         </div>
         <span class="flex-1 text-2xl font-bold">

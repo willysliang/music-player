@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:19:50
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 11:04:29
+ * @ Modified time: 2022-10-11 18:03:30
  * @ Description: 个性化歌单
  -->
 
@@ -13,7 +13,7 @@ import { useDiscoverStore } from '@/store/discover'
 import { onBeforeMount, toRefs } from 'vue'
 import { sampleSize } from 'lodash'
 import { useRouter } from 'vue-router'
-import { playlistType } from '@/config/constant'
+import { Pages } from '@/router/constant'
 
 /* 获取推荐歌单 */
 const { personalizedSongList } = toRefs(useDiscoverStore())
@@ -27,7 +27,7 @@ const router = useRouter()
 const navToPlayList = (id: number) => {
   router.push({
     path: 'playlist',
-    query: { id, type: playlistType.SONG.key },
+    query: { id, key: Pages.PLAYLIST.key },
   })
 }
 </script>

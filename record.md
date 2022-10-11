@@ -25,6 +25,7 @@
   - perf(utils -> http): 优化 http 请求的错误提示
   - fix(views -> artist、album、playlist): 修复只更改路由参数的id，页面数据无重新请求
   - feat(views -> artist): 歌手详情页 -> 加载更多功能实现
+  - feat(layout -> header): 完善头部搜索点击触发的事件
 
 ## 2022年10月10日18:02:27
   - feat(album): 专辑详情页实现

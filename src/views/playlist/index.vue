@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 12:47:43
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 16:13:17
+ * @ Modified time: 2022-10-11 18:03:22
  * @ Description: 歌单列表详情页
  -->
 <script setup lang="ts">
@@ -24,8 +24,10 @@ const songlist = ref<Song[]>([] as Song[]) // 歌曲列表
 const getData = async () => {
   /* 对route传递的参数进行断言 & 获取 */
   const id: number = Number.parseInt((route.query?.id || 0) as string)
-  playlist.value = await usePlayListDetail(id)
-  songlist.value = await usePlayListTrackAll(id)
+  try {
+    playlist.value = await usePlayListDetail(id)
+    songlist.value = await usePlayListTrackAll(id)
+  } catch {}
 }
 watch(() => route.query.id, getData, { immediate: true, deep: true })
 

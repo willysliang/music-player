@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:22:06
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 16:20:52
+ * @ Modified time: 2022-10-11 18:00:18
  * @ Description: 歌手详情列表
  -->
 <script setup lang="ts">
@@ -14,7 +14,7 @@ import { useArtistDetail } from '@/api/module/artist'
 import type { ArtistDetail } from '@/types/artist'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { playlistType } from '@/config/constant'
+import { Pages } from '@/router/constant'
 
 /***
  * 获取歌手详情信息
@@ -43,7 +43,7 @@ const tab = ref<string>('music')
 <template>
   <!-- 歌手详情信息 -->
   <ArtistInfo
-    :type="playlistType.ARTIST.key"
+    :keys="Pages.ARTIST.key"
     :detail-data="artistData"
     :cover-img="artistData.artist?.cover || ''"
     :title="artistData.artist?.name || ''"
