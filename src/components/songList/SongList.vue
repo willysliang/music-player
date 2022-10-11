@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 17:47:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 17:42:34
+ * @ Modified time: 2022-10-11 09:25:54
  * @ Description: 歌曲列表
  -->
 
@@ -39,12 +39,21 @@ const handleLike = (item) => {
 }
 
 /***
- * 跳转专辑详情页
+ * 路由跳转控制
  */
 const router = useRouter()
+/* 跳转专辑详情页 */
 const navToAlbum = (id: number) => {
   router.push({
     path: 'album',
+    query: { id },
+  })
+}
+
+/* 跳转歌手详情页 */
+const navToArtist = (id: number) => {
+  router.push({
+    path: 'artist',
     query: { id },
   })
 }
@@ -120,14 +129,19 @@ const navToAlbum = (id: number) => {
 
       <!-- 歌手信息 -->
       <div class="w-1/4">
-        <span>{{ first(song.ar).name }}</span>
+        <span
+          class="truncate hover-text"
+          @click="navToArtist(first(song.ar).id)"
+        >
+          {{ first(song.ar).name }}
+        </span>
       </div>
 
       <!-- 专辑名称 -->
       <div class="w-1/4">
-        <span class="truncate hover-text" @click="navToAlbum(song.al.id)">{{
-          song.al.name
-        }}</span>
+        <span class="truncate hover-text" @click="navToAlbum(song.al.id)">
+          {{ song.al.name }}
+        </span>
       </div>
 
       <!-- 时长 -->

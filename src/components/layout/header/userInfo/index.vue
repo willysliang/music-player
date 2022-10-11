@@ -83,13 +83,13 @@ const getCode = async () => {
         :class="titleClass"
       >
         <div
-          :class="[dialogCurrent === 0 ? 'border-main' : '', 'px-4', 'py-2']"
+          :class="[dialogCurrent === 0 ? 'title-border-main' : '', 'px-4', 'py-2']"
           @click="dialogCurrent = 0"
         >
           扫码登录
         </div>
         <div
-          :class="[dialogCurrent === 1 ? 'border-main' : '', 'px-4', 'py-2']"
+          :class="[dialogCurrent === 1 ? 'title-border-main' : '', 'px-4', 'py-2']"
           @click="dialogCurrent = 1"
         >
           账号登录
@@ -140,3 +140,10 @@ const getCode = async () => {
     </div>
   </el-dialog>
 </template>
+
+<style lang="scss" scoped>
+.title-border-main {
+	@apply border-b-2 border-solid;
+	border-color: var(--theme-border-color);
+}
+</style>

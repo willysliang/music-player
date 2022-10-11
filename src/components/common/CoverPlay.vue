@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:51:56
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 12:15:05
+ * @ Modified time: 2022-10-11 09:43:47
  * @ Description: 歌曲列表的单个封面 item
  -->
 
@@ -66,6 +66,7 @@ defineProps<{
 		@apply flex justify-center items-center;
 		@apply transition-all duration-500;
 		@apply bg-black bg-opacity-0;
+		@apply rounded-xl;
 	}
 
 	.play-count {

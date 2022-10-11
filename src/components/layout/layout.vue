@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 18:42:55
+ * @ Modified time: 2022-10-11 09:52:55
  * @ Description: 页面大框
  -->
 
@@ -46,7 +46,7 @@ import MyFooter from './footer/index.vue'
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
 	height: 3.5rem;
-	border-bottom: 1px solid var(--theme-border-color);
+	border-bottom: 1px solid var(--theme-border-second-color);
 }
 
 /* 主内容框配置 */
@@ -74,7 +74,7 @@ import MyFooter from './footer/index.vue'
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
 	height: 4.5rem;
-	border-top: 1px solid var(--theme-border-color);
+	border-top: 1px solid var(--theme-border-second-color);
 	box-sizing: border-box;
 	padding-bottom: .5rem;
 }

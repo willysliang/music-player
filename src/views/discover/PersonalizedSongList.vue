@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:19:50
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 16:21:14
+ * @ Modified time: 2022-10-11 11:04:29
  * @ Description: 个性化歌单
  -->
 
@@ -27,7 +27,7 @@ const router = useRouter()
 const navToPlayList = (id: number) => {
   router.push({
     path: 'playlist',
-    query: { id, type: playlistType.SONG },
+    query: { id, type: playlistType.SONG.key },
   })
 }
 </script>

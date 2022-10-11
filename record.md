@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年10月11日11:37:16
+  - feat(views -> artist): 歌手详情页实现
+  - types(types -> constant): 添加常量定义接口
+
 ## 2022年10月10日18:02:27
   - feat(album): 专辑详情页实现
   - perf(components -> songlist): 封装歌单列表详情页组件

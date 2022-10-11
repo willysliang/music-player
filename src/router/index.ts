@@ -4,9 +4,9 @@ import { Pages } from './constant'
 const routes = [
   {
     path: '/login',
-    name: Pages.LOGIN,
+    name: Pages.LOGIN.name,
     meta: {
-      title: '登录',
+      ...Pages.LOGIN,
       keepAlive: true,
       requireAuth: false,
     },
@@ -14,41 +14,46 @@ const routes = [
   },
   {
     path: '/',
-    name: Pages.INDEX,
+    name: Pages.INDEX.name,
     meta: {
-      title: '首页',
+      ...Pages.INDEX,
       keepAlive: true,
       requireAuth: true,
     },
-    redirect: { name: Pages.DISCOVER },
+    redirect: { name: Pages.DISCOVER.name },
     component: () => import('../views/root.vue'),
     children: [
       {
         path: 'discover',
-        name: Pages.DISCOVER,
+        name: Pages.DISCOVER.name,
         component: () => import('../views/discover/index.vue'),
         meta: {
-          key: Pages.DISCOVER,
-          title: '推荐',
+          ...Pages.DISCOVER,
           keepAlive: true,
         },
       },
       {
         path: 'playlist',
-        name: Pages.PLAYLIST,
+        name: Pages.PLAYLIST.name,
         component: () => import('../views/playlist/index.vue'),
         meta: {
-          key: Pages.PLAYLIST,
-          title: '歌单列表详情',
+          ...Pages.PLAYLIST,
         },
       },
       {
         path: 'album',
-        name: Pages.ALBUM,
+        name: Pages.ALBUM.name,
         component: () => import('../views/album/index.vue'),
         meta: {
-          key: Pages.ALBUM,
-          title: '专辑列表详情',
+          ...Pages.ALBUM,
+        },
+      },
+      {
+        path: 'artist',
+        name: Pages.ARTIST.name,
+        component: () => import('../views/artist/index.vue'),
+        meta: {
+          ...Pages.ARTIST,
         },
       },
     ],

@@ -33,8 +33,7 @@ export function useMixinMenu () {
       key: 'onlineMusic',
       children: [
         {
-          name: '推荐',
-          key: Pages.DISCOVER,
+          ...Pages.DISCOVER,
           icon: Planet,
           theme: 'outline',
         },

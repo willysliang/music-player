@@ -2,10 +2,13 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:00:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 14:01:38
+ * @ Modified time: 2022-10-11 09:34:23
  * @ Description: 歌手相关的数据集
  */
 
+/***
+ * 歌手信息
+ */
 export interface Artist {
   albumSize: number
   alias: string[]
@@ -25,16 +28,44 @@ export interface Artist {
   trans: string
 }
 
-export interface Mv {
+export interface ArtistDetailIdentify {
+  imageUrl?: any
+  imageDesc: string
+  actionUrl: string
+}
+export interface ArtistDetailArtistRank {
+  rank: number
+  type: number
+}
+export interface ArtistDetailArtist {
   id: number
+  cover: string
   name: string
-  status: number
-  artistName: string
-  artist: Artist
-  imgurl16v9: string
-  imgurl: string
-  duration: number
-  playCount: number
-  publishTime: string
-  subed: boolean
+  transNames: string[]
+  identities: string[]
+  identifyTag?: any
+  briefDesc: string
+  rank: ArtistDetailArtistRank
+  albumSize: number
+  musicSize: number
+  mvSize: number
+}
+
+export interface ArtistDetailSecondaryExpertIdentiy {
+  expertIdentiyId: number
+  expertIdentiyName: string
+  expertIdentiyCount: number
+}
+
+/***
+ * 歌手详情信息
+ */
+export interface ArtistDetail {
+  videoCount: number
+  identify: ArtistDetailIdentify
+  artist: ArtistDetailArtist
+  blacklist: boolean
+  preferShow: number
+  showPriMsg: boolean
+  secondaryExpertIdentiy: ArtistDetailSecondaryExpertIdentiy[]
 }

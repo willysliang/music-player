@@ -1,15 +1,14 @@
 :root {
 	/* 主题色 */
 	--theme-color: rgb(51 65 85); // 字体色
-	--theme-second-color: #6b6868; // 次级背景色，常用作叙述性字体
+	--theme-second-color: #7b7373; // 次级背景色，常用作叙述性字体
 	--theme-bg-color: #fff; // 主背景色
-	--theme-second-bg-color: rgb(
-		247 234 234
-	); // 次级背景颜色，常用作在主背景色下，该背景色可以展现出
-
+	--theme-second-bg-color: rgb(247 234 234); // 次级背景颜色，常用作在主背景色下，该背景色可以展现出
+	--theme-tool-color: #e23652; // 工具字体色
 	--theme-tool-bg-color: #e60026; // 工具背景色
 	--theme-tool-second-bg-color: #ccc; // 工具次级背景色，常用作该工具停滞、未抵达等状态展现
-	--theme-border-color: #ccc; // 边框色
+	--theme-border-color: #e23652; // 边框色
+	--theme-border-second-color: #ccc; // 边框次级色
 	--theme-icon-color: #ccc; // icon 默认颜色
 
 	/* 按钮颜色 */
@@ -46,7 +45,7 @@
 	@apply cursor-pointer;
 
 	&:hover {
-		color: var(--theme-second-color);
+		color: var(--theme-tool-bg-color);
 	}
 }
 
@@ -64,9 +63,15 @@
 	color: var(--theme-second-color);
 }
 
+/* 工具字体 */
+.tool-main {
+	color: var(--theme-tool-color);
+}
+
 /* 边框背景色 */
 .border-main {
-	@apply border-b-2 border-solid border-green-300;
+	@apply border border-solid;
+	border-color: var(--theme-border-color);
 }
 
 /* 按钮 */

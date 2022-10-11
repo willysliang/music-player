@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:29:05
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 17:42:53
+ * @ Modified time: 2022-10-11 10:12:43
  * @ Description: 专辑列表详情页 - 头部
  -->
 
@@ -32,6 +32,9 @@ defineProps<{
     />
     <div class="flex-1 flex flex-col items-stretch box-border pl-4">
       <div class="flex flex-row">
+        <div class=" flex items-center justify-center flex-shrink-0 mr-2 ">
+          <span class="border-main box-border p-1 tool-main">专辑</span>
+        </div>
         <span class="flex-1 text-2xl font-bold">
           {{ album.name }}
         </span>
