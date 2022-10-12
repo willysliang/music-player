@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 17:47:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 09:25:54
+ * @ Modified time: 2022-10-12 14:11:40
  * @ Description: 歌曲列表
  -->
 
@@ -64,7 +64,7 @@ const navToArtist = (id: number) => {
     <div class="song-item desc-main">
       <div class="w-16 text-center">操作</div>
       <div class="flex-auto">歌曲</div>
-      <div class="w-1/4">歌手</div>
+      <div class="w-32">歌手</div>
       <div class="w-1/4">专辑</div>
       <div class="w-20">时长</div>
     </div>
@@ -90,12 +90,12 @@ const navToArtist = (id: number) => {
       </div>
 
       <!-- 歌曲信息 && 操作 -->
-      <div class="flex-1 flex flex-row items-center">
-        <div class="flex-1 flex flex-row items-center">
-          <span>{{ song.name }}</span>
+      <div class="flex-1 flex flex-row items-center truncate">
+        <div class="flex-1 flex flex-row items-center truncate">
+          <span class="max-w-full truncate">{{ song.name }}</span>
           <IconPark
             v-if="song.mv > 0"
-            class="ml-2 text-orange-400 cursor-pointer"
+            class="mx-2 text-orange-400 cursor-pointer"
             size="18"
             :icon="PlayTwo"
           />
@@ -128,18 +128,15 @@ const navToArtist = (id: number) => {
       </div>
 
       <!-- 歌手信息 -->
-      <div class="w-1/4">
-        <span
-          class="truncate hover-text"
-          @click="navToArtist(first(song.ar).id)"
-        >
+      <div class="w-32 truncate">
+        <span class="hover-text" @click="navToArtist(first(song.ar).id)">
           {{ first(song.ar).name }}
         </span>
       </div>
 
       <!-- 专辑名称 -->
-      <div class="w-1/4">
-        <span class="truncate hover-text" @click="navToAlbum(song.al.id)">
+      <div class="w-1/4 truncate">
+        <span class="hover-text" @click="navToAlbum(song.al.id)">
           {{ song.al.name }}
         </span>
       </div>

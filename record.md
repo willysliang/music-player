@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年10月12日14:13:17
+  - fix(components -> songlist): 修复歌曲列表位置错乱问题
+
 ## 2022年10月11日11:37:16
   - feat(views -> artist): 歌手详情页实现
   - types(types -> constant): 添加常量定义接口
