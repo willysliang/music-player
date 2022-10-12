@@ -22,6 +22,24 @@ export const formatQuantity = (number: number): string | number => {
 }
 
 /***
+ * 文件大小格式化
+ * formatBytes(1234);       // 1.21 KB
+ * formatBytes(1234, 3);    // 1.205 KB
+ * @param {number} bytes 文件的大小
+ * @return 返回格式化后的文件大小
+ * - log(a)b = log(c)b / log(c)a = Math.pow(b, 1/a)
+ */
+export const formatSizeUnits = (bytes: number, decimals = 2) => {
+  if (bytes === 0) return '0 Bytes'
+  const base = 1024 // 1024进制
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] // 单位
+  const currentIndex = Math.floor(Math.log(bytes) / Math.log(base)) // 当前大小所属类型
+  return `${parseFloat(
+    (bytes / Math.pow(base, currentIndex)).toFixed(decimals),
+  )} ${sizes[currentIndex]}`
+}
+
+/***
  * @formatZero 数字补零
  * @num 所要转换的数字
  * @len 数字所需长度
