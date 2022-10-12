@@ -23,6 +23,7 @@
   - feat(utils -> app/browserType)：判定 客户端/浏览器 的系统信息
   - feat(utils -> format/index): 文件大小格式化
   - feat(utils -> cache/storage): 有效时长的缓存类（包含 localStorage、sessionstorage、cookie）
+  - feat(utils -> format/random): 随机生成颜色
 
 ## 2022年10月11日11:37:16
   - feat(views -> artist): 歌手详情页实现
