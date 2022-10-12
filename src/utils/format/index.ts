@@ -25,10 +25,10 @@ export const formatQuantity = (number: number): string | number => {
  * @formatZero 数字补零
  * @num 所要转换的数字
  * @len 数字所需长度
-*/
+ */
 export const formatZero = (num: string | number, len: number) => {
-  if (String(num).length >= len) return num;
-  return (Array(len).join('0') + num).slice(-len);
+  if (String(num).length >= len) return num
+  return (Array(len).join('0') + num).slice(-len)
 }
 
 /***
@@ -95,7 +95,7 @@ export const formatDateTemp = (time: string | Date = new Date()) => {
 
 /***
  * 时间段转换
-*/
+ */
 export const formatDuring = (during: number) => {
   const s = Math.floor(during) % 60
   const i = Math.floor(during / 60) % 60

@@ -20,6 +20,7 @@
 
 ## 2022年10月12日14:13:17
   - fix(components -> songlist): 修复歌曲列表位置错乱问题
+  - feat(utils -> app/browserType)：判定 客户端/浏览器 的系统信息
 
 ## 2022年10月11日11:37:16
   - feat(views -> artist): 歌手详情页实现
