@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:16:36
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 17:11:24
+ * @ Modified time: 2022-10-12 09:39:37
  * @ Description: 歌手详情 -> 歌曲列表模块
  -->
 <script setup lang="ts">
@@ -37,9 +37,17 @@ const offset = computed(() => {
  * - 若歌曲总数小于当前可容纳的歌曲数，则无法触发加载更多
  */
 watchEffect(() => {
-  if (pageData.total <= pageData.limit * offset.value) {
+  if (pageData.total <= pageData.limit * pageData.page) {
     pageData.noMore = true
+  } else {
+    pageData.noMore = false
   }
+  console.log(
+    'more',
+    pageData.total,
+    pageData.limit * pageData.page,
+    pageData.noMore,
+  )
 })
 
 /***
@@ -140,13 +148,9 @@ const loadMore = () => {
 
   <!-- 加载更多 -->
   <div v-if="songlist?.length > 0" class="flex justify-center py-5">
-    <el-button
-      :loading="pageData.loading"
-      text
-      class="text-center w-full"
-      @click="loadMore"
-    >
-      <span class="tool-main">{{ !pageData.noMore ? '加载更多' : '没有更多歌曲啦~' }}</span>
+    <el-button :loading="pageData.loading" text class="text-center w-full">
+      <span v-if="pageData.noMore" class="tool-main">没有更多歌曲啦~</span>
+      <span v-else class="tool-main" @click="loadMore">加载更多</span>
     </el-button>
   </div>
 </template>
