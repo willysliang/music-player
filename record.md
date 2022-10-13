@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年10月13日13:53:35
+  - feat(store -> app/theme): 主题色配置
+
 ## 2022年10月12日14:13:17
   - fix(components -> songlist): 修复歌曲列表位置错乱问题
   - feat(utils -> app/browserType)：判定 客户端/浏览器 的系统信息
