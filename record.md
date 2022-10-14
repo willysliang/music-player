@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年10月14日16:07:26
+  - chore(引进 @vitejs/plugin-vue-jsx，可以使用 jsx/tsx 组件)
+  - chore(修改 build 项目的路由配置信息)
+
 ## 2022年10月13日13:53:35
   - feat(store -> app/theme): 主题色配置
 

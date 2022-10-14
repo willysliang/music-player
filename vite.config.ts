@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from "@vitejs/plugin-vue-jsx"
 import * as path from 'path'
 
 // eslint
@@ -17,9 +18,15 @@ import { viteMockServe } from 'vite-plugin-mock'
 import server from './config/vite/server'
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
   build: {
     // es2020 支持 import.meta 语法
     target: 'es2020',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    }
   },
   resolve: {
     // 设置别名
@@ -36,6 +43,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueJsx(),
     /* eslint取消缓存 */
     eslintPlugin({
       cache: false, // 禁用 eslint 缓存

@@ -7,15 +7,15 @@
     "serve": "cross-env NODE_ENV=development vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
-    "eslint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src",
+    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js、.vue、.tsx、.jsx 的文件",
+    "eslint": "eslint --ext .js,.vue,.ts,.jsx,.tsx --ignore-path .gitignore --fix src",
     "prettier:comment": "自动格式化当前目录下的所有文件",
     "prettier": "prettier --write",
     "commit:comment": "引导设置规范化的提交信息",
     "commit": "git-cz"
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.{js,ts, jsx, tsx}": [
       "npm run eslint",
       "npm run prettier"
     ]
@@ -43,6 +43,7 @@
     "@types/node": "^18.7.17",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/eslint-config-typescript": "^11.0.1",
     "autoprefixer": "^10.4.10",
