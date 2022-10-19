@@ -2,25 +2,56 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-13 13:52:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-13 13:52:52
+ * @ Modified time: 2022-10-19 10:03:06
  * @ Description: 主题配置
  */
 
+import {
+  themeDark,
+  themeLight,
+  themeRealDark,
+  menuSide,
+  menuTop,
+} from '@/assets/icons/theme'
+
+interface Theme {
+  id: number // id编号
+  label: string // 显示的提示
+  value: any // 要展现的内容
+}
+
 /** 主题风格 */
-export const themeStyle = [
+export const themeStyle: Theme[] = [
   {
+    id: 1,
     label: '亮色主题风格',
-    value: 'light',
+    value: themeDark,
   },
   {
+    id: 2,
     label: '暗色主题风格',
-    value: 'dark',
+    value: themeLight,
   },
   {
+    id: 3,
     label: '暗黑模式',
-    value: 'realDark',
+    value: themeRealDark,
   },
-] as const
+]
+
+/** 导航模式（布局方式） */
+export const themeLayout: Theme[] = [
+  {
+    id: 1,
+    label: '侧边菜单布局',
+    value: menuSide,
+  },
+  {
+    id: 2,
+    label: '顶部菜单布局',
+    value: menuTop,
+  },
+]
 
 /** 主题颜色 */
 export const themeColors = [
@@ -63,17 +94,5 @@ export const themeColors = [
     title: '酱紫',
     key: 'purple',
     value: 'rgb(114, 46, 209)',
-  },
-] as const
-
-/** 导航模式（布局方式） */
-export const themeLayout = [
-  {
-    label: '侧边菜单布局',
-    value: 'sidemenu',
-  },
-  {
-    label: '顶部菜单布局',
-    value: 'topmenu',
   },
 ] as const

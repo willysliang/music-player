@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 09:52:55
+ * @ Modified time: 2022-10-18 13:37:17
  * @ Description: 页面大框
  -->
 
@@ -24,7 +24,7 @@ import MyFooter from './footer/index.vue'
       <div class="menu">
         <my-menu />
       </div>
-      <div class="main flex-1 overflow-hidden">
+      <div class="main flex-1 overflow-auto">
         <my-main />
       </div>
     </div>
@@ -39,6 +39,7 @@ import MyFooter from './footer/index.vue'
 <style lang="scss">
 .layout {
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 /* 头部配置 */

@@ -9,6 +9,7 @@ export const useLogin = async (phone: string, password: string) => {
     code: number
     cookie: string
     token: string
+    username: string | undefined | null
   }>({
     url: '/api/login/cellphone',
     params: { phone, password },

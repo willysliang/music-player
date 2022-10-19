@@ -30,6 +30,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-vue: ^9.4.0
   husky: ^8.0.1
+  js-md5: ^0.7.3
   lint-staged: ^13.0.3
   lodash: ^4.17.21
   mockjs: ^1.1.0
@@ -67,6 +68,7 @@ dependencies:
   '@vueuse/core': 9.2.0_vue@3.2.39
   axios: 0.27.2
   element-plus: 2.2.16_vue@3.2.39
+  js-md5: 0.7.3
   lodash: 4.17.21
   mockjs: 1.1.0
   pinia: 2.0.22_arz4dztosvwy2ghjrlh2wdhejm
@@ -3483,6 +3485,10 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  /js-md5/0.7.3:
+    resolution: {integrity: sha512-ZC41vPSTLKGwIRjqDh8DfXoCrdQIyBgspJVPXHBGu4nZlAEvG3nf+jO9avM9RmLiGakg7vz974ms99nEV0tmTQ==}
+    dev: false
 
   /js-sdsl/4.1.4:
     resolution: {integrity: sha512-Y2/yD55y5jteOAmY50JbUZYwk3CP3wnLPEZnlR1w9oKhITrBEtAxwuWKebFf8hMrPMgbYwFoWK/lH2sBkErELw==}

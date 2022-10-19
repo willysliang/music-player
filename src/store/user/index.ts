@@ -1,11 +1,16 @@
 import { defineStore } from 'pinia'
 import type { UserProfile } from '@/types/user'
 import { useLogin, useLoginStatus } from '@/api/module/user'
-import { USER_TOKEN, USER_COOKIE } from '@/config/cache'
+import { Storage } from '@util/cache'
+import $md5 from 'js-md5'
+
+export const USER_TOKEN = 'USERTOKEN' // 用户的token
+export const USER_COOKIE = 'USERCOOKIE' // 用户的cookie
+export const USER_NAME = 'USER_NAME' // 用户名
 
 interface IUserState {
   token: string // token
-  name?: string // 姓名
+  username?: string // 姓名
   cookie: string // cookie
   showLogin: boolean // 是否展现登录弹层
   profile: UserProfile // 用户信息
@@ -14,9 +19,10 @@ interface IUserState {
 export const useUserStore = defineStore({
   id: 'user',
   state: (): IUserState => ({
-    token: '',
+    token: Storage.get(USER_TOKEN, ''),
     cookie: '',
     showLogin: false,
+    username: Storage.get(USER_NAME, 'willys'),
     profile: {} as UserProfile,
   }),
   getters: {
@@ -27,12 +33,16 @@ export const useUserStore = defineStore({
   actions: {
     /* 登录 */
     async login (phone: string, password: string) {
-      const res = await useLogin(phone, password)
+      const res = await useLogin(phone, $md5(password))
       this.token = res?.token || ''
       this.cookie = res?.cookie || ''
       document.cookie = res?.cookie || ''
-      localStorage.setItem(USER_TOKEN, this.token)
-      localStorage.setItem(USER_COOKIE, this.cookie)
+      this.username = res?.username || 'willy'
+
+      const expire = 7 * 24 * 60 * 60 * 1000
+      Storage.set(USER_TOKEN, this.token, expire)
+      Storage.set(USER_COOKIE, this.cookie, expire)
+
       this.checkLogin()
     },
 
@@ -42,6 +52,21 @@ export const useUserStore = defineStore({
         const { data } = await useLoginStatus()
         this.profile = data.profile
         this.showLogin = false
+      } catch {}
+    },
+
+    /** 清除信息 */
+    resetData () {
+      this.token = ''
+      this.username = 'willy'
+      Storage.clear()
+    },
+
+    /** 退出登录 */
+    async LOGOUT () {
+      try {
+        // await useLogout(this.uid)
+        this.resetData()
       } catch {}
     },
   },

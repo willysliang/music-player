@@ -1,6 +1,8 @@
 import axios, { type AxiosRequestConfig, AxiosResponse } from 'axios'
 import { errorMessage } from './status'
-// import { ElMessage } from 'element-plus'
+import { Storage } from '@util/cache'
+import { USER_TOKEN } from '@store/user'
+import { ElMessage } from 'element-plus'
 
 // axios.defaults.baseURL = localStorage.getItem('BASE_URL')?.toString()
 axios.defaults.timeout = 20 * 1000 // 如果请求超时，请求将被中断
@@ -12,12 +14,16 @@ axios.defaults.headers.post['Content-Type'] = 'application/json' // 默认使用
 // 请求拦截器
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
+    const token = Storage.get(USER_TOKEN)
+    if (token && config.headers) {
+      // 请求头token信息
+      // config.headers.Authorization = `Bearer willysliang`
+      config.headers['Authori-zation'] = 'Bearer ' + token
+    }
+
     config.params = {
       ...config.params,
       timeNow: Date.now(),
-    }
-    if (config?.headers?.Authorization) {
-      config.headers.Authorization = `Bearer willysliang`
     }
     return config
   },
@@ -45,7 +51,7 @@ axios.interceptors.response.use(
 )
 
 interface Http {
-  get<T>(uconfig: AxiosRequestConfig): Promise<T>
+  get<T>(config: AxiosRequestConfig): Promise<T>
 
   post<T>(config: AxiosRequestConfig): Promise<T>
 
@@ -57,22 +63,6 @@ interface Http {
 
   download(config: AxiosRequestConfig): void
 }
-
-// export const get = <T>({
-//   url = '',
-//   params,
-// }: AxiosRequestConfig): Promise<T> => {
-//   return new Promise((resolve, reject) => {
-//     axios
-//       .get(url, { params })
-//       .then((res) => {
-//         resolve(res.data)
-//       })
-//       .catch((err) => {
-//         reject(err.data)
-//       })
-//   })
-// }
 
 const http: Http = {
   get ({ url = '', params }) {
@@ -152,6 +142,50 @@ const http: Http = {
 
     document.body.appendChild(iframe)
   },
+}
+
+export interface RequestOptions {
+  /** 当前接口权限, 不需要鉴权的接口请忽略， 格式：sys:user:add */
+  permCode?: string
+  /** 是否直接获取data，而忽略message等 */
+  isGetDataDirectly?: boolean
+  /** 请求成功是提示信息 */
+  successMsg?: string
+  /** 请求失败是提示信息 */
+  errorMsg?: string
+  /** 是否mock数据请求 */
+  isMock?: boolean
+}
+/**
+ *
+ * @param method - request methods
+ * @param url - request url
+ * @param data - request data or params
+ */
+export const request = async <T = any>(
+  config: AxiosRequestConfig,
+  options: RequestOptions = {},
+): Promise<T> => {
+  try {
+    const {
+      successMsg,
+      errorMsg,
+      // permCode,
+      // isMock,
+      isGetDataDirectly = true,
+    } = options
+    // 如果当前是需要鉴权的接口 并且没有权限的话 则终止请求发起
+    // if (permCode && !useUserStore().perms.includes(permCode)) {
+    //   return $message.error('你没有访问该接口的权限，请联系管理员！');
+    // }
+
+    const res = await axios.request(config)
+    successMsg && ElMessage.success(successMsg)
+    errorMsg && ElMessage.error(errorMsg)
+    return isGetDataDirectly ? res.data : res
+  } catch (error: any) {
+    return Promise.reject(error)
+  }
 }
 
 export default http
