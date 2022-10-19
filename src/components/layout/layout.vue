@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-18 13:37:17
+ * @ Modified time: 2022-10-19 19:57:10
  * @ Description: 页面大框
  -->
 
@@ -11,25 +11,44 @@ import MyHeader from './header/index.vue'
 import MyMenu from './menu/index.vue'
 import MyMain from './main/index.vue'
 import MyFooter from './footer/index.vue'
+import { useThemeStore, ThemeLayout } from '@store/app/theme'
+import { storeToRefs } from 'pinia'
+
+const { themeLayoutCurrent } = storeToRefs(useThemeStore())
 </script>
 
 <template>
-  <div class="layout">
+  <div class="box-border overflow-hidden flex flex-col">
+    <div>
+      <div
+        v-if="themeLayoutCurrent === ThemeLayout.MENU_TOP"
+        class="h-12 box-border"
+        style="background-color: var(--theme-second-bg-color)"
+      >
+        <my-menu />
+      </div>
+    </div>
     <div
       class="header w-full flex items-center justify-between box-border text-xl px-4"
     >
       <MyHeader />
     </div>
-    <div class="content">
-      <div class="menu">
+    <div
+      class="flex-1 flex flex-row w-full"
+    >
+      <div
+        v-if="themeLayoutCurrent === ThemeLayout.MENU_SIDE"
+        class="w-48 box-border"
+        style="background-color: var(--theme-second-bg-color)"
+      >
         <my-menu />
       </div>
-      <div class="main flex-1 overflow-auto">
+      <div class="flex-1 overflow-auto">
         <my-main />
       </div>
     </div>
     <div
-      class="footer flex flex-row item-stretch justify-between items-center box-border p-1 w-full"
+      class="footer flex flex-row item-stretch justify-between items-center box-border p-1 pt-2 w-full"
     >
       <my-footer />
     </div>
@@ -37,11 +56,6 @@ import MyFooter from './footer/index.vue'
 </template>
 
 <style lang="scss">
-.layout {
-	box-sizing: border-box;
-	overflow: hidden;
-}
-
 /* 头部配置 */
 .header {
 	background-color: var(--theme-bg-color);
@@ -50,33 +64,11 @@ import MyFooter from './footer/index.vue'
 	border-bottom: 1px solid var(--theme-border-second-color);
 }
 
-/* 主内容框配置 */
-.content {
-	width: 100%;
-	height: calc(100vh - 3.5rem - 4.5rem);
-	display: flex;
-	flex-direction: row;
-}
-
-/* 菜单栏配置 */
-.menu {
-	width: 12rem;
-	background-color: var(--theme-second-bg-color);
-	box-sizing: border-box;
-}
-
-/* 可变区域配置 */
-.main {
-	flex: 1;
-}
-
 /* 脚部配置 */
 .footer {
 	background-color: var(--theme-bg-color);
 	color: var(--theme-color);
 	height: 4.5rem;
 	border-top: 1px solid var(--theme-border-second-color);
-	box-sizing: border-box;
-	padding-bottom: .5rem;
 }
 </style>
