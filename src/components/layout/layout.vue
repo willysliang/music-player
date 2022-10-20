@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-19 19:57:10
+ * @ Modified time: 2022-10-20 10:10:06
  * @ Description: 页面大框
  -->
 
@@ -34,11 +34,12 @@ const { themeLayoutCurrent } = storeToRefs(useThemeStore())
       <MyHeader />
     </div>
     <div
-      class="flex-1 flex flex-row w-full"
+      class="flex flex-row w-full overflow-hidden"
+      style="height: calc(100vh - 3.5rem - 4.5rem)"
     >
       <div
         v-if="themeLayoutCurrent === ThemeLayout.MENU_SIDE"
-        class="w-48 box-border"
+        class="w-48 h-full box-border overflow-auto"
         style="background-color: var(--theme-second-bg-color)"
       >
         <my-menu />

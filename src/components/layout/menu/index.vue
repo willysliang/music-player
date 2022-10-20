@@ -1,35 +1,71 @@
 <script setup lang="ts">
 import IconPark from '@comp/common/IconPark.vue'
-import { useMixinMenu } from './mixinMenu'
-import { useThemeStore, ThemeLayout } from '@store/app/theme'
-import { storeToRefs } from 'pinia'
+import { useMenuHooks, menuList } from './MenuHooks'
 
-const { themeLayoutCurrent } = storeToRefs(useThemeStore())
-const { menuList, currentMenuKey, handleMenuSelect } = useMixinMenu()
+const { handleMenuSelect, currentMenuKey, themeLayoutIsVertical } =
+  useMenuHooks()
 </script>
 
 <template>
-  <el-scrollbar v-if="themeLayoutCurrent === ThemeLayout.MENU_SIDE">
-    <div v-for="menuItem in menuList" :key="menuItem.key" class="px-2">
-      <div class="text-main text-base pl-4 pr-4 pb-2 pt-4">
-        {{ menuItem.title }}
-      </div>
-      <div
+  <el-menu
+    active-text-color="#ffd04b"
+    background-color="rgb(0, 21, 41)"
+    :default-active="currentMenuKey"
+    :unique-opened="!themeLayoutIsVertical"
+    text-color="#fff"
+    :mode="themeLayoutIsVertical ? 'vertical' : 'horizontal'"
+    :collapse-transition="false"
+    :class="[
+      'menus',
+      themeLayoutIsVertical ? 'overflow-x-hidden' : 'overflow-y-hidden',
+    ]"
+    @select="handleMenuSelect"
+  >
+    <el-sub-menu
+      v-for="menuItem in menuList"
+      :key="menuItem.key"
+      :index="menuItem.name"
+    >
+      <template #title>{{ menuItem.title }}</template>
+      <el-menu-item
         v-for="menu in menuItem.children"
         :key="menu.key"
-        class="hover-bg-main flex flex-row items-center pl-4 pr-4 pt-1.5 pb-1.5 text-base rounded cursor-pointer transition-colors"
-        :class="{ active: currentMenuKey === menu.key }"
-        @click="handleMenuSelect(menu)"
+        :index="menu.name"
       >
         <IconPark :icon="menu.icon" size="18" :theme="menu.theme" />
         <span class="pl-2">{{ menu.title }}</span>
-      </div>
-    </div>
-  </el-scrollbar>
+      </el-menu-item>
+    </el-sub-menu>
+  </el-menu>
 </template>
 
 <style scoped lang="scss">
 .active {
 	@apply bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-50 cursor-default;
+}
+
+.menus {
+	height: 100%;
+	width: 100%;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	/* 滚动条 */
+	&::-webkit-scrollbar-thumb {
+		box-sizing: border-box;
+		border-radius: 10px;
+		box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+		background: #ccc;
+	}
+
+	/* 滚动条框 */
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+		border-radius: 0;
+		background: rgb(63 52 52);
+		box-sizing: border-box;
+	}
 }
 </style>
