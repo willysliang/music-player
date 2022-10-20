@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 13:50:10
+ * @ Modified time: 2022-10-20 18:39:22
  * @ Description: 页面布局头部
  -->
 
@@ -30,6 +30,7 @@ const { drawer } = storeToRefs(useThemeStore())
   <!-- 设置类 -->
   <div class="flex items-center justify-between w-48">
     <UserInfo />
+    <el-icon :size="iconSize" :color="iconColor"><Lock /></el-icon>
     <el-icon :size="iconSize" :color="iconColor"><Message /></el-icon>
     <el-icon :size="iconSize" :color="iconColor"><Calendar /></el-icon>
     <el-icon :size="iconSize" :color="iconColor" @click="drawer = true"

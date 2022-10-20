@@ -1,9 +1,18 @@
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-10-20 18:59:35
+ * @ Description: 歌曲播放信息持久化缓存
+ */
+
 import { defineStore, storeToRefs } from 'pinia'
 import type { Song, SongUrl } from '@/types/song'
 import { sample, findIndex, first, last, filter } from 'lodash'
 import { useSongUrl, useSongDetail } from '@/api/module/player'
 import { ElMessage } from 'element-plus'
 import { onMounted, onUnmounted, watch } from 'vue'
+// import { Storage } from '@util/cache'
 
 interface IPlayer {
   /* 功能控制 */
@@ -226,9 +235,11 @@ export const usePlayerStore = defineStore({
      */
     /* 修改播放时间 */
     onSliderChange (val) {
-      this.currentTime = val
-      this.sliderInput = false
-      this.audio.currentTime = val
+      try {
+        this.currentTime = val
+        this.sliderInput = false
+        this.audio.currentTime = val
+      } catch {}
     },
     /* 播放时间拖动中 */
     onSliderInput () {

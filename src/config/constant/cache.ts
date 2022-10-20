@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-20 17:27:25
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 17:43:13
+ * @ Modified time: 2022-10-20 18:59:31
  * @ Description: 持久化缓存的key值存储
  */
 
@@ -25,3 +25,9 @@ export const THEME_STYLE_KEY = 'THEME_STYLE_KEY'
 export const THEME_LAYOUT_KEY = 'THEME_LAYOUT_KEY'
 /** 导航模式（布局方式）活跃的key */
 export const THEME_COLOR_KEY = 'THEME_LAYOUT_KEY'
+
+/***
+ * 当前播放歌曲信息类
+*/
+/** 播放歌曲的控制功能 */
+export const PLAYER_CONTROLLER_KEY = 'PLAYER_CONTROLLER_KEY'

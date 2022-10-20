@@ -23,6 +23,7 @@
   - refactor(config -> constant): 整合常量
   - feat(store -> app -> theme): 配置主题菜单色
   - feat(store -> app -> theme): 暗黑模式设置
+  - feat(store -> app -> theme): 主题颜色设置
 
 
 ## 2022年10月19日08:55:16

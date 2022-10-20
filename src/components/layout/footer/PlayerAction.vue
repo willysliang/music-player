@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 18:16:28
+ * @ Modified time: 2022-10-20 18:49:12
  * @ Description: 页面脚部 -> 操作按钮组件
  -->
 
@@ -26,7 +26,7 @@ const { showPlayList } = toRefs(usePlayerStore())
         :icon="Comment"
         size="22"
         :stroke-width="3"
-        class="hover-text icon-main"
+        class="hover-text"
         title="评论"
       />
     </el-badge>
@@ -35,14 +35,14 @@ const { showPlayList } = toRefs(usePlayerStore())
       :icon="DownTwo"
       size="22"
       :stroke-width="3"
-      class="hover-text icon-main mx-3"
+      class="hover-text mx-3"
       title="下载"
     />
     <IconPark
       :icon="MoreTwo"
       size="22"
       :stroke-width="3"
-      class="hover-text icon-main mx-3"
+      class="hover-text mx-3"
       title="更多"
     />
     <IconPark

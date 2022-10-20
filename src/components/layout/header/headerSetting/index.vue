@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-19 08:48:17
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 17:26:10
+ * @ Modified time: 2022-10-20 18:42:57
  * @ Description: 页面布局头部 - 设置 - 抽屉 - 主题设置
  -->
 
@@ -13,7 +13,8 @@ import { storeToRefs } from 'pinia'
 
 const { drawer, themeStyleCurrent, themeLayoutCurrent, themeColorsCurrent } =
   storeToRefs(useThemeStore())
-const { changeThemeLayout, changeThemeStyle } = useThemeStore()
+const { changeThemeLayout, changeThemeStyle, changeThemeColor } =
+  useThemeStore()
 </script>
 
 <template>
@@ -73,9 +74,9 @@ const { changeThemeLayout, changeThemeStyle } = useThemeStore()
     <div class="relative flex flex-row flex-wrap items-center box-border">
       <div
         v-for="theme in themeColors"
-        :key="theme.value"
+        :key="theme.key"
         class="relative mb-2 mt-1 mr-2 h-10 w-1/6 rounded-md overflow-hidden"
-        @click="themeColorsCurrent = theme.key"
+        @click="changeThemeColor(theme.value)"
       >
         <el-tooltip effect="dark" :content="theme.title" placement="top">
           <div
@@ -84,7 +85,7 @@ const { changeThemeLayout, changeThemeStyle } = useThemeStore()
           />
         </el-tooltip>
         <el-icon
-          v-show="themeColorsCurrent === theme.key"
+          v-show="themeColorsCurrent === theme.value"
           class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style="position: absolute"
           color="#fff"

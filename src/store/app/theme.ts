@@ -2,9 +2,10 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-13 13:42:09
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:09:38
+ * @ Modified time: 2022-10-20 18:52:41
  * @ Description: 主题配置相关的持久化数据
  */
+
 import { defineStore } from 'pinia'
 import { ThemeStype, ThemeLayout } from '@/config/constant/theme'
 import { onBeforeMount } from 'vue'
@@ -20,7 +21,7 @@ interface ThemeStore {
   drawer: boolean
   /** 整体风格活跃的key */
   themeStyleCurrent: any
-  /** 主题颜色活跃的key */
+  /** 主题颜色活跃的value */
   themeColorsCurrent: any
   /** 导航模式（布局方式）活跃的key */
   themeLayoutCurrent: any
@@ -70,6 +71,13 @@ export const useThemeStore = defineStore({
       this.setRealDarkTheme()
     },
 
+    /** 改变主题颜色 */
+    changeThemeColor (value) {
+      this.themeColorsCurrent = value
+      Storage.set(THEME_COLOR_KEY, value)
+      this.setThemeColor()
+    },
+
     /***
      * @description 计算整体风格的层级来改变相应样式
      * 1：亮色主题风格
@@ -106,10 +114,15 @@ export const useThemeStore = defineStore({
     /** 暗黑模式设置 */
     setRealDarkTheme () {
       if (this.themeStyleCurrent === ThemeStype.THEME_REAL_DARK) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add('dark')
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove('dark')
       }
+    },
+
+    /** 主题字体色设置 */
+    setThemeColor () {
+      document.documentElement.style.color = this.themeColorsCurrent
     },
   },
 })
@@ -118,10 +131,11 @@ export const useThemeStore = defineStore({
  * 主题背景初始化
  */
 export const useThemeInit = () => {
-  const { themeStyleLevel, setRealDarkTheme } = useThemeStore()
+  const { themeStyleLevel, setRealDarkTheme, setThemeColor } = useThemeStore()
 
   onBeforeMount(() => {
     themeStyleLevel()
     setRealDarkTheme()
+    setThemeColor()
   })
 }

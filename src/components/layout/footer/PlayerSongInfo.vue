@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-10-20 18:51:28
+ * @ Description: 歌曲信息
+ -->
+
 <script setup lang="ts">
 import IconPark from '@comp/common/IconPark.vue'
 import { Like } from '@icon-park/vue-next'
@@ -31,7 +39,7 @@ const handleLike = () => {
           :theme="isLike ? 'filled' : 'outline'"
           size="18"
           :stroke-width="3"
-          class="pl-1 hover-text text-red-500"
+          :class="['pl-1 hover-text', isLike ? 'text-red-500' : '']"
           @click="handleLike"
         />
       </div>

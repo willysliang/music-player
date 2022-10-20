@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 18:06:25
+ * @ Modified time: 2022-10-20 18:49:45
  * @ Description: 页面大框 - 歌曲列表弹层
  -->
 
@@ -71,9 +71,6 @@ const {
 
 <style lang="scss">
 .play-list {
-	// top: 3.5rem !important;
-	// bottom: 4rem !important;
-	// height: calc(100% - 3.5rem - 4rem) !important;
 
 	.el-drawer__body {
 		padding: 0;
