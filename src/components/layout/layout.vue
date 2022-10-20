@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 17:14:03
+ * @ Modified time: 2022-10-20 18:14:27
  * @ Description: 页面大框
  -->
 
@@ -76,8 +76,8 @@ useThemeInit()
 
 /* 头部配置 */
 .header {
-	background-color: var(--theme-bg-color);
-	color: var(--theme-color);
+	// background-color: var(--theme-bg-color);
+	// color: var(--theme-color);
 	height: 3.5rem;
 	border-bottom: 1px solid var(--theme-border-second-color);
 	@apply w-full flex items-center justify-between;
@@ -86,8 +86,8 @@ useThemeInit()
 
 /* 脚部配置 */
 .footer {
-	background-color: var(--theme-bg-color);
-	color: var(--theme-color);
+	// background-color: var(--theme-bg-color);
+	// color: var(--theme-color);
 	height: 4.5rem;
 	border-top: 1px solid var(--theme-border-second-color);
 	@apply flex flex-row justify-between items-center;

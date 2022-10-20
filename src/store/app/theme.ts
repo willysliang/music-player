@@ -2,16 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-13 13:42:09
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 17:25:23
+ * @ Modified time: 2022-10-20 18:09:38
  * @ Description: 主题配置相关的持久化数据
  */
 import { defineStore } from 'pinia'
-import {
-  ThemeStype,
-  ThemeLayout,
-} from '@/config/constant/theme'
+import { ThemeStype, ThemeLayout } from '@/config/constant/theme'
 import { onBeforeMount } from 'vue'
-// import { Storage } from '@util/cache'
+import { Storage } from '@util/cache'
+import {
+  THEME_STYLE_KEY,
+  THEME_LAYOUT_KEY,
+  THEME_COLOR_KEY,
+} from '@/config/constant/cache'
 
 interface ThemeStore {
   /** 设置抽屉开关控制 */
@@ -37,9 +39,9 @@ export const useThemeStore = defineStore({
   id: 'theme',
   state: (): ThemeStore => ({
     drawer: false,
-    themeStyleCurrent: ThemeStype.THEME_DARK,
-    themeLayoutCurrent: ThemeLayout.MENU_SIDE,
-    themeColorsCurrent: 'rgb(24, 144, 255)',
+    themeStyleCurrent: Storage.get(THEME_STYLE_KEY) || ThemeStype.THEME_DARK,
+    themeLayoutCurrent: Storage.get(THEME_LAYOUT_KEY) || ThemeLayout.MENU_SIDE,
+    themeColorsCurrent: Storage.get(THEME_COLOR_KEY) || 'rgb(24, 144, 255)',
 
     /***
      * 菜单色配置
@@ -54,19 +56,22 @@ export const useThemeStore = defineStore({
       state.themeLayoutCurrent === ThemeLayout.MENU_TOP,
   },
   actions: {
-    /** 改变整体风格 */
-    changeThemeStyle (key) {
-      this.themeStyleCurrent = key
-      this.themeStyleLevel()
-    },
-
     /** 改变航模式（布局方式） */
     changeThemeLayout (key) {
       this.themeLayoutCurrent = key
+      Storage.set(THEME_LAYOUT_KEY, key)
+    },
+
+    /** 改变整体风格 */
+    changeThemeStyle (key) {
+      this.themeStyleCurrent = key
+      Storage.set(THEME_STYLE_KEY, key)
+      this.themeStyleLevel()
+      this.setRealDarkTheme()
     },
 
     /***
-     * 计算整体风格的层级来改变相应样式
+     * @description 计算整体风格的层级来改变相应样式
      * 1：亮色主题风格
      * 2：暗色主题风格
      * 3：暗黑模式
@@ -97,6 +102,15 @@ export const useThemeStore = defineStore({
           this.menuTextColor = 'rgb(0, 21, 41)'
       }
     },
+
+    /** 暗黑模式设置 */
+    setRealDarkTheme () {
+      if (this.themeStyleCurrent === ThemeStype.THEME_REAL_DARK) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    },
   },
 })
 
@@ -104,9 +118,10 @@ export const useThemeStore = defineStore({
  * 主题背景初始化
  */
 export const useThemeInit = () => {
-  const { themeStyleLevel } = useThemeStore()
+  const { themeStyleLevel, setRealDarkTheme } = useThemeStore()
 
   onBeforeMount(() => {
     themeStyleLevel()
+    setRealDarkTheme()
   })
 }
