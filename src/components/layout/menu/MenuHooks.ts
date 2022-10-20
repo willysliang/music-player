@@ -12,7 +12,8 @@ import { Icon } from '@icon-park/vue-next/lib/runtime'
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
-import { useThemeStore, ThemeLayout } from '@store/app/theme'
+import { ThemeLayout } from '@/config/constant/theme'
+import { useThemeStore } from '@store/app/theme'
 import { storeToRefs } from 'pinia'
 
 interface IMenu {
@@ -109,7 +110,7 @@ export function useMenuHooks () {
   const { themeLayoutCurrent } = storeToRefs(useThemeStore())
   /** 判断主题是否为横栏 */
   const themeLayoutIsVertical = computed<boolean>(
-    () => themeLayoutCurrent.value === ThemeLayout.MENU_SIDE,
+    () => themeLayoutCurrent.value === ThemeLayout.MENU_TOP,
   )
 
   /** 获取路由 */
@@ -128,7 +129,9 @@ export function useMenuHooks () {
   /** 选择菜单项 */
   const handleMenuSelect = (name, indexPath) => {
     console.log(indexPath)
-    router.push({ name, replace: false })
+    if (name !== 'logo') {
+      router.push({ name, replace: false })
+    }
   }
 
   return {

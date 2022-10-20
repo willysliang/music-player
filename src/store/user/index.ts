@@ -3,10 +3,7 @@ import type { UserProfile } from '@/types/user'
 import { useLogin, useLoginStatus } from '@/api/module/user'
 import { Storage } from '@util/cache'
 import $md5 from 'js-md5'
-
-export const USER_TOKEN = 'USERTOKEN' // 用户的token
-export const USER_COOKIE = 'USERCOOKIE' // 用户的cookie
-export const USER_NAME = 'USER_NAME' // 用户名
+import { USER_TOKEN, USER_COOKIE, USER_NAME } from '@/config/constant/cache'
 
 interface IUserState {
   token: string // token

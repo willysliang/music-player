@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-19 09:36:06
+ * @ Modified time: 2022-10-20 13:50:10
  * @ Description: 页面布局头部
  -->
 
@@ -14,19 +14,11 @@ import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useThemeStore } from '@store/app/theme'
 
-const { iconColor, iconSize, logoName } = storeToRefs(useAppStore())
+const { iconColor, iconSize } = storeToRefs(useAppStore())
 const { drawer } = storeToRefs(useThemeStore())
 </script>
 
 <template>
-  <!-- logo 固定宽120px -->
-  <div class="flex items-center w-48 h-full overflow-hidden box-border">
-    <el-icon :size="iconSize + 10" :color="iconColor">
-      <Headset />
-    </el-icon>
-    <span class="header-logo-title ml-2">{{ logoName }}</span>
-  </div>
-
   <div class="flex items-center">
     <el-icon :size="iconSize" :color="iconColor"><ArrowLeft /></el-icon>
     <el-icon :size="iconSize" :color="iconColor"><ArrowRight /></el-icon>

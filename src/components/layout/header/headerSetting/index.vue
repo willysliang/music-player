@@ -2,21 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-19 08:48:17
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-19 19:48:21
+ * @ Modified time: 2022-10-20 17:26:10
  * @ Description: 页面布局头部 - 设置 - 抽屉 - 主题设置
  -->
 
 <script setup lang="ts">
-import {
-  useThemeStore,
-  themeStyle,
-  themeLayout,
-  themeColors,
-} from '@store/app/theme'
+import { themeStyle, themeLayout, themeColors } from '@/config/constant/theme'
+import { useThemeStore } from '@store/app/theme'
 import { storeToRefs } from 'pinia'
 
 const { drawer, themeStyleCurrent, themeLayoutCurrent, themeColorsCurrent } =
   storeToRefs(useThemeStore())
+const { changeThemeLayout, changeThemeStyle } = useThemeStore()
 </script>
 
 <template>
@@ -28,7 +25,7 @@ const { drawer, themeStyleCurrent, themeLayoutCurrent, themeColorsCurrent } =
         v-for="theme in themeStyle"
         :key="theme.value"
         class="relative mr-2 mb-2 mt-1 rounded-md overflow-hidden"
-        @click="themeStyleCurrent = theme.key"
+        @click="changeThemeStyle(theme.key)"
       >
         <el-tooltip effect="dark" :content="theme.label" placement="top">
           <img :src="theme.value" alt="整体风格图标" />
@@ -53,7 +50,7 @@ const { drawer, themeStyleCurrent, themeLayoutCurrent, themeColorsCurrent } =
         v-for="theme in themeLayout"
         :key="theme.value"
         class="relative mr-2 mb-2 mt-1 rounded-md overflow-hidden"
-        @click="themeLayoutCurrent = theme.key"
+        @click="changeThemeLayout(theme.key)"
       >
         <el-tooltip effect="dark" :content="theme.label" placement="top">
           <img :src="theme.value" alt="导航模式图标" />

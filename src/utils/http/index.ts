@@ -1,7 +1,7 @@
 import axios, { type AxiosRequestConfig, AxiosResponse } from 'axios'
 import { errorMessage } from './status'
 import { Storage } from '@util/cache'
-import { USER_TOKEN } from '@store/user'
+import { USER_TOKEN } from '@/config/constant/cache'
 import { ElMessage } from 'element-plus'
 
 // axios.defaults.baseURL = localStorage.getItem('BASE_URL')?.toString()

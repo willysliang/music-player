@@ -1,26 +1,44 @@
 <script setup lang="ts">
 import IconPark from '@comp/common/IconPark.vue'
+import { Music } from '@icon-park/vue-next'
 import { useMenuHooks, menuList } from './MenuHooks'
+import { useThemeStore } from '@store/app/theme'
+import { storeToRefs } from 'pinia'
 
-const { handleMenuSelect, currentMenuKey, themeLayoutIsVertical } =
-  useMenuHooks()
+const {
+  themeLayoutIsVertical,
+  menuActiveTextColor,
+  menuBgColor,
+  menuTextColor,
+} = storeToRefs(useThemeStore())
+const { handleMenuSelect, currentMenuKey } = useMenuHooks()
 </script>
 
 <template>
   <el-menu
-    active-text-color="#ffd04b"
-    background-color="rgb(0, 21, 41)"
+    :active-text-color="menuActiveTextColor"
+    :background-color="menuBgColor"
+    :text-color="menuTextColor"
     :default-active="currentMenuKey"
-    :unique-opened="!themeLayoutIsVertical"
-    text-color="#fff"
-    :mode="themeLayoutIsVertical ? 'vertical' : 'horizontal'"
+    :unique-opened="themeLayoutIsVertical"
+    :mode="themeLayoutIsVertical ? 'horizontal' : 'vertical'"
     :collapse-transition="false"
     :class="[
       'menus',
-      themeLayoutIsVertical ? 'overflow-x-hidden' : 'overflow-y-hidden',
+      themeLayoutIsVertical ? 'overflow-y-hidden' : 'overflow-x-hidden',
     ]"
     @select="handleMenuSelect"
   >
+    <el-menu-item index="logo">
+      <IconPark
+        :icon="Music"
+        size="28"
+        theme="multi-color"
+        :fill="['#d42121', '#e07813', '#da1616', '#d8ba24']"
+        :stroke-width="3"
+      />
+      <span class="ml-2">WILLY云音乐</span>
+    </el-menu-item>
     <el-sub-menu
       v-for="menuItem in menuList"
       :key="menuItem.key"
