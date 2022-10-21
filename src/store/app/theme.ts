@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-13 13:42:09
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:52:41
+ * @ Modified time: 2022-10-21 11:36:51
  * @ Description: 主题配置相关的持久化数据
  */
 
@@ -86,13 +86,13 @@ export const useThemeStore = defineStore({
      */
     themeStyleLevel () {
       switch (this.themeStyleCurrent) {
-        case ThemeStype.THEME_DARK:
+        case ThemeStype.THEME_LIGHT:
           this.menuActiveTextColor = '#d42121'
           this.menuBgColor = '#fff'
           this.menuTextColor = 'rgb(0, 21, 41)'
           break
 
-        case ThemeStype.THEME_LIGHT:
+        case ThemeStype.THEME_DARK:
           this.menuActiveTextColor = 'rgb(226, 54, 82)'
           this.menuBgColor = 'rgb(0, 21, 41)'
           this.menuTextColor = '#fff'

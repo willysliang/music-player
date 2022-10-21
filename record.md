@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年10月21日11:53:12
+  - feat(store -> player): 播放器状态缓存
+  - perf(layout -> footer -> playerlist): 歌曲列表滚动条优化
+
 ## 2022年10月20日10:11:33
   - feat(layout -> menu -> menuHooks): 导航模式（布局方式）配置
   - refactor(config -> constant): 整合常量

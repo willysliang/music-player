@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:59:35
+ * @ Modified time: 2022-10-21 11:51:47
  * @ Description: 歌曲播放信息持久化缓存
  */
 
@@ -11,63 +11,99 @@ import type { Song, SongUrl } from '@/types/song'
 import { sample, findIndex, first, last, filter } from 'lodash'
 import { useSongUrl, useSongDetail } from '@/api/module/player'
 import { ElMessage } from 'element-plus'
-import { onMounted, onUnmounted, watch } from 'vue'
-// import { Storage } from '@util/cache'
+import { onBeforeUnmount, onMounted, onUnmounted, watch } from 'vue'
+import { Storage } from '@util/cache'
+import { PLAYER_CONTROLLER_KEY } from '@/config/constant/cache'
 
-interface IPlayer {
-  /* 功能控制 */
-  currentTime: number // 当前播放时间
-  duration: number // 总播放时长
-  isPlaying: boolean // 是否播放中
-  sliderInput: boolean // 是否正在拖动进度条
-  ended: boolean // 是否播放结束
-  muted: false // 是否静音
-  loopType: number // 循环模式 0 单曲循环 1 列表循环 2随机播放
-  volume: number // 音量
-
-  /* 接口音频 */
-  song: Song // 歌曲详情信息
-  songUrl: SongUrl // 歌曲地址
-  audio: HTMLAudioElement // 当前播放的音频
-  playList: Song[] // 播放列表
-  playId: number // 所在播放的音乐 id 序号
-
-  /* 歌曲列表 */
-  showPlayList: boolean // 歌曲列表的弹层显隐控制
+/***
+ * 音乐播放器功能控制
+ */
+/** 音乐播放器功能接口 */
+export interface IPlayerController {
+  /** 当前播放时间 */
+  currentTime: number
+  /** 总播放时长 */
+  duration: number
+  /** 是否播放中 */
+  isPlaying: boolean
+  /** 是否正在拖动进度条 */
+  sliderInput: boolean
+  /** 是否播放结束 */
+  ended: boolean
+  /** 是否静音 */
+  muted: false
+  /** 循环模式 0 单曲循环 1 列表循环 2随机播放 */
+  loopType: number
+  /** 音量 */
+  volume: number
+}
+/** 音乐播放器功能控制默认值 */
+const playerController: IPlayerController = {
+  currentTime: 0, // 当前播放时间
+  duration: 0, // 总播放时长
+  sliderInput: false, // 是否正在拖动进度条
+  isPlaying: false, // 是否播放中
+  ended: false, // 是否播放结束
+  muted: false, // 是否静音
+  loopType: 0, // 循环模式 0 单曲循环 1 列表循环 2随机播放
+  volume: 60, // 音量
+}
+/** 获取音乐播放器缓存设置 */
+const getLocalPlayerContronllerConfig = (): Partial<IPlayerController> => {
+  try {
+    const defaultValue = JSON.stringify(playerController)
+    return {
+      ...playerController,
+      ...JSON.parse(Storage.get(PLAYER_CONTROLLER_KEY, defaultValue)),
+    }
+  } catch {
+    return playerController
+  }
 }
 
+/** 接口音频 */
+export interface IPlayerStore extends IPlayerController {
+  /** 歌曲详情信息 */
+  song: Song
+  /** 歌曲地址 */
+  songUrl: SongUrl
+  /** 当前播放的音频 */
+  audio: HTMLAudioElement
+  /** 播放列表 */
+  playList: Song[]
+  /** 所在播放的音乐 id 序号 */
+  playId: number
+
+  /** 歌曲列表的弹层显隐控制 */
+  showPlayList: boolean
+}
+
+/** 音乐播放器的全局状态管理 */
 export const usePlayerStore = defineStore({
   id: 'player',
-  state: (): IPlayer => ({
+  state: (): IPlayerStore => ({
     /* 功能控制 */
-    currentTime: 0, // 当前播放时间
-    duration: 0, // 总播放时长
-    sliderInput: false, // 是否正在拖动进度条
-    isPlaying: false, // 是否播放中
-    ended: false, // 是否播放结束
-    muted: false, // 是否静音
-    loopType: 0, // 循环模式 0 单曲循环 1 列表循环 2随机播放
-    volume: 60, // 音量
+    ...getLocalPlayerContronllerConfig() as IPlayerController,
 
     /* 接口音频 */
     audio: new Audio(),
     song: {} as Song,
     songUrl: <SongUrl>{},
-    playList: <Song[]>[], // 已播放列表
-    playId: 0, // 所在播放的音乐 id 序号
+    playList: <Song[]>[],
+    playId: 0,
 
     /* 歌曲列表 */
-    showPlayList: false, // 歌曲列表的弹层显隐控制
+    showPlayList: false,
   }),
 
   getters: {
-    /* 播放列表总数 */
+    /** 播放列表总数 */
     playListCount: (state) => state.playList.length,
-    /* 当前播放的音乐所在索引 */
+    /** 当前播放的音乐所在索引 */
     currentSongIndex: (state): number => {
       return findIndex(state.playList, (song) => song.id === state.playId)
     },
-    /* 下一首歌 */
+    /** 下一首歌 */
     nextSong (state): Song {
       const { playListCount, currentSongIndex } = this
       if (currentSongIndex === playListCount - 1) {
@@ -77,7 +113,7 @@ export const usePlayerStore = defineStore({
         return state.playList[nextSongIndex]
       }
     },
-    /* 上一首歌 */
+    /** 上一首歌 */
     prevSong (state): Song | undefined {
       const { currentSongIndex } = this
       if (currentSongIndex === -1) return undefined
@@ -94,11 +130,11 @@ export const usePlayerStore = defineStore({
     /***
      * 播放流程
      */
-    /* 初始化播放 */
+    /** 初始化播放 */
     init () {
       this.audio.volume = this.volume / 100
     },
-    /* 播放定时器 */
+    /** 播放定时器 */
     interval () {
       if (this.isPlaying && !this.sliderInput) {
         this.currentTime = Number.parseInt(this.audio.currentTime.toString())
@@ -106,7 +142,7 @@ export const usePlayerStore = defineStore({
         this.ended = this.audio.ended
       }
     },
-    /* 播放结束 */
+    /** 播放结束 */
     playEnd () {
       switch (this.loopType) {
         case 0:
@@ -126,7 +162,7 @@ export const usePlayerStore = defineStore({
     /***
      * 歌曲接口
      */
-    /* 获取播放视频接口 */
+    /** 获取播放视频接口 */
     async getPlay (id: number) {
       if (id === this.playId || !id) return undefined
       this.isPlaying = false
@@ -139,16 +175,17 @@ export const usePlayerStore = defineStore({
         this.getSongDetail(id)
       })
     },
-    /* 获取歌曲详情 */
+    /** 获取歌曲详情 */
     async getSongDetail (id: number) {
       // this.song = await useSongDetail(this.playId)
       this.song = await useSongDetail(id)
-      this.pushPlayList(this.song)
+      this.pushPlayList(false, this.song)
     },
-    /* 播放列表添加音乐 */
-    pushPlayList (...list: Song[]) {
-      if (this.playListCount <= 0) {
+    /** 播放列表添加音乐 */
+    pushPlayList (replace: boolean, ...list: Song[]) {
+      if (replace || this.playListCount <= 0) {
         this.playList = list
+        return undefined
       } else {
         list.forEach((song) => {
           if (filter(this.playList, (s) => s.id === song.id).length <= 0) {
@@ -161,7 +198,7 @@ export const usePlayerStore = defineStore({
     /***
      * 播放图标触发事件
      */
-    /* 切换循环模式 */
+    /** 切换循环模式 */
     toggleLoop () {
       if (this.loopType >= 2) {
         this.loopType = 0
@@ -169,7 +206,7 @@ export const usePlayerStore = defineStore({
         this.loopType++
       }
     },
-    /* 播放控制按钮：播放、暂停 */
+    /** 播放控制按钮：播放、暂停 */
     togglePlay () {
       if (!this.song.id) return undefined
       this.isPlaying = !this.isPlaying
@@ -184,17 +221,17 @@ export const usePlayerStore = defineStore({
         this.getPlay(this.prevSong?.id)
       }
     },
-    /* 顺序播放：切换下一首歌 */
+    /** 顺序播放：切换下一首歌 */
     toggleNextSong () {
       // 如果循环模式为随机播放，则在列表中随机寻找歌曲播放
       if (this.loopType === 2) {
         this.randomPlay()
       } else {
-        // this.getPlay(this.nextSong?.id)
-        this.getPlay(1985352742)
+        this.getPlay(this.nextSong?.id)
+        // this.getPlay(1985352742)
       }
     },
-    /* 重新播放当前歌曲 */
+    /** 重新播放当前歌曲 */
     replaySong () {
       setTimeout(() => {
         this.currentTime = 0
@@ -221,10 +258,10 @@ export const usePlayerStore = defineStore({
 
     /***
      * 播放按钮
-    */
-    /* 播放全部 */
+     */
+    /** 播放全部 */
     playAll (list: Song[]) {
-      this.pushPlayList(...list)
+      this.pushPlayList(true, ...list)
       if (this.playListCount > 0) {
         this.getPlay(first(this.playList).id)
       }
@@ -233,7 +270,7 @@ export const usePlayerStore = defineStore({
     /***
      * 播放滚动条
      */
-    /* 修改播放时间 */
+    /** 修改播放时间 */
     onSliderChange (val) {
       try {
         this.currentTime = val
@@ -241,15 +278,15 @@ export const usePlayerStore = defineStore({
         this.audio.currentTime = val
       } catch {}
     },
-    /* 播放时间拖动中 */
+    /** 播放时间拖动中 */
     onSliderInput () {
       this.sliderInput = true
     },
 
     /***
      * 歌曲列表
-    */
-    /* 清空歌曲列表 及 相关联的状态列表 */
+     */
+    /** 清空歌曲列表 及 相关联的状态列表 */
     clearPlayList () {
       // 清空状态条
       this.currentTime = 0
@@ -290,6 +327,15 @@ export const usePlayerInit = () => {
     init()
     console.log('启动定时器')
     timer = setInterval(interval, 1000)
+  })
+
+  /** 保存持久化缓存 */
+  const { currentTime, duration, muted, loopType, volume } = usePlayerStore()
+  onBeforeUnmount(() => {
+    Storage.set(
+      PLAYER_CONTROLLER_KEY,
+      JSON.stringify({ currentTime, duration, muted, loopType, volume }),
+    )
   })
 
   // 清除定时器

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-20 17:23:52
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 17:24:27
+ * @ Modified time: 2022-10-21 11:33:51
  * @ Description: 主题配置的常量
  */
 
@@ -30,13 +30,13 @@ export enum ThemeStype {
 export const themeStyle: Theme[] = [
   {
     label: '亮色主题风格',
-    value: themeDark,
-    key: ThemeStype.THEME_DARK,
+    value: themeLight,
+    key: ThemeStype.THEME_LIGHT,
   },
   {
     label: '暗色主题风格',
-    value: themeLight,
-    key: ThemeStype.THEME_LIGHT,
+    value: themeDark,
+    key: ThemeStype.THEME_DARK,
   },
   {
     label: '暗黑模式',
