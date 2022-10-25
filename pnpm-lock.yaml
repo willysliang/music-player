@@ -34,6 +34,7 @@ specifiers:
   lint-staged: ^13.0.3
   lodash: ^4.17.21
   mockjs: ^1.1.0
+  nprogress: ^0.2.0
   pinia: ^2.0.22
   postcss: ^8.4.16
   postcss-html: ^1.5.0
@@ -71,6 +72,7 @@ dependencies:
   js-md5: 0.7.3
   lodash: 4.17.21
   mockjs: 1.1.0
+  nprogress: 0.2.0
   pinia: 2.0.22_arz4dztosvwy2ghjrlh2wdhejm
   rollup: 2.79.0
   swiper: 8.4.3
@@ -3957,6 +3959,10 @@ packages:
     dependencies:
       path-key: 4.0.0
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}

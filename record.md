@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年10月25日17:06:27
+  - chore(引入 nprogress 进度条)
+  - perf(router -> routerGuards): 设置路由守卫函数，页面加载时控制进度条展现
+
 ## 2022年10月21日11:53:12
   - feat(store -> player): 播放器状态缓存
   - perf(layout -> footer -> playerlist): 歌曲列表滚动条优化

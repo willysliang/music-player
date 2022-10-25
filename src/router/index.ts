@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { Pages } from './constant'
+import { createRouterGuards } from './routerGuards'
 
 const routes = [
   {
-    path: '/login',
+    path: Pages.LOGIN.path,
     name: Pages.LOGIN.name,
     meta: {
       ...Pages.LOGIN,
@@ -24,7 +25,7 @@ const routes = [
     component: () => import('../views/root.vue'),
     children: [
       {
-        path: 'discover',
+        path: Pages.DISCOVER.path,
         name: Pages.DISCOVER.name,
         component: () => import('../views/discover/index.vue'),
         meta: {
@@ -33,7 +34,7 @@ const routes = [
         },
       },
       {
-        path: 'playlist',
+        path: Pages.PLAYLIST.path,
         name: Pages.PLAYLIST.name,
         component: () => import('../views/playlist/index.vue'),
         meta: {
@@ -41,7 +42,7 @@ const routes = [
         },
       },
       {
-        path: 'album',
+        path: Pages.ALBUM.path,
         name: Pages.ALBUM.name,
         component: () => import('../views/album/index.vue'),
         meta: {
@@ -49,7 +50,7 @@ const routes = [
         },
       },
       {
-        path: 'artist',
+        path: Pages.ARTIST.path,
         name: Pages.ARTIST.name,
         component: () => import('../views/artist/index.vue'),
         meta: {
@@ -64,5 +65,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_PATH as string),
   routes,
 })
+
+createRouterGuards(router)
 
 export default router
