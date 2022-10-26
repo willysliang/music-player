@@ -18,6 +18,11 @@
 
 # 更新记录
 
+## 2022年10月26日09:56:35
+  - feat(components -> base -> lockscreen): 屏幕锁屏
+  - chore(引入 vue-i18n@next 国际化语言插件)
+  - feat(locales): 国际化语言配置
+
 ## 2022年10月25日17:06:27
   - chore(引入 nprogress 进度条)
   - perf(router -> routerGuards): 设置路由守卫函数，页面加载时控制进度条展现
