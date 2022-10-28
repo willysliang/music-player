@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年10月28日17:55:04
+  - feat(locales、layout->header->headerLocale): 国际化语言配置
+
 ## 2022年10月26日09:56:35
   - feat(components -> base -> lockscreen): 屏幕锁屏
   - chore(引入 vue-i18n@next 国际化语言插件)

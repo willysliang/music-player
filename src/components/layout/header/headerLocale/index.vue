@@ -2,25 +2,20 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-28 11:40:32
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-28 17:38:23
+ * @ Modified time: 2022-10-28 18:08:13
  * @ Description: 中英文语言切换
  -->
 
 <script setup lang="ts">
 import { Translate } from '@icon-park/vue-next'
 import { localeList } from '@/locales/config'
-import type { LocaleType } from '@/locales/config'
 import { useLocaleHook } from '@/locales/useLocaleHook'
 import { useAppStore } from '@store/app'
 import { storeToRefs } from 'pinia'
 
 /** 切换语言 */
-const { changeLocale } = useLocaleHook()
+const { toggleLocale } = useLocaleHook()
 const { localeType } = storeToRefs(useAppStore())
-const toggleLocale = (lang: LocaleType) => {
-  console.log(lang)
-  changeLocale(lang)
-}
 </script>
 
 <template>

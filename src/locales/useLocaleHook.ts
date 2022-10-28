@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-28 12:03:44
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-28 17:52:59
+ * @ Modified time: 2022-10-28 18:07:57
  * @ Description: 使用国际化多语言的函数
  */
 
@@ -41,7 +41,7 @@ export function useLocaleHook () {
   )
 
   /** 切换语言 */
-  async function changeLocale (locale: LocaleType) {
+  async function toggleLocale (locale: LocaleType) {
     const globalI18n = i18n.global
     const currentLocale = unref(globalI18n.locale)
     if (currentLocale === locale) {
@@ -69,6 +69,6 @@ export function useLocaleHook () {
   return {
     getLocale,
     getElLocale,
-    changeLocale,
+    toggleLocale,
   }
 }
