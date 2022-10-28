@@ -5,6 +5,7 @@ import router from './router'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
+import { setupI18n } from './locales'
 
 import './styles/index.scss'
 
@@ -13,4 +14,15 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 
-app.use(store).use(router).use(ElementPlus).mount('#app')
+async function setupApp () {
+  app.use(store)
+  app.use(ElementPlus)
+
+  await setupI18n(app)
+
+  app.use(router)
+
+  app.mount('#app')
+}
+
+setupApp()

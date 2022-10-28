@@ -61,11 +61,11 @@ const getCode = async () => {
 
 <template>
   <el-avatar
-    :size="iconSize"
+    :size="iconSize + 6"
     src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
   />
   <span v-if="isLogin" class="text-sm">{{ profile.nickname }}</span>
-  <span v-else class="text-sm" @click="showLogin = true">点击登录</span>
+  <!-- <span v-else class="text-sm" @click="showLogin = true">点击登录</span> -->
 
   <el-dialog
     v-model="showLogin"

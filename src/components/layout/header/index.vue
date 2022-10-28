@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:39:22
+ * @ Modified time: 2022-10-28 11:46:38
  * @ Description: 页面布局头部
  -->
 
@@ -13,6 +13,7 @@ import HeaderSetting from './headerSetting/index.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useThemeStore } from '@store/app/theme'
+import HeaderLocale from './headerLocale/index.vue'
 
 const { iconColor, iconSize } = storeToRefs(useAppStore())
 const { drawer } = storeToRefs(useThemeStore())
@@ -30,12 +31,19 @@ const { drawer } = storeToRefs(useThemeStore())
   <!-- 设置类 -->
   <div class="flex items-center justify-between w-48">
     <UserInfo />
-    <el-icon :size="iconSize" :color="iconColor"><Lock /></el-icon>
+    <el-tooltip :content="$t('layout.header.tooltipLock')" placement="bottom">
+      <el-icon :size="iconSize" :color="iconColor"><Lock /></el-icon>
+    </el-tooltip>
+
     <el-icon :size="iconSize" :color="iconColor"><Message /></el-icon>
     <el-icon :size="iconSize" :color="iconColor"><Calendar /></el-icon>
-    <el-icon :size="iconSize" :color="iconColor" @click="drawer = true"
-      ><Setting
-    /></el-icon>
+
+    <!-- 语言设置 -->
+    <HeaderLocale />
+
+    <el-icon :size="iconSize" :color="iconColor" @click="drawer = true">
+      <Setting />
+    </el-icon>
   </div>
 
   <HeaderSetting />

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-26 17:32:15
+ * @ Modified time: 2022-10-27 18:28:39
  * @ Description: App 相关的持久化数据
  */
 
@@ -19,7 +19,7 @@ interface IAppStore {
   /** 常规图标颜色 */
   iconColor: string
   /** 常规图标大小 */
-  iconSize: number | string
+  iconSize: any
 
   /** 国际化语言类型 */
   localeType: LocaleType
@@ -37,7 +37,7 @@ export const useAppStore = defineStore({
 
   getters: {
     /** 获取国际化语言类型 */
-    getLocale: (state):LocaleType => (state.localeType ?? 'zh_CN'),
+    getLocale: (state): LocaleType => state.localeType ?? 'zh_CN',
   },
 
   actions: {
@@ -51,5 +51,5 @@ export const useAppStore = defineStore({
 
 /** 在非 setup 函数外面使用 */
 export function useAppStoreWithOut () {
-  return useAppStore(store);
+  return useAppStore(store)
 }
