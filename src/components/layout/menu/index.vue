@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import IconPark from '@comp/common/IconPark.vue'
 import { Music } from '@icon-park/vue-next'
-import { useMenuHooks, menuList } from './MenuHooks'
+import { useMenuHooks } from './MenuHooks'
+import { menuList } from '@/router/constant'
 import { useThemeStore } from '@store/app/theme'
 import { storeToRefs } from 'pinia'
 
@@ -50,7 +51,7 @@ const { handleMenuSelect, currentMenuKey } = useMenuHooks()
         :key="menu.key"
         :index="menu.name"
       >
-        <IconPark :icon="menu.icon" size="18" :theme="menu.theme" />
+        <IconPark :icon="menu.icon" size="18" theme="outline" />
         <span class="pl-2">{{ menu.title }}</span>
       </el-menu-item>
     </el-sub-menu>

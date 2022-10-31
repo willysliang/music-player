@@ -24,6 +24,10 @@ const routes = [
     redirect: { name: Pages.DISCOVER.name },
     component: () => import('../views/root.vue'),
     children: [
+      /***
+       * 推荐模块
+       */
+      /** 推荐页 */
       {
         path: Pages.DISCOVER.path,
         name: Pages.DISCOVER.name,
@@ -33,6 +37,7 @@ const routes = [
           keepAlive: true,
         },
       },
+      /** 歌曲页 */
       {
         path: Pages.PLAYLIST.path,
         name: Pages.PLAYLIST.name,
@@ -41,6 +46,7 @@ const routes = [
           ...Pages.PLAYLIST,
         },
       },
+      /** 专辑详情页 */
       {
         path: Pages.ALBUM.path,
         name: Pages.ALBUM.name,
@@ -49,12 +55,25 @@ const routes = [
           ...Pages.ALBUM,
         },
       },
+      /** 歌手详情页 */
       {
         path: Pages.ARTIST.path,
         name: Pages.ARTIST.name,
         component: () => import('../views/artist/index.vue'),
         meta: {
           ...Pages.ARTIST,
+        },
+      },
+
+      /***
+       * 音乐馆模块
+       */
+      {
+        path: Pages.MUSIC.path,
+        name: Pages.MUSIC.name,
+        component: () => import('../views/musicHall/index.vue'),
+        meta: {
+          ...Pages.MUSIC,
         },
       },
     ],

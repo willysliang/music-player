@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年10月31日17:33:10
+  - style(router -> constant): 路由常量配置调整
+
 ## 2022年10月28日17:55:04
   - feat(locales、layout->header->headerLocale): 国际化语言配置
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 18:04:10
+ * @ Modified time: 2022-10-31 17:27:44
  * @ Description: 页面框头部搜索 -> 关键词搜索
  -->
 
@@ -94,7 +94,7 @@ import type { SearchSuggest } from '@/types/search'
 import { usePlayerStore } from '@store/player'
 import { useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
-import type { IPagesTypeItem } from '@/types/constant'
+import type { IPages } from '@/router/constant'
 
 defineProps<{
   suggestData: SearchSuggest // 展现的搜索数据
@@ -129,7 +129,7 @@ const { getPlay } = usePlayerStore()
  */
 const router = useRouter()
 const emits = defineEmits(['update:showSearchView'])
-const handleRouterPush = (pageType: IPagesTypeItem, id: number) => {
+const handleRouterPush = (pageType: IPages, id: number) => {
   router
     .push({ name: pageType.name, query: { id, key: pageType.key } })
     .then(() => {
