@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-25 16:53:47
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-25 18:40:21
+ * @ Modified time: 2022-11-01 18:41:31
  * @ Description: 路由守卫 routerGuards
  */
 import NProgress from 'nprogress' // 导入 nprogress模块
@@ -11,14 +11,22 @@ import { isNavigationFailure, Router } from 'vue-router'
 import { USER_TOKEN } from '@/config/constant/cache'
 import { Storage } from '@util/cache'
 import { Pages } from './constant'
+import { ElLoading } from 'element-plus'
 
 NProgress.configure({ showSpinner: false }) // 显示右上角螺旋加载提示
 
 /** 路由守卫函数 */
 export function createRouterGuards (router: Router) {
+  let loading
+
   /** 路由前置守卫 */
   router.beforeEach(async (to, from, next) => {
     NProgress.start()
+    loading = ElLoading.service({
+      lock: true,
+      text: 'Loading',
+      background: 'rgba(0, 0, 0, 0.7)',
+    })
     const token = Storage.get(USER_TOKEN, null)
     if (token) {
       if (to.path === Pages.LOGIN.path) {
@@ -47,6 +55,7 @@ export function createRouterGuards (router: Router) {
     }
 
     NProgress.done()
+    loading?.close()
   })
 
   /** 路由错误 */

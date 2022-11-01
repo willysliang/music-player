@@ -7,7 +7,7 @@ import { USER_TOKEN, USER_COOKIE, USER_NAME } from '@/config/constant/cache'
 
 interface IUserState {
   token: string // token
-  username?: string // 姓名
+  username: string // 姓名
   cookie: string // cookie
   showLogin: boolean // 是否展现登录弹层
   profile: UserProfile // 用户信息

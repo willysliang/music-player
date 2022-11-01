@@ -40,6 +40,7 @@ declare module '@vue/runtime-core' {
     IconPark: typeof import('./src/components/common/IconPark.vue')['default']
     Layout: typeof import('./src/components/layout/layout.vue')['default']
     Lockscreen: typeof import('./src/components/base/lockscreen/index.vue')['default']
+    LockscreenIndex: typeof import('./src/components/layout/header/lockscreen/LockscreenIndex.vue')['default']
     Main: typeof import('./src/components/layout/main/index.vue')['default']
     Menu: typeof import('./src/components/layout/menu/index.vue')['default']
     PlayerAction: typeof import('./src/components/layout/footer/PlayerAction.vue')['default']

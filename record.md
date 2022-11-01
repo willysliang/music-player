@@ -20,6 +20,10 @@
 
 ## 2022年10月31日17:33:10
   - style(router -> constant): 路由常量配置调整
+  - feat(views -> header -> lockscreen): 锁屏功能
+  - feat(hooks -> useTime): 获取本地时间函数 hooks
+  - feat(hooks -> useOnline): 系统网络连接状态检测函数 hooks
+  - feat(router -> routerGuards): 路由 loading
 
 ## 2022年10月28日17:55:04
   - feat(locales、layout->header->headerLocale): 国际化语言配置
