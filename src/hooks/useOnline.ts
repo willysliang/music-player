@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-01 17:04:54
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-01 17:37:17
+ * @ Modified time: 2022-11-02 17:11:32
  * @ Description: 系统网络连接状态检测函数
  */
 
@@ -22,7 +22,7 @@ export function useOnlineHooks () {
       typeof status === 'boolean' ? status : window.navigator.onLine
 
     if (online.value) {
-      ElMessage.success('网络连接正常！')
+      // ElMessage.success('网络连接正常！')
     } else {
       ElMessage.warning('网络中断！')
     }

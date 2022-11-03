@@ -7,6 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ChargeHuawei: typeof import('./src/components/layout/header/lockscreen/ChargeHuawei.vue')['default']
+    ChargeOne: typeof import('./src/components/layout/header/lockscreen/ChargeOne.vue')['default']
+    ChargeTwo: typeof import('./src/components/layout/header/lockscreen/ChargeTwo.vue')['default']
+    ChargeXiaomi: typeof import('./src/components/layout/header/lockscreen/ChargeXiaomi.vue')['default']
     Collapses: typeof import('./src/components/common/Collapses.vue')['default']
     CoverPlay: typeof import('./src/components/common/CoverPlay.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']

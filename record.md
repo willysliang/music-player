@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年11月3日11:47:11
+  - feat(hooks -> useBattery): 获取设备电池信息（如当前电量、是否在充电）的函数
+  - feat(views -> header -> lockscreen -> ChargeXiaomi): 锁屏的小米充电组件实现
+
 ## 2022年10月31日17:33:10
   - style(router -> constant): 路由常量配置调整
   - feat(views -> header -> lockscreen): 锁屏功能

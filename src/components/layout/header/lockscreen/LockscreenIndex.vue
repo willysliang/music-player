@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-01 10:10:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-01 18:37:58
+ * @ Modified time: 2022-11-03 11:41:17
  * @ Description: 锁屏主界面
  -->
 
@@ -15,6 +15,8 @@ import { useTimeHooks } from '@/hooks/useTime'
 import { useOnlineHooks } from '@/hooks/useOnline'
 import { useUserStore } from '@store/user'
 import { ElLoading, ElMessage } from 'element-plus'
+import { ChargeXiaomi, ChargeHuawei } from './index'
+import { useBatteryHooks } from '@/hooks/useBattery'
 
 const { setLockscreen } = useAppStore()
 
@@ -23,6 +25,12 @@ const { year, month, week, day, hour, minute, second } = useTimeHooks()
 
 /** 检测系统当前网络状态 */
 const { online } = useOnlineHooks()
+
+/** 随机显示充电组件 */
+const randomChargeComp = Math.random() > 0.5 ? ChargeXiaomi : ChargeHuawei
+
+/** 电池信息 */
+const { battery } = useBatteryHooks()
 
 /***
  * 用户信息
@@ -81,6 +89,9 @@ const navToLogin = () => {
         />
         <h5 class="cursor-pointer text-3xl mt-2">点击解锁</h5>
       </div>
+
+      <!-- 随机显示充电组件 -->
+      <component :is="randomChargeComp" :battery="battery"></component>
     </template>
 
     <template v-if="state.isShowLogin">
