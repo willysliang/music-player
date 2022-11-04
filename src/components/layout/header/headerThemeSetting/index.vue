@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-04 15:02:18
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 15:09:31
+ * @ Modified time: 2022-11-04 16:29:38
  * @ Description: 主题设置按钮
  -->
 
@@ -12,13 +12,16 @@ import IconPark from '@comp/common/IconPark.vue'
 import { Config } from '@icon-park/vue-next'
 import { storeToRefs } from 'pinia'
 import { useThemeStore } from '@store/app/theme'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const { drawer } = storeToRefs(useThemeStore())
+
 </script>
 
 <template>
   <el-tooltip
-    :content="$t('layout.header.tooltipThemeSetting')"
+    :content="t('layout.header.tooltipThemeSetting')"
     placement="bottom"
   >
       <IconPark

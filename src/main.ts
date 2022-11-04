@@ -1,3 +1,11 @@
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-11-04 17:24:57
+ * @ Description: 入口文件
+ */
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'

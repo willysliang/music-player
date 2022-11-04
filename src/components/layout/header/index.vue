@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 15:21:58
+ * @ Modified time: 2022-11-04 16:31:45
  * @ Description: 页面布局头部
  -->
 
@@ -10,7 +10,7 @@
 import HeaderSearch from '@comp/layout/header/headerSearch/index.vue'
 import UserInfo from '@comp/layout/header/userInfo/index.vue'
 import { HeaderFullScreen } from './HeaderFullScreen'
-import { LockScreen } from './lockscreen'
+import LockScreen from './lockscreen/index.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { HeaderLocale } from './headerLocale'

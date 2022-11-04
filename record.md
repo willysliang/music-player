@@ -21,7 +21,8 @@
 ## 2022年11月4日10:58:12
   - feat(views -> header -> lockscreen -> ChargeHuawei): 锁屏的华为充电组件实现
   - perf(view -> header): 降低头部父子组件间的耦合性（提取整合到一个模块中）
-  - 
+  - chore(引入 @vueuse/core 基于 Composition API 的常用函数工具库)
+  - feat(views -> header -> fullScreen): 屏幕缩放组件实现
 
 ## 2022年11月3日11:47:11
   - feat(hooks -> useBattery): 获取设备电池信息（如当前电量、是否在充电）的函数

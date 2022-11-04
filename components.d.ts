@@ -46,7 +46,7 @@ declare module '@vue/runtime-core' {
     HeaderThemeSetting: typeof import('./src/components/layout/header/headerThemeSetting/index.vue')['default']
     IconPark: typeof import('./src/components/common/IconPark.vue')['default']
     Layout: typeof import('./src/components/layout/layout.vue')['default']
-    Lockscreen: typeof import('./src/components/base/lockscreen/index.vue')['default']
+    Lockscreen: typeof import('./src/components/layout/header/lockscreen/index.vue')['default']
     LockscreenIndex: typeof import('./src/components/layout/header/lockscreen/LockscreenIndex.vue')['default']
     LockscreenTransition: typeof import('./src/components/layout/header/lockscreen/LockscreenTransition.vue')['default']
     Main: typeof import('./src/components/layout/main/index.vue')['default']

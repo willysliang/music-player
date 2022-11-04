@@ -2,8 +2,8 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-31 18:09:51
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 15:19:24
- * @ Description: 屏幕锁屏加载动画组件
+ * @ Modified time: 2022-11-04 16:36:49
+ * @ Description: 屏幕锁屏加载组件
  -->
 
 <script setup lang="ts">
@@ -62,7 +62,7 @@ onUnmounted(() => document.removeEventListener('mousedown', timeKeeping))
 <template>
   <transition name="slide-up">
     <LockScreenIndex
-      v-if="isLock && isMouted && $route.name != Pages.LOGIN.name"
+      v-if="isLock && isMouted && route.name != Pages.LOGIN.name"
     />
   </transition>
 </template>
