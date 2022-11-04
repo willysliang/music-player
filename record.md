@@ -23,6 +23,8 @@
   - perf(view -> header): 降低头部父子组件间的耦合性（提取整合到一个模块中）
   - chore(引入 @vueuse/core 基于 Composition API 的常用函数工具库)
   - feat(views -> header -> fullScreen): 屏幕缩放组件实现
+  - chore(pnpm i unplugin-vue-define-options -D): 引入 definedOption 定义组件 name 属性
+  - perf(config -> plugins): 提取整合入口文件的配置信息
 
 ## 2022年11月3日11:47:11
   - feat(hooks -> useBattery): 获取设备电池信息（如当前电量、是否在充电）的函数

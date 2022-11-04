@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 16:31:45
+ * @ Modified time: 2022-11-04 17:33:57
  * @ Description: 页面布局头部
  -->
 
@@ -35,9 +35,6 @@ const { iconColor, iconSize } = storeToRefs(useAppStore())
 
     <!-- 锁屏 -->
     <LockScreen />
-
-    <el-icon :size="iconSize" :color="iconColor"><Message /></el-icon>
-    <el-icon :size="iconSize" :color="iconColor"><Calendar /></el-icon>
 
     <!-- 语言设置 -->
     <HeaderLocale />

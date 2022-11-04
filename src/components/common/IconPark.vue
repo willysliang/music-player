@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon } from '@icon-park/vue-next/lib/runtime';
+import { Icon } from '@icon-park/vue-next/lib/runtime'
 
 interface IIconPark {
   icon: Icon // icon-park 图标
@@ -11,6 +11,10 @@ interface IIconPark {
   strokeLinejoin?: 'miter' | 'round' | 'bevel' // 拐点类型
   strokeWidth?: number // 线段粗细
 }
+
+// defineOptions({
+//   name: 'IconPark',
+// })
 
 defineProps<IIconPark>()
 </script>

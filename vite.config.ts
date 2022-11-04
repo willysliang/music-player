@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import * as path from 'path'
 
+/** 自定义组件name属性 */
+import DefineOptions from 'unplugin-vue-define-options/vite'
+
 // eslint
 import eslintPlugin from 'vite-plugin-eslint'
 import checker from 'vite-plugin-checker'
@@ -44,6 +47,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    DefineOptions(),
     /* eslint取消缓存 */
     eslintPlugin({
       cache: false, // 禁用 eslint 缓存

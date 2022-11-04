@@ -24,7 +24,7 @@
       "@util/*": ["src/utils/*"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "types": ["vite/client", "element-plus/global"]
+    "types": ["vite/client", "element-plus/global", "unplugin-vue-define-options"]
   },
   "include": [
     "src/**/*.ts",
@@ -37,6 +37,6 @@
     "types/**/*.ts",
     "mock/**/*.ts",
     "vite.config.ts"
-  ],
+, "env.d.ts", "env.d.ts"  ],
   "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"]
 }

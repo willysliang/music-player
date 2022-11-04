@@ -80,6 +80,7 @@
     "typescript": "*",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.7",
+    "unplugin-vue-define-options": "^0.12.7",
     "vite": "^3.1.0",
     "vite-plugin-checker": "^0.5.1",
     "vite-plugin-eslint": "^1.8.1",
