@@ -2,12 +2,13 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-03 10:50:32
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-03 11:36:44
+ * @ Modified time: 2022-11-03 14:31:06
  * @ Description: 检测设备电池电量函数
  */
 
 import { computed, onMounted, reactive } from 'vue'
 
+/** 电池状态 */
 export type Battery = {
   /** 当前电池是否充电 */
   charging: boolean
@@ -23,6 +24,8 @@ export type Battery = {
 
   [key: string]: any
 }
+/** 电源状态 */
+export type BatterStatus = '直连电源' | '已充满' | '充电中' | '已断开电源'
 
 export const useBatteryHooks = () => {
   /** 电池数据状态 */
@@ -37,14 +40,22 @@ export const useBatteryHooks = () => {
   const isSupportedBattery = navigator && 'getBattery' in navigator
 
   /** 计算电池剩余可用时间 */
-  const calcDischargingTime = computed(() => {
-    const hour = battery.dischargingTime / 3600
-    const minute = (battery.dischargingTime / 60) % 60
+  const calcFormmatTime = (calcTime: number): number | string => {
+    // 如果为非可计算数值，则跳出计算
+    if (!Number.isFinite(calcTime) || calcTime === 0) return 0
+
+    const hour = calcTime / 3600
+    const minute = (calcTime / 60) % 60
+    if (hour === 0 && minute === 0) return 0
     return `${~~hour}小时${~~minute}分钟`
-  })
+  }
 
   /** 电池状态 */
-  const batteryStatus = computed(() => {
+  const batteryStatus = computed<BatterStatus>(() => {
+    // 如果为不支持 Battery API的，则返回 '直连电源'
+    if (!isSupportedBattery) {
+      return '直连电源'
+    }
     if (battery.charging && battery.level >= 100) {
       return '已充满'
     } else if (battery.charging) {
@@ -91,7 +102,7 @@ export const useBatteryHooks = () => {
   return {
     battery,
     isSupportedBattery,
-    calcDischargingTime,
+    calcFormmatTime,
     batteryStatus,
   } as const
 }

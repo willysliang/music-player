@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-02 17:14:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-03 11:46:52
+ * @ Modified time: 2022-11-03 11:50:27
  * @ Description: 充电组件 & 仿制小米充电样式
  -->
 
@@ -87,10 +87,8 @@ export default /* #__PURE__ */ defineComponent({
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 85vh;
+	width: 80vh;
 	height: 80vh;
-
-	// background-color: yellowgreen;
 	display: flex;
 	justify-content: center;
 

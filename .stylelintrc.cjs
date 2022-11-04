@@ -31,6 +31,7 @@ module.exports = {
           'screen',
           'function',
           'if',
+          'for',
           'each',
           'include',
           'mixin',
