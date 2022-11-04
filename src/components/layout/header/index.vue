@@ -2,24 +2,21 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-01 10:03:52
+ * @ Modified time: 2022-11-04 15:21:58
  * @ Description: 页面布局头部
  -->
 
 <script setup lang="ts">
 import HeaderSearch from '@comp/layout/header/headerSearch/index.vue'
 import UserInfo from '@comp/layout/header/userInfo/index.vue'
-import HeaderSetting from './headerSetting/index.vue'
+import { HeaderFullScreen } from './HeaderFullScreen'
 import { LockScreen } from './lockscreen'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { useThemeStore } from '@store/app/theme'
-import HeaderLocale from './headerLocale/index.vue'
-import { Lock } from '@icon-park/vue-next'
+import { HeaderLocale } from './headerLocale'
+import { HeaderThemeSetting } from './headerThemeSetting'
 
-const { iconColor, iconSize, isLock } = storeToRefs(useAppStore())
-const { setLockscreen } = useAppStore()
-const { drawer } = storeToRefs(useThemeStore())
+const { iconColor, iconSize } = storeToRefs(useAppStore())
 </script>
 
 <template>
@@ -33,16 +30,11 @@ const { drawer } = storeToRefs(useThemeStore())
 
   <!-- 设置类 -->
   <div class="flex items-center justify-between w-48">
+    <!-- 用户登录 -->
     <UserInfo />
-    <el-tooltip :content="$t('layout.header.tooltipLock')" placement="bottom">
-      <IconPark
-        :icon="Lock"
-        size="22"
-        :stroke-width="3"
-        class="hover-text mx-2"
-        @click="setLockscreen(!isLock)"
-      />
-    </el-tooltip>
+
+    <!-- 锁屏 -->
+    <LockScreen />
 
     <el-icon :size="iconSize" :color="iconColor"><Message /></el-icon>
     <el-icon :size="iconSize" :color="iconColor"><Calendar /></el-icon>
@@ -50,14 +42,10 @@ const { drawer } = storeToRefs(useThemeStore())
     <!-- 语言设置 -->
     <HeaderLocale />
 
-    <el-icon :size="iconSize" :color="iconColor" @click="drawer = true">
-      <Setting />
-    </el-icon>
+    <!-- 屏幕缩放 -->
+    <HeaderFullScreen />
+
+    <!-- 主题设置 -->
+    <HeaderThemeSetting />
   </div>
-
-  <!-- 个性化主题设置弹层 -->
-  <HeaderSetting />
-
-  <!-- 锁屏界面 -->
-  <LockScreen />
 </template>
