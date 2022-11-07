@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:51:56
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 09:43:47
+ * @ Modified time: 2022-11-07 10:34:27
  * @ Description: 歌曲列表的单个封面 item
  -->
 
@@ -16,7 +16,7 @@ defineProps<{
   name?: string // 歌单名
   playCount?: number // 播放次数
   showPlayCount?: boolean // 是否打开歌单
-  // onPlay?: () => void // 点击播放事件
+  onPlay?:() => void // 点击播放事件
   video?: boolean // 是否为音频
 }>()
 </script>
@@ -27,12 +27,18 @@ defineProps<{
     <img
       :src="picUrl"
       :alt="name || '封面图片'"
-      class="object-cover w-full rounded-xl"
+      class="object-cover w-full rounded-xl h-40"
     />
 
     <!-- 鼠标悬浮遮罩层 -->
     <div class="mask">
-      <IconPark :icon="PlayOne" theme="filled" :size="50" class="text-white opacity-0 transition-opacity hover-text play-icon" />
+      <IconPark
+        :icon="PlayOne"
+        theme="filled"
+        :size="50"
+        class="text-white opacity-0 transition-opacity hover-text play-icon"
+        @click="onPlay ?? (() => undefined)"
+      />
     </div>
 
     <!-- 播放次数显示 -->

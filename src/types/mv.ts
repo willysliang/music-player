@@ -8,9 +8,7 @@
 
 import type { Artist } from "./artist"
 
-/***
- * MV 信息
-*/
+/** MV 信息 */
 export interface Mv {
   id: number
   name: string
@@ -23,4 +21,20 @@ export interface Mv {
   playCount: number
   publishTime: string
   subed: boolean
+}
+
+/** MV 详情 */
+export interface MvUrl {
+	id: number;
+	url: string;
+	r: number;
+	size: number;
+	md5: string;
+	code: number;
+	expi: number;
+	fee: number;
+	mvFee: number;
+	st: number;
+	promotionVo?: any;
+	msg: string;
 }

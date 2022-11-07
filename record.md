@@ -18,6 +18,10 @@
 
 # 更新记录
 
+## 2022年11月7日11:22:40
+  - feat(views -> mv): MV详情页
+  - feat(views -> artist): 歌手视频模块
+
 ## 2022年11月4日10:58:12
   - feat(views -> header -> lockscreen -> ChargeHuawei): 锁屏的华为充电组件实现
   - perf(view -> header): 降低头部父子组件间的耦合性（提取整合到一个模块中）

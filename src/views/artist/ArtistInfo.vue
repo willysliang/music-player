@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:22:06
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 18:03:49
+ * @ Modified time: 2022-11-07 09:54:21
  * @ Description: 歌手详情 -> 头部
  -->
 <script setup lang="ts">
@@ -72,7 +72,7 @@ defineProps<{
           专辑数：<span>{{ albumSize }}</span>
         </div>
         <div>
-          MV数：<span>{{ mvSize }}</span>
+          MV数: <span>{{ mvSize }}</span>
         </div>
       </div>
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-21 11:51:47
+ * @ Modified time: 2022-11-07 11:13:30
  * @ Description: 歌曲播放信息持久化缓存
  */
 
@@ -83,7 +83,7 @@ export const usePlayerStore = defineStore({
   id: 'player',
   state: (): IPlayerStore => ({
     /* 功能控制 */
-    ...getLocalPlayerContronllerConfig() as IPlayerController,
+    ...(getLocalPlayerContronllerConfig() as IPlayerController),
 
     /* 接口音频 */
     audio: new Audio(),
@@ -265,6 +265,18 @@ export const usePlayerStore = defineStore({
       if (this.playListCount > 0) {
         this.getPlay(first(this.playList).id)
       }
+    },
+    /** 继续播放 */
+    setPlay () {
+      if (!this.song.id) return
+      this.audio.play()
+      this.isPlaying = true
+    },
+    /** 暂停播放 */
+    setPause () {
+      if (!this.song.id) return
+      this.audio.pause()
+      this.isPlaying = false
     },
 
     /***

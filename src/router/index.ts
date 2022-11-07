@@ -64,6 +64,15 @@ const routes = [
           ...Pages.ARTIST,
         },
       },
+      /** MV详情页 */
+      {
+        path: Pages.MV.path,
+        name: Pages.MV.name,
+        component: () => import('../views/mv/index.vue'),
+        meta: {
+          ...Pages.MV,
+        },
+      },
 
       /***
        * 音乐馆模块

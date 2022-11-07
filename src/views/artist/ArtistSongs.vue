@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:16:36
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-12 09:39:37
+ * @ Modified time: 2022-11-07 11:04:03
  * @ Description: 歌手详情 -> 歌曲列表模块
  -->
 <script setup lang="ts">
@@ -42,12 +42,6 @@ watchEffect(() => {
   } else {
     pageData.noMore = false
   }
-  console.log(
-    'more',
-    pageData.total,
-    pageData.limit * pageData.page,
-    pageData.noMore,
-  )
 })
 
 /***

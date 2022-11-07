@@ -77,6 +77,13 @@ export const Pages = {
     title: '歌手列表',
     icon: Planet,
   },
+  MV: {
+    path: 'MV',
+    key: 'MV',
+    name: 'MV',
+    title: 'mv详情',
+    icon: Planet,
+  },
 
   /***
    * 音乐馆模块
