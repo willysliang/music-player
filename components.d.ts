@@ -53,7 +53,7 @@ declare module '@vue/runtime-core' {
     Menu: typeof import('./src/components/layout/menu/index.vue')['default']
     More: typeof import('./src/components/table/More.vue')['default']
     Ng: typeof import('./src/components/table/ng.vue')['default']
-    Paging: typeof import('./src/components/table/Paging.vue')['default']
+    Paging: typeof import('./src/components/songList/Paging.vue')['default']
     PlayerAction: typeof import('./src/components/layout/footer/PlayerAction.vue')['default']
     PlayerController: typeof import('./src/components/layout/footer/PlayerController.vue')['default']
     PlayerList: typeof import('./src/components/layout/footer/PlayerList.vue')['default']

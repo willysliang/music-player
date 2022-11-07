@@ -21,6 +21,7 @@
 ## 2022年11月7日11:22:40
   - feat(views -> mv): MV详情页
   - feat(views -> artist): 歌手视频模块
+  - feat(components -> songlist -> Paging): 加载更多数据组件
 
 ## 2022年11月4日10:58:12
   - feat(views -> header -> lockscreen -> ChargeHuawei): 锁屏的华为充电组件实现

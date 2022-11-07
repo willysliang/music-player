@@ -2,17 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:18:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-07 11:47:55
+ * @ Modified time: 2022-11-07 14:29:17
  * @ Description: 歌手详情视频
  -->
 
 <script setup lang="ts">
 import { useArtistMv } from '@api/artist'
 import type { Mv } from '@/types/mv'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { onBeforeMount, reactive, ref } from 'vue'
 import CoverPlay from '@comp/common/CoverPlay.vue'
 import { useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
+import Paging from '@/components/songList/Paging.vue'
 
 const props = defineProps<{
   id: number
@@ -27,16 +28,12 @@ const pageData = reactive({
   noMore: false,
   offset: 0,
 })
-const offset = computed(() => {
-  if (pageData.page === 1) return 0
-  return (list.value?.length || 0) + pageData.limit
-})
 
 /** 获取歌曲列表 */
 const getData = async () => {
   try {
     pageData.loading = true
-    const { mvs } = await useArtistMv(props.id, pageData.limit, offset.value)
+    const { mvs } = await useArtistMv(props.id, pageData.limit, pageData.offset)
     if (pageData.page === 1) {
       list.value = mvs
     } else {
@@ -52,12 +49,6 @@ const getData = async () => {
 onBeforeMount(() => {
   getData()
 })
-
-/** 加载下一页 */
-const loadMore = () => {
-  pageData.page++
-  getData()
-}
 </script>
 
 <template>
@@ -83,18 +74,6 @@ const loadMore = () => {
       </div>
     </div>
 
-    <div
-      v-if="list.length > 0 && !pageData.noMore"
-      class="flex justify-center py-5"
-    >
-      <el-button
-        :loading="pageData.loading"
-        link
-        class="text-center w-full"
-        @click="loadMore"
-      >
-        加载更多
-      </el-button>
-    </div>
+    <Paging v-model:page="pageData" :list="list" :get-data="getData" />
   </div>
 </template>
