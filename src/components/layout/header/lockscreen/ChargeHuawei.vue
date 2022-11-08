@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-03 11:38:44
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 11:29:53
+ * @ Modified time: 2022-11-08 17:29:09
  * @ Description: 充电组件 & 仿制华为充电样式
  -->
 
@@ -190,7 +190,9 @@ export default /* #__PURE__ */ defineComponent({
 				height: $width;
 				transform: translate(-50%, -50%);
 				/* stylelint-disable-next-line scss/no-global-function-names */
-				animation: movetotop (round((random(6) + 3)) + s)  ease-in-out (-(random(5000)/1000) + s) infinite;
+				animation: movetotop (round((random(6) + 3)) + s)  ease-in-out ((random(5000)/1000) + s) infinite;
+
+				// animation: movetotop (round((random(6) + 3)) + s)  ease-in-out (-(random(5000)/1000) + s) infinite;
 			}
 		}
 	}

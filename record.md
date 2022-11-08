@@ -18,6 +18,11 @@
 
 # 更新记录
 
+## 2022年11月8日17:54:44
+  - chore(pnpm i dayjs -S): 引入 dayjs 日期格式化
+  - feat(utils -> globalExtend): 全局 & 原型 中集成的工具类
+  - feat(views -> artist -> ArtistAlbum): 歌手专辑模块组件实现
+
 ## 2022年11月7日11:22:40
   - feat(views -> mv): MV详情页
   - feat(views -> artist): 歌手视频模块
