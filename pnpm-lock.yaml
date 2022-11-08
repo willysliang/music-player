@@ -20,6 +20,7 @@ specifiers:
   cross-env: ^7.0.3
   cz-conventional-changelog: ^3.3.0
   cz-customizable: ^7.0.0
+  dayjs: ^1.11.6
   element-plus: ^2.2.16
   eslint: ^8.0.1
   eslint-config-prettier: ^8.5.0
@@ -70,6 +71,7 @@ dependencies:
   '@typescript-eslint/parser': 5.37.0_irgkl5vooow2ydyo6aokmferha
   '@vueuse/core': 9.2.0_vue@3.2.39
   axios: 0.27.2
+  dayjs: 1.11.6
   element-plus: 2.2.16_vue@3.2.39
   js-md5: 0.7.3
   lodash: 4.17.21
@@ -2018,8 +2020,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /dayjs/1.11.5:
-    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+  /dayjs/1.11.6:
+    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
     dev: false
 
   /debug/2.6.9:
@@ -2223,7 +2225,7 @@ packages:
       '@types/lodash-es': 4.17.6
       '@vueuse/core': 9.2.0_vue@3.2.39
       async-validator: 4.2.5
-      dayjs: 1.11.5
+      dayjs: 1.11.6
       escape-html: 1.0.3
       lodash: 4.17.21
       lodash-es: 4.17.21
