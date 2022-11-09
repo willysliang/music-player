@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:22:06
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 09:02:54
+ * @ Modified time: 2022-11-09 09:46:14
  * @ Description: 歌手详情列表
  -->
 <script setup lang="ts">
@@ -12,6 +12,7 @@ import {
   ArtistAlbum,
   ArtistVideo,
   ArtistDesc,
+  ArtistHotSongs,
 } from './index'
 import { useArtistDetail } from '@/api/module/artist'
 import type { ArtistDetail } from '@/types/artist'
@@ -57,7 +58,9 @@ const tab = ref<string>('music')
   />
 
   <el-tabs v-model="tab" class="mt-3">
-    <el-tab-pane lazy label="精选" name="choice"></el-tab-pane>
+    <el-tab-pane lazy label="精选" name="hot">
+      <ArtistHotSongs :id="id" />
+    </el-tab-pane>
     <el-tab-pane
       lazy
       :label="`歌曲 ${artistData.artist?.musicSize || 0}`"

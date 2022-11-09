@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:35:48
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 08:55:16
+ * @ Modified time: 2022-11-09 09:47:39
  * @ Description: 歌手详情的接口
  */
 import type { ArtistDesc, ArtistDetail } from '@/types/artist'
@@ -67,4 +67,13 @@ export async function useArtistDesc (id: number) {
     url: '/api/artist/desc',
     params: { id },
   })
+}
+
+/** 获取歌手热门 50 首歌曲 */
+export async function useArtistTopSong (id: number) {
+  const { songs } = await http.get<{ songs: Song[] }>({
+    url: '/api//artist/top/song',
+    params: { id },
+  })
+  return songs
 }

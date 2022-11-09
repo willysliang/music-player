@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:16:36
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-07 11:04:03
+ * @ Modified time: 2022-11-09 09:53:32
  * @ Description: 歌手详情 -> 歌曲列表模块
  -->
 <script setup lang="ts">
@@ -66,6 +66,7 @@ const getData = async () => {
     } else {
       // 若为非第一页的请求，则添加到歌曲列表后面
       songlist.value.push(...songs)
+      pageData.total = total || 0
     }
 
     pageData.loading = false

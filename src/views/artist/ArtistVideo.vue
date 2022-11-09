@@ -2,14 +2,14 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:18:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-07 14:29:17
+ * @ Modified time: 2022-11-09 09:40:07
  * @ Description: 歌手详情视频
  -->
 
 <script setup lang="ts">
 import { useArtistMv } from '@api/artist'
 import type { Mv } from '@/types/mv'
-import { onBeforeMount, reactive, ref } from 'vue'
+import { watch, reactive, ref } from 'vue'
 import CoverPlay from '@comp/common/CoverPlay.vue'
 import { useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
@@ -46,9 +46,12 @@ const getData = async () => {
   pageData.loading = false
 }
 
-onBeforeMount(() => {
-  getData()
-})
+watch(() => props.id, (newVal) => {
+  if (newVal > 0) {
+    pageData.page = 1
+    getData()
+  }
+}, { immediate: true, deep: true })
 </script>
 
 <template>

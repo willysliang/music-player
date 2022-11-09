@@ -64,6 +64,7 @@ declare module '@vue/runtime-core' {
     SearchSuggest: typeof import('./src/components/layout/header/headerSearch/SearchSuggest.vue')['default']
     SongHeadLabel: typeof import('./src/components/songList/SongHeadLabel.vue')['default']
     SongList: typeof import('./src/components/songList/SongList.vue')['default']
+    SongOperation: typeof import('./src/components/songList/SongOperation.vue')['default']
     ThemeSetting: typeof import('./src/components/layout/header/headerThemeSetting/ThemeSetting.vue')['default']
     Title: typeof import('./src/components/common/Title.vue')['default']
     UserInfo: typeof import('./src/components/layout/header/userInfo/index.vue')['default']

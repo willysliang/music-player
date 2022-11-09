@@ -21,6 +21,7 @@
 ## 2022年11月9日09:06:07
   - feat(views -> artist -> ArtistDesc): 歌手信息描述模块
   - feat(components -> songlist -> SongOperation): 歌曲列表操作组件
+  - perf(views -> artist): 优化歌手信息模块
 
 ## 2022年11月8日17:54:44
   - chore(pnpm i dayjs -S): 引入 dayjs 日期格式化

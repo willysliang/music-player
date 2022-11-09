@@ -2,13 +2,13 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 10:17:30
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-08 17:53:50
+ * @ Modified time: 2022-11-09 09:39:14
  * @ Description: 歌手专辑模块
  -->
 
 <script setup lang="ts">
 import { useArtistAlbum } from '@api/artist'
-import { onBeforeMount, reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import CoverPlay from '@comp/common/CoverPlay.vue'
 import { useRouter } from 'vue-router'
 import { Pages } from '@/router/constant'
@@ -50,9 +50,12 @@ const getData = async () => {
   pageData.loading = false
 }
 
-onBeforeMount(() => {
-  getData()
-})
+watch(() => props.id, (newVal) => {
+  if (newVal > 0) {
+    pageData.page = 1
+    getData()
+  }
+}, { immediate: true, deep: true })
 </script>
 
 <template>

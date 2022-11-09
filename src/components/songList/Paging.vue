@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-07 11:31:04
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-07 14:29:45
+ * @ Modified time: 2022-11-09 09:35:05
  * @ Description: 加载更多数据组件
  -->
 
@@ -43,9 +43,17 @@ watchEffect(() => {
   /** 计算数据偏移量 */
   pageData.value.offset = currentTotal
 
-  /** 当不在加载状态时，计算是否还有更多数据 */
-  if (!pageData.value.loading && props.list.length < currentTotal) {
+  if (
+    pageData.value?.total &&
+    pageData.value.total <= pageData.value.limit * pageData.value.page
+  ) {
+    /** 若歌曲总数小于当前可容纳的歌曲数，则无法触发加载更多 */
     pageData.value.noMore = true
+  } else if (!pageData.value.loading && props.list.length < currentTotal) {
+    /** 当不在加载状态时，计算是否还有更多数据 */
+    pageData.value.noMore = true
+  } else {
+    pageData.value.noMore = false
   }
 })
 
