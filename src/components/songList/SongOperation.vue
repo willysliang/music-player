@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-09 09:54:30
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 10:08:30
+ * @ Modified time: 2022-11-09 10:23:26
  * @ Description: 歌曲列表操作栏
  -->
 
@@ -12,25 +12,7 @@ import { PlayOne, Download, FullSelection } from '@icon-park/vue-next'
 import { usePlayerStore } from '@store/player'
 import type { Song } from '@/types/song'
 import { computed } from 'vue'
-
-type OrderType = 'time' | 'hot'
-
-type PageType = {
-  /** 每页数量 */
-  limit: number
-  /** 当前所在页 */
-  page: number
-  /** 是否加载数据中 */
-  loading: boolean
-  /** 是否还有更多数据 */
-  noMore: boolean
-  /** 数据偏移量 */
-  offset: number
-  /** 总数 */
-  total?: number
-  /** 排序 */
-  order?: OrderType
-}
+import { PageType, OrderType } from './types'
 
 const props = defineProps<{
   /** 歌曲列表 */
@@ -54,8 +36,9 @@ const pageData = computed({
 
 /** 歌曲排序 */
 const setOrder = (order: OrderType) => {
-  if (pageData.value?.order && pageData.value?.page) {
+  if (pageData.value?.order) {
     pageData.value.page = 1
+    pageData.value.offset = 0
     pageData.value.order = order
     props.getData()
   }

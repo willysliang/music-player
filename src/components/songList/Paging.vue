@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-07 11:31:04
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 09:35:05
+ * @ Modified time: 2022-11-09 10:48:21
  * @ Description: 加载更多数据组件
  -->
 
@@ -31,7 +31,6 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits(['update:page'])
-
 const pageData = computed({
   get: () => props.page,
   set: (val) => emits('update:page', val),
@@ -43,20 +42,24 @@ watchEffect(() => {
   /** 计算数据偏移量 */
   pageData.value.offset = currentTotal
 
-  if (
-    pageData.value?.total &&
-    pageData.value.total <= pageData.value.limit * pageData.value.page
-  ) {
-    /** 若歌曲总数小于当前可容纳的歌曲数，则无法触发加载更多 */
-    pageData.value.noMore = true
-  } else if (!pageData.value.loading && props.list.length < currentTotal) {
-    /** 当不在加载状态时，计算是否还有更多数据 */
-    pageData.value.noMore = true
+  if (pageData.value?.total && pageData.value.total > 0) {
+    if (pageData.value.total <= pageData.value.limit * pageData.value.page) {
+      /** 若歌曲总数小于当前可容纳的歌曲数，则无法触发加载更多 */
+      pageData.value.noMore = true
+    } else {
+      pageData.value.noMore = false
+    }
   } else {
-    pageData.value.noMore = false
+    if (!pageData.value.loading && props.list.length < currentTotal) {
+      /** 当不在加载状态时，计算是否还有更多数据 */
+      pageData.value.noMore = true
+    } else {
+      pageData.value.noMore = false
+    }
   }
 })
 
+/** 加载更多数据 */
 const loadMore = () => {
   pageData.value.page++
   props.getData()
