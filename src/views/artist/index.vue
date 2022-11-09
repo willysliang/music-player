@@ -2,14 +2,17 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:22:06
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 18:00:18
+ * @ Modified time: 2022-11-09 09:02:54
  * @ Description: 歌手详情列表
  -->
 <script setup lang="ts">
-import ArtistInfo from './ArtistInfo.vue'
-import ArtistSongs from './ArtistSongs.vue'
-import ArtistAlbum from './ArtistAlbum.vue'
-import ArtistVideo from './ArtistVideo.vue'
+import {
+  ArtistInfo,
+  ArtistSongs,
+  ArtistAlbum,
+  ArtistVideo,
+  ArtistDesc,
+} from './index'
 import { useArtistDetail } from '@/api/module/artist'
 import type { ArtistDetail } from '@/types/artist'
 import { ref, watch } from 'vue'
@@ -77,7 +80,8 @@ const tab = ref<string>('music')
       <ArtistVideo :id="id" />
     </el-tab-pane>
     <el-tab-pane lazy label="歌手详情" name="desc">
-      <div v-html="artistData.artist?.briefDesc || ''"></div>
+      <!-- <div v-html="artistData.artist?.briefDesc || ''"></div> -->
+      <ArtistDesc :id="id" />
     </el-tab-pane>
   </el-tabs>
 </template>

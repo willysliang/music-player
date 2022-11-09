@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
+    ElEmpty: typeof import('element-plus/es')['ElEmpty']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
@@ -66,5 +67,8 @@ declare module '@vue/runtime-core' {
     ThemeSetting: typeof import('./src/components/layout/header/headerThemeSetting/ThemeSetting.vue')['default']
     Title: typeof import('./src/components/common/Title.vue')['default']
     UserInfo: typeof import('./src/components/layout/header/userInfo/index.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

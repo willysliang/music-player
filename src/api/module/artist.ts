@@ -2,10 +2,10 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-11 09:35:48
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-08 17:13:30
+ * @ Modified time: 2022-11-09 08:55:16
  * @ Description: 歌手详情的接口
  */
-import type { ArtistDetail } from '@/types/artist'
+import type { ArtistDesc, ArtistDetail } from '@/types/artist'
 import type { Mv } from '@/types/mv'
 import type { Song } from '@/types/song'
 import type { Album } from '@/types/album'
@@ -49,7 +49,7 @@ export const useArtistSongs = async (
 export const useArtistMv = async (id: number, limit = 10, offset = 0) => {
   return await http.get<{ mvs: Mv[] }>({
     url: '/api/artist/mv',
-    params: { id, limit, offset }
+    params: { id, limit, offset },
   })
 }
 
@@ -57,6 +57,14 @@ export const useArtistMv = async (id: number, limit = 10, offset = 0) => {
 export const useArtistAlbum = async (id: number, limit = 10, offset = 0) => {
   return await http.get<{ hotAlbums: Album[] }>({
     url: '/api/artist/album',
-    params: { id, limit, offset }
+    params: { id, limit, offset },
+  })
+}
+
+/** 获取歌手描述 */
+export async function useArtistDesc (id: number) {
+  return await http.get<ArtistDesc>({
+    url: '/api/artist/desc',
+    params: { id },
   })
 }
