@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:51:56
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-07 10:34:27
+ * @ Modified time: 2022-11-10 17:45:54
  * @ Description: 歌曲列表的单个封面 item
  -->
 
@@ -24,10 +24,10 @@ defineProps<{
 <template>
   <div class="cover-play">
     <!-- 歌单封面图片 -->
-    <img
+    <el-image
       :src="picUrl"
       :alt="name || '封面图片'"
-      class="object-cover w-full rounded-xl h-40"
+      class="w-full bg-gray-50 object-cover"
     />
 
     <!-- 鼠标悬浮遮罩层 -->
@@ -51,7 +51,22 @@ defineProps<{
 
 <style lang="scss" scoped>
 .cover-play {
-	@apply relative rounded-lg cursor-pointer;
+	@apply relative rounded-lg cursor-pointer overflow-hidden  transition-all;
+
+	.mask {
+		@apply absolute inset-0;
+		@apply flex justify-center items-center;
+		@apply transition-all duration-500;
+		@apply bg-black bg-opacity-0;
+	}
+
+	.play-count {
+		@apply flex flex-row items-center;
+		@apply absolute right-1 bottom-1;
+		@apply text-white bg-black bg-opacity-80;
+		@apply px-2 py-1;
+		@apply rounded-full transition-all;
+	}
 
 	&:hover {
 		.mask {
@@ -65,22 +80,6 @@ defineProps<{
 		.play-count {
 			@apply opacity-0;
 		}
-	}
-
-	.mask {
-		@apply absolute inset-0;
-		@apply flex justify-center items-center;
-		@apply transition-all duration-500;
-		@apply bg-black bg-opacity-0;
-		@apply rounded-xl;
-	}
-
-	.play-count {
-		@apply flex flex-row items-center;
-		@apply absolute right-1 bottom-1;
-		@apply text-white bg-black bg-opacity-80;
-		@apply px-2 py-1;
-		@apply rounded-full transition-all;
 	}
 }
 </style>

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 09:19:50
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 18:03:30
+ * @ Modified time: 2022-11-10 17:40:27
  * @ Description: 个性化歌单
  -->
 
@@ -36,7 +36,7 @@ const navToPlayList = (id: number) => {
   <Title title="推荐歌单" />
   <div class="grids">
     <div
-      v-for="song in sampleSize(personalizedSongList, 15)"
+      v-for="song in sampleSize(personalizedSongList, 10)"
       :key="song.id"
       @click="navToPlayList(song.id)"
     >
