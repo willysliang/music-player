@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:19:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-11 16:39:21
+ * @ Modified time: 2022-11-09 11:01:06
  * @ Description: 专辑详情页
  -->
 
 <script setup lang="ts">
-import AlbumInfo from './AlbumInfo.vue'
+import { AlbumInfo, AlbumComments } from './index'
 import SongList from '@/components/songList/SongList.vue'
 import type { Album } from '@/types/album'
 import type { Song } from '@/types/song'
@@ -22,13 +22,14 @@ import { useAlbum } from '@/api/module/album'
 const route = useRoute()
 const songlist = ref<Song[]>([] as Song[]) // 歌曲列表
 const albumData = ref<Album>({} as Album)
+const routerId = ref<number>(0)
 watch(
   () => route.query.id,
   async () => {
     /* 对route传递的参数进行断言 & 获取 */
-    const id: number = Number.parseInt((route.query?.id || 0) as string)
+    routerId.value = Number.parseInt((route.query?.id || 0) as string)
     try {
-      const { album, songs } = await useAlbum(id)
+      const { album, songs } = await useAlbum(routerId.value)
       albumData.value = album
       songlist.value = songs
     } catch {}
@@ -55,7 +56,9 @@ const tab = ref<string>('tracks')
       lazy
       :label="`评论 ${albumData.info?.commentCount || 0}`"
       name="comments"
-    />
+    >
+      <AlbumComments :id="routerId" />
+    </el-tab-pane>
     <el-tab-pane lazy label="专辑详情" name="desc">
       <div
         class="text-xs text-slate-500 leading-7"

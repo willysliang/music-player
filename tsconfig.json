@@ -24,7 +24,8 @@
       "@util/*": ["src/utils/*"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "types": ["vite/client", "element-plus/global", "unplugin-vue-define-options"]
+    "types": ["vite/client", "element-plus/global", "unplugin-vue-define-options"],
+    "resolveJsonModule":true, // 可导入JSON
   },
   "include": [
     "src/**/*.ts",
