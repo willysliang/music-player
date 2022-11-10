@@ -22,7 +22,8 @@
   - feat(components -> songlist -> Comments): 评论通用组件
   - feat(views -> album): 专辑评论
   - feat(views -> playlist): 歌单评论
-  - feat(views -> discover): 推荐新音乐
+  - feat(views -> discover -> PersonalizedSongList): 推荐新音乐
+  - feat(views -> discover -> PersonalizedMv): 推荐MV
 
 ## 2022年11月9日09:06:07
   - feat(views -> artist -> ArtistDesc): 歌手信息描述模块

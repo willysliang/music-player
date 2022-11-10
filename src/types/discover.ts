@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-08 18:34:25
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-10 18:02:28
+ * @ Modified time: 2022-11-10 18:09:38
  * @ Description: 推荐页的定义类型
  */
 
@@ -225,5 +225,26 @@ export interface PersonalizedNewSong {
   picUrl: string
   canDislike: boolean
   song: PNSSong
+  alg: string
+}
+
+/** 推荐MV */
+export interface PersonalizedMv {
+  id: number
+  type: number
+  name: string
+  copywriter: string
+  picUrl: string
+  canDislike: boolean
+  trackNumberUpdateTime?: any
+  duration: number
+  playCount: number
+  subed: boolean
+  artists: {
+    id: number
+    name: string
+  }[]
+  artistName: string
+  artistId: number
   alg: string
 }
