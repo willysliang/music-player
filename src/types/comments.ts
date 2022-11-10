@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-10 09:28:30
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-10 09:29:06
+ * @ Modified time: 2022-11-10 15:51:49
  * @ Description: 评论数据集约束
  */
 
@@ -31,7 +31,7 @@ export interface IComment {
 }
 
 /** 专辑评论 */
-export interface IAlbumComment {
+export interface ICommentApi {
   cnum: number
   code: number
   commentBanner: any

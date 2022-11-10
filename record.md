@@ -19,7 +19,9 @@
 # 更新记录
 
 ## 2022年11月10日11:14:52
-  - feat(views -> album -> AlbumComments): 专辑评论
+  - feat(components -> songlist -> Comments): 评论通用组件
+  - feat(views -> album): 专辑评论
+  - feat(views -> playlist): 歌单评论
 
 ## 2022年11月9日09:06:07
   - feat(views -> artist -> ArtistDesc): 歌手信息描述模块

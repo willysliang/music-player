@@ -2,18 +2,19 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:19:02
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 11:01:06
+ * @ Modified time: 2022-11-10 17:22:54
  * @ Description: 专辑详情页
  -->
 
 <script setup lang="ts">
-import { AlbumInfo, AlbumComments } from './index'
+import { AlbumInfo } from './index'
 import SongList from '@/components/songList/SongList.vue'
 import type { Album } from '@/types/album'
 import type { Song } from '@/types/song'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAlbum } from '@/api/module/album'
+import Comments from '@/components/songList/Comments.vue'
 
 /***
  * 专辑列表详情
@@ -57,7 +58,8 @@ const tab = ref<string>('tracks')
       :label="`评论 ${albumData.info?.commentCount || 0}`"
       name="comments"
     >
-      <AlbumComments :id="routerId" />
+      <!-- <AlbumComments :id="routerId" /> -->
+      <Comments :id="routerId" api="/comment/album" />
     </el-tab-pane>
     <el-tab-pane lazy label="专辑详情" name="desc">
       <div
