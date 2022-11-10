@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     Comments: typeof import('./src/components/songList/Comments.vue')['default']
     Commons: typeof import('./src/components/songList/Commons.vue')['default']
     CoverPlay: typeof import('./src/components/common/CoverPlay.vue')['default']
+    ElAffix: typeof import('element-plus/es')['ElAffix']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']

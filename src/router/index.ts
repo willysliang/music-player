@@ -84,6 +84,28 @@ const routes = [
         meta: {
           ...Pages.MUSIC,
         },
+        redirect: { name: Pages.PICKED.name },
+        children: [
+          /** 精选 */
+          {
+            path: Pages.PICKED.path,
+            name: Pages.PICKED.name,
+            component: () => import('../views/musicHall/picked/index.vue'),
+            meta: {
+              ...Pages.PICKED,
+            },
+          },
+          /** 分类歌单 */
+          {
+            path: Pages.CATEGORY_SONGLIST.path,
+            name: Pages.CATEGORY_SONGLIST.name,
+            component: () =>
+              import('../views/musicHall/categoryList/index.vue'),
+            meta: {
+              ...Pages.CATEGORY_SONGLIST,
+            },
+          },
+        ],
       },
     ],
   },
