@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Banner from './Banner.vue'
 import PersonalizedSongList from './PersonalizedSongList.vue'
+import PersonalizedNewSong from './PersonalizedNewSong.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import PersonalizedSongList from './PersonalizedSongList.vue'
 
   <!-- 个性化歌单 -->
   <PersonalizedSongList />
-</template>
 
-<style lang="scss"></style>
+  <!-- 推荐新音乐 -->
+  <PersonalizedNewSong />
+</template>
