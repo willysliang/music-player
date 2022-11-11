@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-11 10:01:13
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-11 17:17:49
+ * @ Modified time: 2022-11-11 17:20:30
  * @ Description: 二维码登录
  -->
 
@@ -52,7 +52,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="max-w-sm h-60 flex justify-center items-center relative qrcode">
+  <div class="w-full h-60 flex justify-center items-center relative qrcode">
     <img
       :src="qrimg"
       alt="二维码"
