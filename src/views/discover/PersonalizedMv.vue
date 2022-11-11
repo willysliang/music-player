@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-10 18:05:31
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-10 18:10:55
+ * @ Modified time: 2022-11-11 17:52:47
  * @ Description: 推荐MV
  -->
 
@@ -13,6 +13,7 @@ import type { PersonalizedMv } from '@type/discover'
 import { usePersonalizedMv } from '@api/discover'
 import { Pages } from '@/router/constant'
 import { useRouter } from 'vue-router'
+import CoverPlay from '@comp/common/CoverPlay.vue'
 
 const router = useRouter()
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-20 17:23:52
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-21 11:33:51
+ * @ Modified time: 2022-11-11 18:02:03
  * @ Description: 主题配置的常量
  */
 
@@ -105,5 +105,10 @@ export const themeColors = [
     title: '酱紫',
     key: 'purple',
     value: 'rgb(114, 46, 209)',
+  },
+  {
+    title: '雅黑',
+    key: 'black',
+    value: 'rgb(0, 0, 0)',
   },
 ] as const

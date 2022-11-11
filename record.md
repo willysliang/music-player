@@ -20,6 +20,7 @@
 
 ## 2022年11月11日17:18:00
   - feat(layout -> header -> userInfo -> LoginQrcode): 二维码登录
+  - feat(views -> musicHall -> categoryList): 音乐馆页分类歌单
 
 ## 2022年11月10日11:14:52
   - feat(components -> songlist -> Comments): 评论通用组件
