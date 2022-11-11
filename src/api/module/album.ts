@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 14:23:50
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 16:04:11
+ * @ Modified time: 2022-11-10 17:27:46
  * @ Description: 专辑详情页页的接口
  */
 
-import { Album } from '@/types/album'
+import type { Album } from '@/types/album'
 import type { Song } from '@/types/song'
 import http from '@/utils/http'
 

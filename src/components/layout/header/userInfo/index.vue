@@ -2,12 +2,11 @@
 import { Lock, Iphone } from '@element-plus/icons-vue'
 import { reactive, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/store/app'
 import { useUserStore } from '@/store/user'
 import type { FormInstance, FormRules } from 'element-plus'
-import { useMock } from '@/api/module/mock'
+import { LoginQrcode } from './index'
+import { avactor } from '@/assets/images'
 
-const { iconSize } = useAppStore()
 const { isLogin, profile, showLogin } = storeToRefs(useUserStore())
 const { login, checkLogin } = useUserStore()
 
@@ -19,6 +18,7 @@ onMounted(() => {
  * 控制弹层模块切换
  */
 const dialogCurrent = ref<number>(0)
+const loginType = ['扫码登录', '手机验证码登录', '账号密码登录'] as const
 
 /***
  * 表单信息
@@ -52,25 +52,20 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
     }
   })
 }
-
-const getCode = async () => {
-  const res = await useMock()
-  console.log(res)
-}
 </script>
 
 <template>
-  <el-avatar
-    :size="iconSize + 6"
-    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-    class="mx-2"
-  />
-  <span v-if="isLogin" class="text-sm">{{ profile.nickname }}</span>
-  <!-- <span v-else class="text-sm" @click="showLogin = true">点击登录</span> -->
+  <div v-if="isLogin" class="text-sm flex flex-row items-center mx-2">
+    <el-avatar
+      :src="profile?.avatarUrl || avactor"
+      class="mr-1 object-scale-down"
+    />
+    <span> {{ profile.nickname }}</span>
+  </div>
+  <span class="text-sm mx-2" @click="showLogin = true">点击登录</span>
 
   <el-dialog
     v-model="showLogin"
-    width="70%"
     append-to-body
     center
     draggable
@@ -84,31 +79,24 @@ const getCode = async () => {
         :class="titleClass"
       >
         <div
-          :class="[dialogCurrent === 0 ? 'title-border-main' : '', 'px-4', 'py-2']"
-          @click="dialogCurrent = 0"
+          v-for="(item, index) in loginType"
+          :key="index"
+          :class="{
+            'border-b-2 border-solid border-red-600': dialogCurrent === index,
+            'px-4 py-2 text-lg': true,
+          }"
+          @click="dialogCurrent = index"
         >
-          扫码登录
-        </div>
-        <div
-          :class="[dialogCurrent === 1 ? 'title-border-main' : '', 'px-4', 'py-2']"
-          @click="dialogCurrent = 1"
-        >
-          账号登录
+          {{ item }}
         </div>
       </div>
     </template>
-    <div
-      v-show="dialogCurrent === 0"
-      class="w-full flex justify-center items-center"
-    >
-      <img
-        src="@/assets/images/code.png"
-        alt=""
-        class="w-40 h-40"
-        @click="getCode"
-      />
-    </div>
-    <div v-show="dialogCurrent === 1">
+    <!-- 二维码登录 -->
+    <LoginQrcode v-if="dialogCurrent === 0" />
+
+    <div v-show="dialogCurrent === 1" class="max-w-sm m-auto h-60"></div>
+
+    <div v-show="dialogCurrent === 2" class="max-w-sm m-auto h-60">
       <el-form ref="loginFormRef" :model="loginForm" :rules="rules">
         <el-form-item prop="phone">
           <el-input
@@ -132,7 +120,6 @@ const getCode = async () => {
         </el-form-item>
       </el-form>
       <button
-        style="border-radius: 5px"
         class="button flex justify-center items-center w-full mt-5 py-5"
         @click="handleSubmit(loginFormRef)"
       >
@@ -141,10 +128,3 @@ const getCode = async () => {
     </div>
   </el-dialog>
 </template>
-
-<style lang="scss" scoped>
-.title-border-main {
-	@apply border-b-2 border-solid;
-	border-color: var(--theme-border-color);
-}
-</style>

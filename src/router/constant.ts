@@ -53,7 +53,7 @@ export const Pages = {
     path: 'discover',
     key: 'discover',
     name: 'DISCOVER',
-    title: '推荐页',
+    title: '推荐',
     icon: Planet,
   },
   PLAYLIST: {
@@ -81,7 +81,14 @@ export const Pages = {
     path: 'MV',
     key: 'MV',
     name: 'MV',
-    title: 'mv详情',
+    title: 'MV',
+    icon: Planet,
+  },
+  VIDEO: {
+    path: 'VIDEO',
+    key: 'VIDEO',
+    name: 'VIDEO',
+    title: '视频',
     icon: Planet,
   },
 
@@ -93,6 +100,48 @@ export const Pages = {
     key: 'music',
     name: 'MUSIC',
     title: '音乐馆',
+    icon: Music,
+  },
+  PICKED: {
+    path: 'picked',
+    key: 'picked',
+    name: 'PICKED',
+    title: '精选',
+    icon: Music,
+  },
+  AUDIO_STATION: {
+    path: 'audioStation',
+    key: 'audioStation',
+    name: 'audioStation',
+    title: '有声电台',
+    icon: Music,
+  },
+  TOPLIST: {
+    path: 'toplist',
+    key: 'toplist',
+    name: 'TOPLIST',
+    title: '排行榜',
+    icon: Music,
+  },
+  ARTISTS: {
+    path: 'artists',
+    key: 'artists',
+    name: 'ARTISTS',
+    title: '歌手',
+    icon: Music,
+  },
+  CATEGORY_SONGLIST: {
+    path: 'categoryList',
+    key: 'categoryList',
+    name: 'categoryList',
+    title: '分类歌单',
+    icon: Music,
+  },
+  DIGITAL_ALBUM: {
+    path: 'digitalAlbum',
+    key: 'digitalAlbum',
+    name: 'digitalAlbum',
+    title: '数字专辑',
     icon: Music,
   },
 } as const
@@ -161,4 +210,14 @@ export const menuList: IPages[] = [
       },
     ],
   },
+]
+
+/** 音乐馆相关模块路由 */
+export const musicHallMenulist: IPages[] = [
+  Pages.PICKED,
+  Pages.AUDIO_STATION,
+  Pages.TOPLIST,
+  Pages.ARTISTS,
+  Pages.CATEGORY_SONGLIST,
+  Pages.DIGITAL_ALBUM,
 ]

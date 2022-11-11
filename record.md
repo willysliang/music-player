@@ -18,6 +18,30 @@
 
 # 更新记录
 
+## 2022年11月11日17:18:00
+  - feat(layout -> header -> userInfo -> LoginQrcode): 二维码登录
+  - feat(views -> musicHall -> categoryList): 音乐馆分类歌单
+  - feat(views -> musicHall -> toplist): 音乐馆排行榜
+  - feat(views -> musicHall -> picked): 音乐馆精选（独家放送 & 推荐电台）
+
+## 2022年11月10日11:14:52
+  - feat(components -> songlist -> Comments): 评论通用组件
+  - feat(views -> album): 专辑评论
+  - feat(views -> playlist): 歌单评论
+  - feat(views -> discover -> PersonalizedSongList): 推荐新音乐
+  - feat(views -> discover -> PersonalizedMv): 推荐MV
+  - feat(views -> musicHall): 音乐馆页菜单构建
+
+## 2022年11月9日09:06:07
+  - feat(views -> artist -> ArtistDesc): 歌手信息描述模块
+  - feat(components -> songlist -> SongOperation): 歌曲列表操作组件
+  - perf(views -> artist): 优化歌手信息模块
+
+## 2022年11月8日17:54:44
+  - chore(pnpm i dayjs -S): 引入 dayjs 日期格式化
+  - feat(utils -> globalExtend): 全局 & 原型 中集成的工具类
+  - feat(views -> artist -> ArtistAlbum): 歌手专辑模块组件实现
+
 ## 2022年11月7日11:22:40
   - feat(views -> mv): MV详情页
   - feat(views -> artist): 歌手视频模块

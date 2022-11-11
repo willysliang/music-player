@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-09 13:22:20
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-10 15:34:47
+ * @ Modified time: 2022-11-11 17:59:40
  * @ Description: 歌单列表详情页的定义类型约束
  */
 
@@ -171,7 +171,7 @@ export interface PlayListDetailTrackIds {
 
 /***
  * 歌单列表详情
-*/
+ */
 export interface PlayListDetail {
   id: number
   name: string
@@ -217,4 +217,13 @@ export interface PlayListDetail {
   remixVideo?: any
   sharedUsers?: any
   historySharedUsers?: any
+}
+
+/** 热门歌单分类 */
+export interface PlaylistHighqualityTag {
+  id: number
+  name: string
+  type: number
+  category: number
+  hot: boolean
 }

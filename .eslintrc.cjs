@@ -43,5 +43,7 @@ module.exports = {
     "no-tabs": 0,
     "@typescript-eslint/no-explicit-any": ["off"],
     "vue/no-v-html": "off", // 关闭 v-html 的校验
+    'no-extend-native': 'off', // 原型中可添加属性
+    'func-call-spacing': 'off', // 函数存在意外空格
   },
 }
