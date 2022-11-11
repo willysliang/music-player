@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 17:33:57
+ * @ Modified time: 2022-11-11 17:02:44
  * @ Description: 页面布局头部
  -->
 
@@ -29,7 +29,7 @@ const { iconColor, iconSize } = storeToRefs(useAppStore())
   <HeaderSearch />
 
   <!-- 设置类 -->
-  <div class="flex items-center justify-between w-48">
+  <div class="flex items-center justify-end">
     <!-- 用户登录 -->
     <UserInfo />
 

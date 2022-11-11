@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-01 10:10:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-03 14:17:59
+ * @ Modified time: 2022-11-11 13:32:05
  * @ Description: 锁屏主界面
  -->
 
@@ -35,7 +35,7 @@ const randomChargeComp = Math.random() > 0.5 ? ChargeXiaomi : ChargeHuawei
  * 用户信息
  */
 /** 获取用户名 */
-const { username } = toRefs(useUserStore())
+const { profile } = toRefs(useUserStore())
 
 /** 登录的用户信息 */
 const state = reactive({
@@ -104,7 +104,7 @@ const navToLogin = () => {
             <el-icon :size="70"><UserFilled /></el-icon>
           </template>
         </el-avatar>
-        <div class="mb-3">{{ username }}</div>
+        <div class="mb-3">{{ profile.nickname }}</div>
         <div class="flex flex-row items-center justify-between h-10 mb-2">
           <el-input
             v-model="state.password"
