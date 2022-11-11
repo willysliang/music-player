@@ -113,7 +113,7 @@ export const Pages = {
     path: 'toplist',
     key: 'toplist',
     name: 'TOPLIST',
-    title: '排行',
+    title: '排行榜',
     icon: Music,
   },
   ARTISTS: {
@@ -134,7 +134,7 @@ export const Pages = {
     path: 'digitalAlbum',
     key: 'digitalAlbum',
     name: 'digitalAlbum',
-    title: '歌手',
+    title: '数字专辑',
     icon: Music,
   },
 } as const

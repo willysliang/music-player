@@ -95,6 +95,15 @@ const routes = [
               ...Pages.PICKED,
             },
           },
+          /** 排行榜 */
+          {
+            path: Pages.TOPLIST.path,
+            name: Pages.TOPLIST.name,
+            component: () => import('../views/musicHall/toplist/index.vue'),
+            meta: {
+              ...Pages.TOPLIST,
+            },
+          },
           /** 分类歌单 */
           {
             path: Pages.CATEGORY_SONGLIST.path,

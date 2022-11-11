@@ -2,10 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-11 17:35:20
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-11 18:13:44
+ * @ Modified time: 2022-11-11 18:46:50
  * @ Description: 音乐馆接口
  */
 
+import { TopListDetail } from '@/types/musicHall'
 import http from '@/utils/http'
 import type { PlayListDetail, PlaylistHighqualityTag } from '@type/playlist'
 
@@ -32,4 +33,12 @@ export async function useTopPlaylistHighquality (params?: {
     url: '/api/top/playlist/highquality',
     params,
   })
+}
+
+/** 获取所有榜单内容摘要 */
+export async function useTopListDetail () {
+  const { list } = await http.get<{ list: TopListDetail[] }>({
+    url: '/api/toplist/detail',
+  })
+  return list
 }
