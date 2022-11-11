@@ -81,7 +81,14 @@ export const Pages = {
     path: 'MV',
     key: 'MV',
     name: 'MV',
-    title: 'mv详情',
+    title: 'MV',
+    icon: Planet,
+  },
+  VIDEO: {
+    path: 'VIDEO',
+    key: 'VIDEO',
+    name: 'VIDEO',
+    title: '视频',
     icon: Planet,
   },
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-11 17:31:20
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-11 18:43:31
+ * @ Modified time: 2022-11-11 19:21:16
  * @ Description: 音乐馆的数据约束集合
  */
 
@@ -51,4 +51,27 @@ export interface TopListDetail {
   id: number
   coverImgId_str: string
   ToplistType: string
+}
+
+/** 独家放送 */
+export interface PersonalizedPrivateContent {
+  id: number
+  url: string
+  picUrl: string
+  sPicUrl: string
+  type: number
+  copywriter: string
+  name: string
+  time: number
+}
+
+/** 推荐电台 */
+export interface DjProgram {
+  id: number
+  type: number
+  name: string
+  copywriter: string
+  picUrl: string
+  canDislike: boolean
+  trackNumberUpdateTime?: any
 }

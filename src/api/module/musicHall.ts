@@ -2,11 +2,15 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-11 17:35:20
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-11 18:46:50
+ * @ Modified time: 2022-11-11 19:22:30
  * @ Description: 音乐馆接口
  */
 
-import { TopListDetail } from '@/types/musicHall'
+import {
+  DjProgram,
+  PersonalizedPrivateContent,
+  TopListDetail,
+} from '@/types/musicHall'
 import http from '@/utils/http'
 import type { PlayListDetail, PlaylistHighqualityTag } from '@type/playlist'
 
@@ -41,4 +45,27 @@ export async function useTopListDetail () {
     url: '/api/toplist/detail',
   })
   return list
+}
+
+/** 独家放送列表 */
+export async function usePersonalizedPrivateContentList (
+  limit = 10,
+  offset = 0,
+) {
+  const { result } = await http.get<{ result: PersonalizedPrivateContent[] }>({
+    url: '/api/personalized/privatecontent/list',
+    params: {
+      limit,
+      offset,
+    },
+  })
+  return result
+}
+
+/** 推荐电台 */
+export async function usePersonalizedDjProgram () {
+  const { result } = await http.get<{ result: DjProgram[] }>({
+    url: '/api/personalized/djprogram',
+  })
+  return result
 }

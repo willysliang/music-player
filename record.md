@@ -22,6 +22,7 @@
   - feat(layout -> header -> userInfo -> LoginQrcode): 二维码登录
   - feat(views -> musicHall -> categoryList): 音乐馆分类歌单
   - feat(views -> musicHall -> toplist): 音乐馆排行榜
+  - feat(views -> musicHall -> picked): 音乐馆精选（独家放送 & 推荐电台）
 
 ## 2022年11月10日11:14:52
   - feat(components -> songlist -> Comments): 评论通用组件
