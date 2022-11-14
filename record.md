@@ -21,6 +21,7 @@
 ## 2022年11月14日09:59:36
   - feat(router): 路由信息配置
   - feat(views -> system): 系统页面配置
+  - chore(pnpm i vite-plugin-top-level-await -D): 引入插件解决打包时因使用 await 而无法继续打包问题
 
 ## 2022年11月11日17:18:00
   - feat(layout -> header -> userInfo -> LoginQrcode): 二维码登录

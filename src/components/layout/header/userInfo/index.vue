@@ -44,11 +44,9 @@ const rules = reactive<FormRules>({
 })
 const handleSubmit = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
-  await formEl.validate((valid, fields) => {
+  await formEl.validate((valid) => {
     if (valid) {
       login(loginForm.phone, loginForm.password)
-    } else {
-      console.log('error submit!', fields)
     }
   })
 }

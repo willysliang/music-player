@@ -2,10 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-14 10:46:52
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-14 10:47:54
+ * @ Modified time: 2022-11-14 11:28:32
  * @ Description: svg
  */
 
-import bgWelcome from './welcome.svg'
+import welcome from './welcome.svg'
+import bgWelcome from './bg-welcome.svg'
 
-export { bgWelcome }
+export { welcome, bgWelcome }

@@ -30,8 +30,8 @@ export function useMenuHooks () {
   )
 
   /** 选择菜单项 */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleMenuSelect = (name, indexPath) => {
-    console.log(indexPath)
     if (name !== 'logo') {
       router.push({ name, replace: false })
     }

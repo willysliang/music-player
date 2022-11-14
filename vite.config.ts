@@ -5,6 +5,7 @@ import * as path from 'path'
 
 /** 自定义组件name属性 */
 import DefineOptions from 'unplugin-vue-define-options/vite'
+import topLevelAwait from 'vite-plugin-top-level-await'
 
 // eslint
 import eslintPlugin from 'vite-plugin-eslint'
@@ -48,6 +49,12 @@ export default defineConfig({
     vue(),
     vueJsx(),
     DefineOptions(),
+    topLevelAwait({
+      // The export name of top-level await promise for each chunk module
+      promiseExportName: '__tla',
+      // The function to generate import names of top-level await promise in each chunk module
+      promiseImportName: i => `__tla_${i}`
+    }),
     /* eslint取消缓存 */
     eslintPlugin({
       cache: false, // 禁用 eslint 缓存

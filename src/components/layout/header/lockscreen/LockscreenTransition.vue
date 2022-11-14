@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-31 18:09:51
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 16:36:49
+ * @ Modified time: 2022-11-14 11:09:21
  * @ Description: 屏幕锁屏加载组件
  -->
 
@@ -43,7 +43,6 @@ const timeKeeping = () => {
       lockscreenStore.setLockscreen(true)
       return clearInterval(timer)
     }
-    // console.log(lockTime.value, '锁屏倒计时')
   }, 1000)
 }
 

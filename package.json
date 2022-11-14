@@ -85,6 +85,7 @@
     "vite": "^3.1.0",
     "vite-plugin-checker": "^0.5.1",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-top-level-await": "^1.2.1",
     "vue-tsc": "^0.40.4"
   }
 }
