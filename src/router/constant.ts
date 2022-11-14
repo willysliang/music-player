@@ -89,7 +89,7 @@ export const Pages = {
     key: 'VIDEO',
     name: 'VIDEO',
     title: '视频',
-    icon: Planet,
+    icon: VideoOne,
   },
 
   /***
@@ -144,6 +144,61 @@ export const Pages = {
     title: '数字专辑',
     icon: Music,
   },
+
+  /***
+   * 电台模块
+   */
+  DJ: {
+    title: '电台',
+    name: 'dj',
+    key: 'dj',
+    path: 'dj',
+    icon: Fm,
+  },
+
+  /***
+   * 个人喜欢模块
+   */
+  ONESELF_LOVE_MUSIC: {
+    title: '我喜欢',
+    name: 'oneselfLoveMusic',
+    key: 'oneselfLoveMusic',
+    path: 'oneselfLoveMusic',
+    icon: Like,
+  },
+
+  /***
+   * 本地歌曲
+   */
+  LOCAL_MUSIC: {
+    title: '本地歌曲',
+    name: 'localMusic',
+    key: 'localMusic',
+    path: 'localMusic',
+    icon: Computer,
+  },
+
+  /***
+   * 下载音乐
+   */
+  DOWNLOAD_MUSIC: {
+    title: '下载歌曲',
+    name: 'downloadMusic',
+    key: 'downloadMusic',
+    path: 'downloadMusic',
+    icon: DownloadThree,
+  },
+
+  /***
+   * 最近播放
+   */
+  RECENTLY_MUSIC: {
+    title: '最近播放',
+    name: 'recentlyMusic',
+    key: 'recentlyMusic',
+    path: 'recentlyMusic',
+    icon: PlayTwo,
+  },
 } as const
 
 /** 菜单列表 */
@@ -154,60 +209,19 @@ export const menuList: IPages[] = [
     key: 'onlineMusic',
     path: 'onlineMusic',
     icon: VideoOne,
-    children: [
-      Pages.DISCOVER,
-      Pages.MUSIC,
-      {
-        title: '视频',
-        name: 'video',
-        key: 'video',
-        path: 'onlineMusic',
-        icon: VideoOne,
-      },
-      {
-        title: '电台',
-        name: 'dj',
-        key: 'dj',
-        path: 'onlineMusic',
-        icon: Fm,
-      },
-    ],
+    children: [Pages.DISCOVER, Pages.MUSIC, Pages.VIDEO, Pages.DJ],
   },
   {
     title: '我的音乐',
-    name: 'mineMusic',
-    key: 'mineMusic',
-    path: 'onlineMusic',
+    name: 'oneselfMusic',
+    key: 'oneselfMusic',
+    path: 'oneselfMusic',
     icon: VideoOne,
     children: [
-      {
-        title: '我喜欢',
-        name: 'music',
-        key: 'love',
-        path: 'onlineMusic',
-        icon: Like,
-      },
-      {
-        title: '本地歌曲',
-        name: 'music',
-        key: 'local',
-        path: 'onlineMusic',
-        icon: Computer,
-      },
-      {
-        title: '下载歌曲',
-        name: 'music',
-        key: 'download',
-        path: 'onlineMusic',
-        icon: DownloadThree,
-      },
-      {
-        title: '最近播放',
-        name: 'music',
-        key: 'recently',
-        path: 'onlineMusic',
-        icon: PlayTwo,
-      },
+      Pages.ONESELF_LOVE_MUSIC,
+      Pages.LOCAL_MUSIC,
+      Pages.DOWNLOAD_MUSIC,
+      Pages.RECENTLY_MUSIC,
     ],
   },
 ]

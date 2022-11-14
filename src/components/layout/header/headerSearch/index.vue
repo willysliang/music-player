@@ -51,14 +51,14 @@
 
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
-import SearchSuggestDOM from '@comp/layout/header/headerSearch/SearchSuggest.vue'
+import SearchSuggestDOM from './SearchSuggest.vue'
 import { ref, onBeforeMount, onMounted, onUnmounted } from 'vue'
 import { debounce, throttle } from 'lodash'
 import type {
   SearchHotDetail,
   SearchSuggest as typeSearchSuggest,
 } from '@/types/search'
-import { useSearchHotDetail, useSearchSuggest } from '@/api/module/search'
+import { useSearchHotDetail, useSearchSuggest } from '@api/search'
 import { formatQuantity } from '@/utils/format'
 
 /***
@@ -97,7 +97,9 @@ const showSearchView = ref<boolean>(false) // 控制展现搜索内容弹层的�
 const suggestData = ref<typeSearchSuggest>({} as typeSearchSuggest) // 请求的搜索数据
 /* 请求搜索接口 */
 const getSuggest = async () => {
-  suggestData.value = await useSearchSuggest(searchKeyword.value)
+  try {
+    suggestData.value = await useSearchSuggest(searchKeyword.value)
+  } catch {}
 }
 /***
  * 节流获取搜索内容
@@ -112,7 +114,9 @@ const handleSearch = debounce(getSuggest, 500, {
  */
 const searchHot = ref<SearchHotDetail[]>([])
 onBeforeMount(async () => {
-  searchHot.value = await useSearchHotDetail()
+  try {
+    searchHot.value = await useSearchHotDetail()
+  } catch {}
 })
 
 /***

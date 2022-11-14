@@ -83,6 +83,7 @@ const routes = [
         component: () => import('../views/musicHall/index.vue'),
         meta: {
           ...Pages.MUSIC,
+          keepAlive: true,
         },
         redirect: { name: Pages.PICKED.name },
         children: [
@@ -115,6 +116,75 @@ const routes = [
             },
           },
         ],
+      },
+
+      /***
+       * 视频模块
+       */
+      {
+        path: Pages.VIDEO.path,
+        name: Pages.VIDEO.name,
+        component: () => import('../views/video/index.vue'),
+        meta: {
+          ...Pages.VIDEO,
+          keepAlive: true,
+        },
+      },
+
+      /***
+       * 电台模块
+       */
+      {
+        path: Pages.DJ.path,
+        name: Pages.DJ.name,
+        component: () => import('../views/dj/index.vue'),
+        meta: {
+          ...Pages.DJ,
+          keepAlive: true,
+        },
+      },
+
+      /***
+       * 个人相关模块
+       */
+      /** 我喜欢 */
+      {
+        path: Pages.ONESELF_LOVE_MUSIC.path,
+        name: Pages.ONESELF_LOVE_MUSIC.name,
+        component: () =>
+          import('../views/oneselfMusic/oneselfLoveMusic/index.vue'),
+        meta: {
+          ...Pages.ONESELF_LOVE_MUSIC,
+        },
+      },
+      /** 本地歌曲 */
+      {
+        path: Pages.LOCAL_MUSIC.path,
+        name: Pages.LOCAL_MUSIC.name,
+        component: () => import('../views/oneselfMusic/localMusic/index.vue'),
+        meta: {
+          ...Pages.LOCAL_MUSIC,
+        },
+      },
+      /** 下载歌曲 */
+      {
+        path: Pages.DOWNLOAD_MUSIC.path,
+        name: Pages.DOWNLOAD_MUSIC.name,
+        component: () =>
+          import('../views/oneselfMusic/downloadMusic/index.vue'),
+        meta: {
+          ...Pages.DOWNLOAD_MUSIC,
+        },
+      },
+      /** 最近播放 */
+      {
+        path: Pages.RECENTLY_MUSIC.path,
+        name: Pages.RECENTLY_MUSIC.name,
+        component: () =>
+          import('../views/oneselfMusic/recentlyMusic/index.vue'),
+        meta: {
+          ...Pages.RECENTLY_MUSIC,
+        },
       },
     ],
   },

@@ -18,6 +18,9 @@
 
 # 更新记录
 
+## 2022年11月14日09:59:36
+  - feat(router): 路由信息配置
+
 ## 2022年11月11日17:18:00
   - feat(layout -> header -> userInfo -> LoginQrcode): 二维码登录
   - feat(views -> musicHall -> categoryList): 音乐馆分类歌单

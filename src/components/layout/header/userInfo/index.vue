@@ -62,7 +62,7 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
     />
     <span> {{ profile.nickname }}</span>
   </div>
-  <span class="text-sm mx-2" @click="showLogin = true">点击登录</span>
+  <span v-else class="text-sm mx-2" @click="showLogin = true">点击登录</span>
 
   <el-dialog
     v-model="showLogin"
