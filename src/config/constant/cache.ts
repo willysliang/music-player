@@ -2,9 +2,16 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-20 17:27:25
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-21 09:13:57
+ * @ Modified time: 2022-11-14 10:34:23
  * @ Description: 持久化缓存的key值存储
  */
+
+/***
+ * 系统类
+ */
+/** 后端地址 */
+export const BASE_URL = 'BASE_URL'
+export const API_TARGET_URL = 'http://localhost:4000'
 
 /***
  * 用户信息类

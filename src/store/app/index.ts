@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-31 18:39:32
+ * @ Modified time: 2022-11-14 10:35:32
  * @ Description: App 相关的持久化数据
  */
 
@@ -11,6 +11,7 @@ import { LOCALE_KEY, IS_LOCKSCREEN } from '@/config/constant/app'
 import { Storage } from '@util/cache'
 import { LocaleType } from '@/locales/config'
 import store from '@/store'
+import { BASE_URL, API_TARGET_URL } from '@/config/constant/cache'
 
 const initLockTime = 5 * 60 * 1000
 
@@ -23,13 +24,16 @@ interface IAppStore {
   /** 常规图标大小 */
   iconSize: any
 
+  /** 后端接口地址 */
+  baseUrl: string
+
   /** 国际化语言类型 */
   localeType: LocaleType
 
   /** 是否锁屏 */
-  isLock: boolean;
+  isLock: boolean
   /** 自动锁屏时限 */
-  lockTime: number;
+  lockTime: number
 }
 
 export const useAppStore = defineStore({
@@ -38,6 +42,9 @@ export const useAppStore = defineStore({
     logoName: 'WILLY 云音乐',
     iconColor: '#ccc',
     iconSize: 22,
+
+    /** 后端接口地址 */
+    baseUrl: localStorage.getItem(BASE_URL) || API_TARGET_URL,
 
     /** 国际多语言模块 */
     localeType: Storage.get(LOCALE_KEY, 'zh_CN'),
@@ -48,11 +55,19 @@ export const useAppStore = defineStore({
   }),
 
   getters: {
+    isInit: () => localStorage.getItem(BASE_URL),
+
     /** 获取国际化语言类型 */
     getLocale: (state): LocaleType => state.localeType ?? 'zh_CN',
   },
 
   actions: {
+    /** 设置系统后端地址 */
+    setHost (host: string) {
+      localStorage.setItem(BASE_URL, host)
+      location.reload()
+    },
+
     /** 切换语言类型，并设置国际化语言缓存 */
     setLocale (locale: LocaleType) {
       this.localeType = locale

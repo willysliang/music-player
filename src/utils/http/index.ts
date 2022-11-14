@@ -1,10 +1,15 @@
 import axios, { type AxiosRequestConfig, AxiosResponse } from 'axios'
 import { errorMessage } from './status'
 import { Storage } from '@util/cache'
-import { USER_TOKEN } from '@/config/constant/cache'
+import { USER_TOKEN, BASE_URL, API_TARGET_URL } from '@/config/constant/cache'
 import { ElMessage } from 'element-plus'
 
-// axios.defaults.baseURL = localStorage.getItem('BASE_URL')?.toString()
+if (import.meta.env.MODE === 'development') {
+  //
+} else if (import.meta.env.MODE === 'production') {
+  axios.defaults.baseURL = localStorage.getItem(BASE_URL)?.toString() || API_TARGET_URL
+}
+
 axios.defaults.timeout = 20 * 1000 // 如果请求超时，请求将被中断
 axios.defaults.maxBodyLength = 5 * 1024 * 1024 // 请求参数最长度
 axios.defaults.withCredentials = true // 允许携带cookie

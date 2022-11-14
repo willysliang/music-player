@@ -11,7 +11,7 @@ const routes = [
       keepAlive: true,
       requireAuth: false,
     },
-    component: () => import('../views/login.vue'),
+    component: () => import('../views/system/Login.vue'),
   },
   {
     path: '/',
@@ -22,7 +22,7 @@ const routes = [
       requireAuth: true,
     },
     redirect: { name: Pages.DISCOVER.name },
-    component: () => import('../views/root.vue'),
+    component: () => import('../views/system/root.vue'),
     children: [
       /***
        * 推荐模块
