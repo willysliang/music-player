@@ -1,3 +1,11 @@
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-11-15 09:38:24
+ * @ Description: 日志记录
+ */
+
 # 更新规则
 
   - feat 增加新功能
@@ -17,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年11月15日09:38:09
+  - feat(views -> demo): 案例配置
 
 ## 2022年11月14日09:59:36
   - feat(router): 路由信息配置

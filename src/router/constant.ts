@@ -9,6 +9,7 @@ import {
   PlayTwo,
 } from '@icon-park/vue-next'
 import { Icon } from '@icon-park/vue-next/lib/runtime'
+import { demoPages } from '@/views/demo/constant'
 
 /** 路由数据约束定义 */
 export interface IPages {
@@ -222,6 +223,16 @@ export const menuList: IPages[] = [
       Pages.LOCAL_MUSIC,
       Pages.DOWNLOAD_MUSIC,
       Pages.RECENTLY_MUSIC,
+    ],
+  },
+  {
+    title: '案例',
+    name: 'demo',
+    key: 'demo',
+    path: 'demo',
+    icon: VideoOne,
+    children: [
+      ...Object.values(demoPages),
     ],
   },
 ]

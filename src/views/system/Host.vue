@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-14 10:16:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-14 10:57:51
+ * @ Modified time: 2022-11-14 11:35:24
  * @ Description: 系统页
  -->
 
@@ -43,7 +43,7 @@ const sub = async () => {
   <div
     class="overflow-hidden w-screen h-screen flex flex-col items-center justify-center"
   >
-    <img :src="bgWelcome" alt="背景logo" class="w-1/2 h-1/3 object-center object-cover">
+    <img :src="bgWelcome" alt="背景logo" class="w-1/2 h-1/3 object-center object-scale-down">
     <div class="text-2xl mt-5">欢迎体验 VUE3-MUSIC</div>
     <div class="mt-5 w-1/2 xl:w-1/3">
       <div v-if="pageData.error" class="mb-5">

@@ -1,6 +1,15 @@
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-11-15 09:46:01
+ * @ Description: 路由配置
+ */
+
 import { createRouter, createWebHistory } from 'vue-router'
 import { Pages } from './constant'
 import { createRouterGuards } from './routerGuards'
+import { demoRoutes } from './routes/demoRoutes'
 
 const routes = [
   {
@@ -186,6 +195,7 @@ const routes = [
           ...Pages.RECENTLY_MUSIC,
         },
       },
+      ...demoRoutes,
     ],
   },
 ]
