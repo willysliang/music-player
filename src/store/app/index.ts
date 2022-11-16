@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-14 10:35:32
+ * @ Modified time: 2022-11-15 11:24:12
  * @ Description: App 相关的持久化数据
  */
 
@@ -17,13 +17,6 @@ const initLockTime = 5 * 60 * 1000
 
 /** app数据集的约束 */
 interface IAppStore {
-  /** logo名称 */
-  logoName: string
-  /** 常规图标颜色 */
-  iconColor: string
-  /** 常规图标大小 */
-  iconSize: any
-
   /** 后端接口地址 */
   baseUrl: string
 
@@ -39,10 +32,6 @@ interface IAppStore {
 export const useAppStore = defineStore({
   id: 'app',
   state: (): IAppStore => ({
-    logoName: 'WILLY 云音乐',
-    iconColor: '#ccc',
-    iconSize: 22,
-
     /** 后端接口地址 */
     baseUrl: localStorage.getItem(BASE_URL) || API_TARGET_URL,
 
