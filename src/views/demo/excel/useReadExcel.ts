@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-16 15:36:23
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-16 17:55:28
+ * @ Modified time: 2022-11-17 10:04:30
  * @ Description: 解析 Excel 文件的工具类
  */
 
@@ -32,7 +32,7 @@ export const useReadExcelHead = (sheet: XLSX.WorkSheet) => {
  *
  */
 export const useReadRawData = (rawFile: any) =>
-  new Promise<{ header: any; excelData: any }>((resolve) => {
+  new Promise<{ header: string[]; excelData: any[] }>((resolve) => {
     const reader = new FileReader()
     reader.onload = (e: ProgressEvent<FileReader>) => {
       const data = e?.target?.result

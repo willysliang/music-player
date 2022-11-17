@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:43:32
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-16 12:08:20
+ * @ Modified time: 2022-11-16 18:04:33
  * @ Description: excel
  -->
 
@@ -202,7 +202,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <el-row :gutter="10" class="justify-end" style="width: 95%; margin: auto">
+  <el-row :gutter="10" class="justify-end excel-row" style="width: 95%; margin: auto">
     <el-col :span="6">
       <el-button type="warning" plain class="w-full" @click="dialogVisible = true"> 上传文件 </el-button>
     </el-col>
@@ -211,6 +211,7 @@ export default defineComponent({
         v-model="form.bookType"
         clearable
         placeholder="请选择导出的文件类型"
+        class="w-full"
       >
         <el-option
           v-for="item in fileTypes"

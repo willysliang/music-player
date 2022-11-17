@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 17:26:07
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-16 11:51:26
+ * @ Modified time: 2022-11-17 10:05:07
  * @ Description: 导出 Excel 的工具类
  */
 
@@ -210,7 +210,6 @@ export function exportJsonToExcel (params: jsonTypes, needDownload = true, wb = 
 
   /* 添加工作表到工作簿中 */
   // const wb = new Workbook()
-  // const wb = XLSX.utils.book_new()
   // wb.SheetNames.push(wsName)
   // wb.Sheets[wsName] = worksheet
   XLSX.utils.book_append_sheet(wb, worksheet, wsName)

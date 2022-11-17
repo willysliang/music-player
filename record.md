@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-16 17:57:53
+ * @ Modified time: 2022-11-17 10:36:10
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年11月17日10:35:48
+  - feat(views -> demo -> Zip): 压缩包模块
 
 ## 2022年11月16日12:10:55
   - chore(pnpm i -S xlsx file-saver): 引入 excel 文件处理工具（转换excel、识别Excel文件）
