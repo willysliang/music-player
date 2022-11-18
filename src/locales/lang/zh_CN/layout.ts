@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-28 09:24:15
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-15 11:31:46
+ * @ Modified time: 2022-11-18 09:58:02
  * @ Description: 页面大框布局中的中文语言
  */
 
@@ -15,7 +15,5 @@ export default {
     tooltipEntryFull: '全屏',
     tooltipExitFull: '退出全屏',
     tooltipThemeSetting: "主题设置",
-
-    tooltipNotify: '消息通知',
   },
 }

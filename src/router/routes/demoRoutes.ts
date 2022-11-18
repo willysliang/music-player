@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-17 10:08:39
+ * @ Modified time: 2022-11-18 18:02:32
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -22,7 +22,7 @@ export const demoRoutes = [
   {
     path: demoPages.ZIP.path,
     name: demoPages.ZIP.name,
-    component: () => import('../../views/demo/Zip/exportZip.vue'),
+    component: () => import('../../views/demo/Zip/ExportZip.vue'),
     meta: {
       ...demoPages.ZIP,
     },

@@ -15,7 +15,7 @@
     "commit": "git-cz"
   },
   "lint-staged": {
-    "*.{js,ts, jsx, tsx}": [
+    "*.{js,ts, jsx, tsx, vue}": [
       "npm run eslint",
       "npm run prettier"
     ]
@@ -25,11 +25,15 @@
     "@icon-park/vue-next": "^1.4.2",
     "@typescript-eslint/parser": "^5.0.0",
     "@vueuse/core": "^9.2.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^0.27.2",
     "dayjs": "^1.11.6",
     "element-plus": "^2.2.16",
     "file-saver": "^2.0.5",
     "js-md5": "^0.7.3",
+    "jszip": "^3.10.1",
+    "jszip-utils": "^0.1.0",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
