@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-18 18:02:03
+ * @ Modified time: 2022-11-21 17:38:09
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,10 @@
 
 
 # 更新记录
+
+## 2022年11月21日16:27:00
+  - chore(pnpm i clipboard -S): 引入复制文本插件 clipboard
+  - feat(views -> demo -> copyText): 复制文本模块
 
 ## 2022年11月18日17:59:44
   - chore(pnpm i -S jszip jszip-utils): 引入批量导出 zip 压缩包插件

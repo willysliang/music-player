@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-17 10:09:47
+ * @ Modified time: 2022-11-21 15:35:39
  * @ Description: 路由配置 & 常量设定
  */
 
-import { Excel, Zip } from '@icon-park/vue-next'
+import { Excel, Zip, PersonalPrivacy } from '@icon-park/vue-next'
 
 export const demoPages = {
   EXCEL: {
@@ -22,5 +22,19 @@ export const demoPages = {
     name: 'demoZip',
     title: 'ZIP导出',
     icon: Zip,
+  },
+  COPY_TEXT: {
+    path: 'copyText',
+    key: 'copyText',
+    name: 'copyText',
+    title: '复制文本',
+    icon: Zip,
+  },
+  PERSONAL_CENTER: {
+    path: 'personalCenter',
+    key: 'personalCenter',
+    name: 'personalCenter',
+    title: '个人中心',
+    icon: PersonalPrivacy,
   },
 } as const

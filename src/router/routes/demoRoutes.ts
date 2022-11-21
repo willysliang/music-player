@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-18 18:02:32
+ * @ Modified time: 2022-11-21 15:39:21
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -25,6 +25,26 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Zip/ExportZip.vue'),
     meta: {
       ...demoPages.ZIP,
+    },
+  },
+
+  /** copyText 复制文本 */
+  {
+    path: demoPages.COPY_TEXT.path,
+    name: demoPages.COPY_TEXT.name,
+    component: () => import('../../views/demo/copyText/index.vue'),
+    meta: {
+      ...demoPages.COPY_TEXT,
+    },
+  },
+
+  /** 个人中心 */
+  {
+    path: demoPages.PERSONAL_CENTER.path,
+    name: demoPages.PERSONAL_CENTER.name,
+    component: () => import('../../views/demo/personal/PersonalSetting.vue'),
+    meta: {
+      ...demoPages.PERSONAL_CENTER,
     },
   },
 ]
