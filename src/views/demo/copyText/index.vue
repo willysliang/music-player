@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-21 15:38:28
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-21 17:29:21
+ * @ Modified time: 2022-11-22 10:00:33
  * @ Description: 复制文本
  -->
 
@@ -32,6 +32,6 @@ import TableCopy from './TableCopy.vue'
     <InputCopy />
 
     <!-- 多数据拼接复制场景 -->
-    <TableCopy />
+    <TableCopy class="mt-4" />
   </div>
 </template>

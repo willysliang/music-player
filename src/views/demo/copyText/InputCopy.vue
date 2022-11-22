@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-21 15:38:28
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-21 17:28:42
+ * @ Modified time: 2022-11-22 09:55:57
  * @ Description: 长文本内容复制场景
  -->
 
@@ -10,6 +10,9 @@
 import { ref } from 'vue'
 import Clipboard from 'clipboard'
 import { ElMessage } from 'element-plus'
+import { useI18nHooks } from '@/hooks/useI18n'
+
+const { t } = useI18nHooks()
 
 const inputContent = ref('')
 
@@ -20,7 +23,7 @@ const handleCopyAsExecCommand = (text) => {
   document.body.appendChild(input)
   input.select()
   document.execCommand('copy')
-  ElMessage.success('utsil.copySuccess' ?? 'copy success')
+  ElMessage.success(t('util.copySuccess'))
   document.body.removeChild(input)
 }
 
@@ -33,11 +36,11 @@ const handleCopyAsClipboardjs = (event: any) => {
     text: () => inputContent.value,
   })
   clipboard.on('success', () => {
-    ElMessage.success('utsil.copySuccess' ?? 'copy success')
+    ElMessage.success(t('util.copySuccess'))
     clipboard.destroy()
   })
   clipboard.on('error', () => {
-    ElMessage.error('utsil.copyError' ?? 'copy success')
+    ElMessage.error(t('util.copyError'))
     clipboard.destroy()
   })
 }

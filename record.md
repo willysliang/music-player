@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-21 17:38:09
+ * @ Modified time: 2022-11-22 10:02:34
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,10 @@
 
 
 # 更新记录
+
+## 2022年11月22日10:01:06
+  - feat(views -> demo -> copyText -> TableCopy): 复制文本模块 - 多数据拼接复制
+  - feat(views -> demo -> copyText -> useClipboardDirective): 自定义指令 - 复制文本
 
 ## 2022年11月21日16:27:00
   - chore(pnpm i clipboard -S): 引入复制文本插件 clipboard
