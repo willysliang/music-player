@@ -4,7 +4,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-21 15:41:39
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-22 10:02:18
+ * @ Modified time: 2022-11-22 10:06:07
  * @ Description: 自定义指令 - clipboard 复制文本 - useClipboardDirective
  */
 
@@ -32,6 +32,7 @@ export const vClips: Directive = (el, binding: DirectiveBinding<any>) => {
   console.log(el, binding)
 }
 
+/** 自定义 v-clip 复制文本指令 */
 export const vClip: Directive = {
   created: () => {},
   beforeMount () {},

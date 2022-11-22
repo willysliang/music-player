@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-21 15:39:21
+ * @ Modified time: 2022-11-22 17:25:43
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -45,6 +45,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/personal/PersonalSetting.vue'),
     meta: {
       ...demoPages.PERSONAL_CENTER,
+    },
+  },
+
+  {
+    path: demoPages.TEST.path,
+    name: demoPages.TEST.name,
+    component: () => import('../../views/demo/test/index.vue'),
+    meta: {
+      ...demoPages.TEST,
     },
   },
 ]
