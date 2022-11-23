@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-22 17:25:43
+ * @ Modified time: 2022-11-23 17:39:57
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -35,6 +35,16 @@ export const demoRoutes = [
     component: () => import('../../views/demo/copyText/index.vue'),
     meta: {
       ...demoPages.COPY_TEXT,
+    },
+  },
+
+  /** Qrcode 生成二维码 */
+  {
+    path: demoPages.QRCODE.path,
+    name: demoPages.QRCODE.name,
+    component: () => import('../../views/demo/Qrcode/index.vue'),
+    meta: {
+      ...demoPages.QRCODE,
     },
   },
 

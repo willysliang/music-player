@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 10:12:40
+ * @ Modified time: 2022-11-23 17:41:36
  * @ Description: 日志记录
  */
 
@@ -28,7 +28,9 @@
 
 ## 2022年11月23日09:37:46
   - chore(pnpm i driver.js -S): 引入页面分页指导插件 driver.js
-  - feat(views -> header -> guide): 页面指引组件 
+  - feat(views -> header -> guide): 页面指引组件
+  - chore(pnpm i -S @types/qrcode qrcode): 引入生成二维码插件 qrcode
+  - feat(views -> demo -> Qrcode): 生成二维码组件 & 下载二维码图片
 
 ## 2022年11月22日10:01:06
   - feat(views -> demo -> copyText -> TableCopy): 复制文本模块 - 多数据拼接复制

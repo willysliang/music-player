@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-17 10:05:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-18 17:59:09
+ * @ Modified time: 2022-11-23 11:59:24
  * @ Description: 压缩文件下载
  -->
 
@@ -79,7 +79,6 @@ const handleDownloadSelectFile = async () => {
     /** 循环把文件路径转化为数据流 */
     for (let i = 0; i < multipleSelection.value.length; i++) {
       const tempUrl = await urlToPromise(multipleSelection.value[i].fileUrl)
-      console.log(tempUrl)
       downloadSelectZip.value.file(
         multipleSelection.value[i].fileName,
         tempUrl as ArrayBuffer | string,
