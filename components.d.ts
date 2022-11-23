@@ -54,6 +54,7 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Footer: typeof import('./src/components/layout/footer/index.vue')['default']
+    Guide: typeof import('./src/components/layout/header/Guide/index.vue')['default']
     Header: typeof import('./src/components/layout/header/index.vue')['default']
     HeaderFullScreen: typeof import('./src/components/layout/header/HeaderFullScreen/index.vue')['default']
     HeaderLocale: typeof import('./src/components/layout/header/headerLocale/index.vue')['default']

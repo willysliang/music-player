@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:14:27
+ * @ Modified time: 2022-11-23 10:51:16
  * @ Description: 页面大框
  -->
 
@@ -19,7 +19,7 @@ useThemeInit()
 </script>
 
 <template>
-  <div class="flex flex-col w-full h-full overflow-hidden">
+  <div class="layout flex flex-col w-full h-full overflow-hidden">
     <!-- 顶部菜单 -->
     <div
       v-if="themeLayoutIsVertical"
@@ -41,7 +41,7 @@ useThemeInit()
       <!-- 左侧菜单栏 -->
       <div
         v-if="!themeLayoutIsVertical"
-        class="w-48 h-full box-border overflow-auto"
+        class="menus w-48 h-full box-border overflow-auto"
         style="background-color: var(--theme-second-bg-color)"
       >
         <my-menu />
@@ -55,7 +55,7 @@ useThemeInit()
         </div>
 
         <!-- 右边展示区域 -->
-        <div class="flex-1 overflow-hidden">
+        <div class="mains flex-1 overflow-hidden">
           <my-main />
         </div>
       </div>

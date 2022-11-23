@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-15 11:31:36
+ * @ Modified time: 2022-11-23 09:45:39
  * @ Description: 页面布局头部
  -->
 
@@ -15,6 +15,7 @@ import LockScreen from './lockscreen/index.vue'
 import { HeaderLocale } from './headerLocale'
 import { HeaderThemeSetting } from './headerThemeSetting'
 import { useRouter } from 'vue-router'
+import { HeaderGuide } from './Guide'
 
 const router = useRouter()
 </script>
@@ -30,7 +31,10 @@ const router = useRouter()
         @click="router.back()"
       />
     </el-tooltip>
-    <el-tooltip :content="$t('layout.header.tooltipForward')" placement="bottom">
+    <el-tooltip
+      :content="$t('layout.header.tooltipForward')"
+      placement="bottom"
+    >
       <IconPark
         :icon="Right"
         size="22"
@@ -48,6 +52,9 @@ const router = useRouter()
   <div class="flex items-center justify-end">
     <!-- 用户登录 -->
     <UserInfo />
+
+    <!-- 页面指导 -->
+    <HeaderGuide />
 
     <!-- 锁屏 -->
     <LockScreen />
