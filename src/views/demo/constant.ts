@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 17:37:02
+ * @ Modified time: 2022-11-23 17:49:53
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -11,7 +11,9 @@ import {
   Zip,
   PersonalPrivacy,
   TestTube,
+  CopyOne,
   PayCodeOne,
+  Tailoring,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -34,7 +36,7 @@ export const demoPages = {
     key: 'copyText',
     name: 'copyText',
     title: '复制文本',
-    icon: Zip,
+    icon: CopyOne,
   },
   QRCODE: {
     path: 'QRCODE',
@@ -43,6 +45,14 @@ export const demoPages = {
     title: '生成二维码',
     icon: PayCodeOne,
     component: () => import('./Qrcode/index.vue')
+  },
+  CROPPER: {
+    path: 'CROPPER',
+    key: 'CROPPER',
+    name: 'CROPPER',
+    title: '图片裁剪',
+    icon: Tailoring,
+    component: () => import('./Cropper/CropImage.vue')
   },
   PERSONAL_CENTER: {
     path: 'personalCenter',

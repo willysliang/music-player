@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 17:39:57
+ * @ Modified time: 2022-11-23 17:49:48
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -45,6 +45,16 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Qrcode/index.vue'),
     meta: {
       ...demoPages.QRCODE,
+    },
+  },
+
+  /** Cropper 图片裁剪 */
+  {
+    path: demoPages.CROPPER.path,
+    name: demoPages.CROPPER.name,
+    component: () => import('../../views/demo/Cropper/CropImage.vue'),
+    meta: {
+      ...demoPages.CROPPER,
     },
   },
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 17:41:36
+ * @ Modified time: 2022-11-24 10:32:44
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年11月24日10:32:11
+  - feat(views -> demo -> Cropper): 图片裁剪
 
 ## 2022年11月23日09:37:46
   - chore(pnpm i driver.js -S): 引入页面分页指导插件 driver.js
