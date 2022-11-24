@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-23 17:45:49
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-24 18:25:31
+ * @ Modified time: 2022-11-24 18:26:53
  * @ Description: 图片裁剪
  -->
 
@@ -280,9 +280,9 @@ const handleFlip = (axis: 'X' | 'Y') => {
             :src="cropShotImg"
             alt="快照"
             style="height: calc(20rem * (9 / 16))"
-            class="w-full overflow-hidden object-scale-down"
+            class="w-4/5 overflow-hidden object-scale-down border-2 border-solid border-gray-500"
           />
-          <div v-else style="height: calc(20rem * (9 / 16)); width: 80%; margin: auto;" class="border-2 border-solid border-gray-500"></div>
+          <div v-else style="height: calc(20rem * (9 / 16)); margin: auto;" class="w-4/5 border-2 border-solid border-gray-500"></div>
         </div>
       </div>
     </div>
