@@ -53,6 +53,7 @@ specifiers:
   qrcode: ^1.5.1
   rollup: ^2.79.0
   sass: ^1.54.9
+  sortablejs: ^1.15.0
   stylelint: ^14.11.0
   stylelint-config-prettier-scss: ^0.0.1
   stylelint-config-recess-order: ^3.0.0
@@ -101,6 +102,7 @@ dependencies:
   pinia: 2.0.22_arz4dztosvwy2ghjrlh2wdhejm
   qrcode: 1.5.1
   rollup: 2.79.0
+  sortablejs: 1.15.0
   swiper: 8.4.3
   uuid: 9.0.0
   vite-plugin-mock: 2.9.6_yjtee5k676fhb3ahn7v434b5pe
@@ -5440,6 +5442,10 @@ packages:
   /snabbdom/3.5.1:
     resolution: {integrity: sha512-wHMNIOjkm/YNE5EM3RCbr/+DVgPg6AqQAX1eOxO46zYNvCXjKP5Y865tqQj3EXnaMBjkxmQA5jFuDpDK/dbfiA==}
     engines: {node: '>=8.3.0'}
+    dev: false
+
+  /sortablejs/1.15.0:
+    resolution: {integrity: sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==}
     dev: false
 
   /source-map-js/1.0.2:

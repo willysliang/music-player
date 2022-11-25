@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 17:49:48
+ * @ Modified time: 2022-11-25 17:39:49
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -55,6 +55,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Cropper/CropImage.vue'),
     meta: {
       ...demoPages.CROPPER,
+    },
+  },
+  /** 拖拽组件 */
+  {
+    path: demoPages.DRAG.path,
+    name: demoPages.DRAG.name,
+    component: () => import('../../views/demo/Dragger/index.vue'),
+    meta: {
+      ...demoPages.DRAG,
     },
   },
 

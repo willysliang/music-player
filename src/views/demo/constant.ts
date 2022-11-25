@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 17:49:53
+ * @ Modified time: 2022-11-25 17:39:59
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -14,6 +14,7 @@ import {
   CopyOne,
   PayCodeOne,
   Tailoring,
+  HandDrag,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -53,6 +54,14 @@ export const demoPages = {
     title: '图片裁剪',
     icon: Tailoring,
     component: () => import('./Cropper/CropImage.vue')
+  },
+  DRAG: {
+    path: 'DRAG',
+    key: 'DRAG',
+    name: 'DRAG',
+    title: '拖拽组件',
+    icon: HandDrag,
+    component: () => import('./Dragger/index.vue')
   },
   PERSONAL_CENTER: {
     path: 'personalCenter',
