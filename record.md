@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 17:47:51
+ * @ Modified time: 2022-11-25 17:48:02
  * @ Description: 日志记录
  */
 
@@ -29,7 +29,7 @@
 ## 2022年11月25日10:57:05
   - feat(views -> system -> NotFound): 404页面 & 配置路由404
   - chore(pnpm i -S sortablejs): 拖拽库
-  - feat(views -> demo -> Drag): 拖拽组件
+  - feat(views -> demo -> Dragger): 拖拽组件
 
 ## 2022年11月24日10:32:11
   - chore(pnpm i cropperjs -S): 引入图片裁剪插件 cropperjs
