@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-24 13:48:51
+ * @ Modified time: 2022-11-25 10:57:36
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年11月25日10:57:05
+  - feat(views -> system -> NotFound): 404页面 & 配置路由404
 
 ## 2022年11月24日10:32:11
   - chore(pnpm i cropperjs -S): 引入图片裁剪插件 cropperjs

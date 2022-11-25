@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-10 14:49:00
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-10 17:17:26
+ * @ Modified time: 2022-11-25 10:10:44
  * @ Description: 评论组件
  -->
 
@@ -100,7 +100,7 @@ const commentVal = ref('')
         <div class="flex-1 flex flex-col justify-around box-border px-4 py-2">
           <div class="leading-4">
             <span class="text-blue-500">{{
-              comment.user?.nickname || ''
+              comment.user?.nickname ?? ''
             }}</span>
             <span v-html="':&nbsp;' + comment.content"></span>
           </div>

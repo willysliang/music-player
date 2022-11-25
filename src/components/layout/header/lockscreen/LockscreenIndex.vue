@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-01 10:10:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-11 13:32:05
+ * @ Modified time: 2022-11-25 10:10:55
  * @ Description: 锁屏主界面
  -->
 
@@ -104,7 +104,7 @@ const navToLogin = () => {
             <el-icon :size="70"><UserFilled /></el-icon>
           </template>
         </el-avatar>
-        <div class="mb-3">{{ profile.nickname }}</div>
+        <div class="mb-3">{{ profile?.nickname ?? 'willysliang' }}</div>
         <div class="flex flex-row items-center justify-between h-10 mb-2">
           <el-input
             v-model="state.password"

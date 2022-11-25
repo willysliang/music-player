@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-15 09:46:01
+ * @ Modified time: 2022-11-25 09:55:36
  * @ Description: 路由配置
  */
 
@@ -33,6 +33,25 @@ const routes = [
     redirect: { name: Pages.DISCOVER.name },
     component: () => import('../views/system/root.vue'),
     children: [
+      {
+        path: Pages.NOT_FOUND.path,
+        name: Pages.NOT_FOUND.name,
+        component: () => import('../views/system/NotFound.vue'),
+        meta: {
+          ...Pages.NOT_FOUND,
+          keepAlive: true,
+        },
+      },
+      {
+        path: '/:pathMatch(.*)*',
+        name: Pages.NOT_FOUND.name,
+        component: () => import('../views/system/NotFound.vue'),
+        meta: {
+          ...Pages.NOT_FOUND,
+          keepAlive: true,
+        },
+      },
+
       /***
        * 推荐模块
        */

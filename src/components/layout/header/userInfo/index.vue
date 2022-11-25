@@ -58,7 +58,7 @@ const handleSubmit = async (formEl: FormInstance | undefined) => {
       :src="profile?.avatarUrl || avactor"
       class="mr-1 object-scale-down"
     />
-    <span> {{ profile.nickname }}</span>
+    <span> {{ profile?.nickname ?? 'willysliang' }}</span>
   </div>
   <span v-else class="text-sm mx-2" @click="showLogin = true">点击登录</span>
 

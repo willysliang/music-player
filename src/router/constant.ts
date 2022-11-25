@@ -1,4 +1,5 @@
 import {
+  ErrorComputer,
   Planet,
   Music,
   VideoOne,
@@ -45,6 +46,13 @@ export const Pages = {
     name: 'INDEX',
     title: '首页',
     icon: Planet,
+  },
+  NOT_FOUND: {
+    path: 'notFound',
+    key: 'notFound',
+    name: 'notFound',
+    title: '404',
+    icon: ErrorComputer,
   },
 
   /***
