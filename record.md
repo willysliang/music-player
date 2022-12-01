@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 17:48:02
+ * @ Modified time: 2022-12-01 11:29:28
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,10 @@
 
 
 # 更新记录
+
+## 2022年12月1日11:28:44
+  - chore(pnpm i -S vuedraggable@next): vue3的拖拽插件
+  - feat(views -> demo -> Dragger): 拖拽组件
 
 ## 2022年11月25日10:57:05
   - feat(views -> system -> NotFound): 404页面 & 配置路由404
