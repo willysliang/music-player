@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 17:39:49
+ * @ Modified time: 2022-12-01 13:51:04
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -64,6 +64,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Dragger/index.vue'),
     meta: {
       ...demoPages.DRAG,
+    },
+  },
+  /** 视频弹幕 */
+  {
+    path: demoPages.BARRAGE.path,
+    name: demoPages.BARRAGE.name,
+    component: () => import('../../views/demo/Barrage/videoBarrage.vue'),
+    meta: {
+      ...demoPages.BARRAGE,
     },
   },
 

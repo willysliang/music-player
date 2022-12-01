@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 17:39:59
+ * @ Modified time: 2022-12-01 13:52:14
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -15,6 +15,7 @@ import {
   PayCodeOne,
   Tailoring,
   HandDrag,
+  Comments,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -62,6 +63,14 @@ export const demoPages = {
     title: '拖拽组件',
     icon: HandDrag,
     component: () => import('./Dragger/index.vue')
+  },
+  BARRAGE: {
+    path: 'Barrage',
+    key: 'Barrage',
+    name: 'Barrage',
+    title: '视频弹幕',
+    icon: Comments,
+    component: () => import('./Barrage/VideoBarrage.vue')
   },
   PERSONAL_CENTER: {
     path: 'personalCenter',
