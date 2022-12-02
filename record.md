@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 15:39:33
+ * @ Modified time: 2022-12-02 17:46:29
  * @ Description: 日志记录
  */
 
@@ -29,6 +29,8 @@
 ## 2022年12月2日15:39:00
   - chore(pnpm i -S vue3-video-play): 视频播放插件引入
   - feat(views -> demo -> Barrage -> videosPlay): 视频组件
+  - feat(views -> demo -> Emoji): 表情包组件
+  - perf(views -> demo): 案例目录内容存放优化
 
 ## 2022年12月1日11:28:44
   - chore(pnpm i -S vuedraggable@next): vue3的拖拽插件

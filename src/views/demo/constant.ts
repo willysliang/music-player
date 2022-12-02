@@ -2,20 +2,21 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 15:41:27
+ * @ Modified time: 2022-12-02 17:42:21
  * @ Description: 路由配置 & 常量设定
  */
 
 import {
   Excel,
   Zip,
-  PersonalPrivacy,
   TestTube,
   CopyOne,
   PayCodeOne,
   Tailoring,
   HandDrag,
   Comments,
+  Editor,
+  WinkingFaceWithOpenEyes,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -72,13 +73,21 @@ export const demoPages = {
     icon: Comments,
     component: () => import('./Barrage/index.vue')
   },
-  PERSONAL_CENTER: {
-    path: 'personalCenter',
-    key: 'personalCenter',
-    name: 'personalCenter',
-    title: '个人中心',
-    icon: PersonalPrivacy,
-    component: () => import('./personal/PersonalSetting.vue')
+  EDITOR: {
+    path: 'EDITOR',
+    key: 'EDITOR',
+    name: 'EDITOR',
+    title: '富文本编辑器',
+    icon: Editor,
+    component: () => import('./Editor/index.vue')
+  },
+  EMOJI: {
+    path: 'EMOJI',
+    key: 'EMOJI',
+    name: 'EMOJI',
+    title: '表情包',
+    icon: WinkingFaceWithOpenEyes,
+    component: () => import('./Emoji/index.vue')
   },
   TEST: {
     path: 'TEST',

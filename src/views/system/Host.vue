@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-14 10:16:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-14 11:35:24
+ * @ Modified time: 2022-12-02 17:13:59
  * @ Description: 系统页
  -->
 
@@ -13,7 +13,7 @@ import { useAppStore } from '@store/app'
 import { bgWelcome } from '@/assets/svg'
 
 const pageData = reactive({
-  host: '',
+  host: 'http://localhost:4000',
   loading: false,
   error: false,
 })

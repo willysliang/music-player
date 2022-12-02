@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 15:41:39
+ * @ Modified time: 2022-12-02 17:43:25
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -75,14 +75,22 @@ export const demoRoutes = [
       ...demoPages.BARRAGE,
     },
   },
-
-  /** 个人中心 */
+  /** 富文本编辑器 */
   {
-    path: demoPages.PERSONAL_CENTER.path,
-    name: demoPages.PERSONAL_CENTER.name,
-    component: () => import('../../views/demo/personal/PersonalSetting.vue'),
+    path: demoPages.EDITOR.path,
+    name: demoPages.EDITOR.name,
+    component: () => import('../../views/demo/Editor/index.vue'),
     meta: {
-      ...demoPages.PERSONAL_CENTER,
+      ...demoPages.EDITOR,
+    },
+  },
+  /** 表情包 */
+  {
+    path: demoPages.EMOJI.path,
+    name: demoPages.EMOJI.name,
+    component: () => import('../../views/demo/Emoji/index.vue'),
+    meta: {
+      ...demoPages.EMOJI,
     },
   },
 

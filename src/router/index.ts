@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 10:59:07
+ * @ Modified time: 2022-12-02 16:55:52
  * @ Description: 路由配置
  */
 
@@ -224,6 +224,11 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_PATH as string),
+  scrollBehavior () {
+    return {
+      top: 20,
+    }
+  },
   routes,
 })
 
