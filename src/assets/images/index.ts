@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-25 09:48:32
+ * @ Modified time: 2022-12-02 15:26:10
  * @ Description: 图片收集导出
  */
 
@@ -14,10 +14,16 @@ import systemNotfound from './systemNotfound.png'
 /** 404 动画 */
 import systemNotfoundCloud from './systemNotfoundCloud.png'
 
+/** demo视频 */
+import demoVideo from './demo.mp4'
+import demoJpg from './demo.jpg'
+
 export {
   opticalDisk,
   avactor,
   code,
   systemNotfound,
   systemNotfoundCloud,
+  demoVideo,
+  demoJpg,
 }

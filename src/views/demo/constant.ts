@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-01 13:52:14
+ * @ Modified time: 2022-12-02 15:37:52
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -68,9 +68,9 @@ export const demoPages = {
     path: 'Barrage',
     key: 'Barrage',
     name: 'Barrage',
-    title: '视频弹幕',
+    title: '视频 & 弹幕',
     icon: Comments,
-    component: () => import('./Barrage/VideoBarrage.vue')
+    component: () => import('./Barrage/VideosBarrage.vue')
   },
   PERSONAL_CENTER: {
     path: 'personalCenter',
