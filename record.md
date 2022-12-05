@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 16:58:14
+ * @ Modified time: 2022-12-05 18:03:55
  * @ Description: 日志记录
  */
 
@@ -31,6 +31,7 @@
   - feat(views -> demo -> Dashboard -> useEcharts): echarts hooks图表封装
   - feat(views -> demo -> Dashboard): 仪表盘组件
   - refactor(components -> common -> Title): 使用 tsx 语法重新构建组件
+  - feat(hooks -> event -> useEventListener): 间断性事件监听函数
 
 ## 2022年12月2日15:39:00
   - chore(pnpm i -S vue3-video-play): 视频播放插件引入
