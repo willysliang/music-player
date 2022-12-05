@@ -33,6 +33,7 @@
     "cropperjs": "^1.5.13",
     "dayjs": "^1.11.6",
     "driver.js": "^0.9.8",
+    "echarts": "^5.4.0",
     "element-plus": "^2.2.16",
     "file-saver": "^2.0.5",
     "js-md5": "^0.7.3",

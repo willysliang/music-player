@@ -28,9 +28,10 @@
 	// --el-color-primary: #e60026 !important;
 }
 
-.dark {
+html.dark {
 	background-color: #000;
 	color: #fff;
+	filter: grayscale(95%);	// 网页变灰色
 }
 
 /* icon色号 */

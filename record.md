@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 17:46:29
+ * @ Modified time: 2022-12-05 15:23:13
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,11 @@
 
 
 # 更新记录
+
+## 2022年12月5日15:21:21
+  - chore(pnpm i -S echarts): 引入数据可视化图表库
+  - feat(views -> demo -> Dashboard -> useEcharts): echarts hooks图表封装
+  - feat(views -> demo -> Dashboard): 仪表盘组件
 
 ## 2022年12月2日15:39:00
   - chore(pnpm i -S vue3-video-play): 视频播放插件引入

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 17:42:21
+ * @ Modified time: 2022-12-05 11:59:45
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -17,6 +17,7 @@ import {
   Comments,
   Editor,
   WinkingFaceWithOpenEyes,
+  DashboardCar,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -88,6 +89,14 @@ export const demoPages = {
     title: '表情包',
     icon: WinkingFaceWithOpenEyes,
     component: () => import('./Emoji/index.vue')
+  },
+  DASHBOARD: {
+    path: 'Dashboard',
+    key: 'Dashboard',
+    name: 'Dashboard',
+    title: '仪表盘',
+    icon: DashboardCar,
+    component: () => import('./Dashboard/index.vue')
   },
   TEST: {
     path: 'TEST',

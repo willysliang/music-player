@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 17:43:25
+ * @ Modified time: 2022-12-05 11:58:22
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -91,6 +91,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Emoji/index.vue'),
     meta: {
       ...demoPages.EMOJI,
+    },
+  },
+  /** 仪表盘 */
+  {
+    path: demoPages.DASHBOARD.path,
+    name: demoPages.DASHBOARD.name,
+    component: () => import('../../views/demo/Dashboard/index.vue'),
+    meta: {
+      ...demoPages.DASHBOARD,
     },
   },
 
