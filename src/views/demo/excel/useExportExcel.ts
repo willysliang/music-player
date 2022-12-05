@@ -2,21 +2,22 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 17:26:07
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-17 10:05:07
+ * @ Modified time: 2022-12-05 17:07:25
  * @ Description: 导出 Excel 的工具类
  */
 
 import { saveAs } from 'file-saver'
 import * as XLSX from 'xlsx'
+import type { BookType } from 'xlsx'
 
-interface jsonTypes {
+interface IJsonType {
   multiHeader: any[]
   header: any[]
   data: any[][]
   filename: string
   merges: []
   autoWidth: boolean
-  bookType: XLSX.BookType
+  bookType: BookType
   /** 工作表名称 */
   sheetName: string
 }
@@ -106,7 +107,7 @@ function sheetFromArrayOfArrays (data: string | any[]) {
 /***
  * @description 工作簿数据转化为 blod 对象数据
  */
-function workbook2blob (workbook, bookType: XLSX.BookType = 'xlsx') {
+function workbook2blob (workbook, bookType: BookType = 'xlsx') {
   /** 存入工作簿数据 */
   const wbData = XLSX.write(workbook, {
     /** 要生成的文件类型 */
@@ -136,7 +137,7 @@ function workbook2blob (workbook, bookType: XLSX.BookType = 'xlsx') {
 /**
  * @description 将json对象导出到Excel（单个工作表）
  */
-export function exportJsonToExcel (params: jsonTypes, needDownload = true, wb = XLSX.utils.book_new()) {
+export function exportJsonToExcel (params: IJsonType, needDownload = true, wb = XLSX.utils.book_new()) {
   const filename = params?.filename ?? 'defaultExcel'
   const bookType = params?.bookType ?? 'xlsx'
   const multiHeader = params?.multiHeader ?? []
@@ -228,7 +229,7 @@ export function exportJsonToExcel (params: jsonTypes, needDownload = true, wb = 
 /***
  * @description 将json对象导出到Excel（多个工作表）
  */
-export const exportArrayJSONExcel = (arrayParams: jsonTypes[]) => {
+export const exportArrayJSONExcel = (arrayParams: IJsonType[]) => {
   let wb
   arrayParams.forEach((item, index) => {
     if (index === 0) {
