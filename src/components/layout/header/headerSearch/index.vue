@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2022-10-10 09:05:41
+ * @ Modified by: willysliang
+ * @ Modified time: 2022-12-05 18:18:14
+ * @ Description: 头部搜索组件
+ -->
+
 <template>
   <div ref="searchRef" class="search flex-1 box-border mx-12">
     <el-popover
@@ -52,14 +60,15 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import SearchSuggestDOM from './SearchSuggest.vue'
-import { ref, onBeforeMount, onMounted, onUnmounted } from 'vue'
-import { debounce, throttle } from 'lodash'
+import { ref, onBeforeMount } from 'vue'
+import { debounce } from 'lodash'
 import type {
   SearchHotDetail,
   SearchSuggest as typeSearchSuggest,
 } from '@/types/search'
 import { useSearchHotDetail, useSearchSuggest } from '@api/search'
 import { formatQuantity } from '@/utils/format'
+import { useEventListener } from '@/hooks/event/useEventListener'
 
 /***
  * 计算 input 框的长度，来让下拉框响应式显示宽度
@@ -71,22 +80,16 @@ import { formatQuantity } from '@/utils/format'
 const searchRef = ref<HTMLElement>()
 const popoverWidth = ref<string | number>('250px')
 const getSearchWidth = () => {
-  return throttle(
-    () => {
-      popoverWidth.value = searchRef.value?.offsetWidth || '250px'
-    },
-    500,
-    { trailing: true },
-  )
-}
-onBeforeMount(() => {
-  window.addEventListener('resize', getSearchWidth())
-})
-onMounted(() => {
   popoverWidth.value = searchRef.value?.offsetWidth || '250px'
-})
-onUnmounted(() => {
-  window.removeEventListener('resize', getSearchWidth())
+}
+useEventListener({
+  el: window,
+  name: 'resize',
+  listener: () => {
+    getSearchWidth()
+  },
+  isDebounce: false,
+  wait: 500,
 })
 
 /***
