@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 18:18:14
+ * @ Modified time: 2022-12-06 13:35:41
  * @ Description: 头部搜索组件
  -->
 
@@ -60,18 +60,18 @@
 <script setup lang="ts">
 import { Search } from '@element-plus/icons-vue'
 import SearchSuggestDOM from './SearchSuggest.vue'
-import { ref, onBeforeMount } from 'vue'
-import { debounce } from 'lodash'
+import { ref, onBeforeMount, onMounted, onUnmounted } from 'vue'
+import { debounce, throttle } from 'lodash'
 import type {
   SearchHotDetail,
   SearchSuggest as typeSearchSuggest,
 } from '@/types/search'
 import { useSearchHotDetail, useSearchSuggest } from '@api/search'
 import { formatQuantity } from '@/utils/format'
-import { useEventListener } from '@/hooks/event/useEventListener'
+// import { useEventListener } from '@/hooks/event/useEventListener'
 
 /***
- * 计算 input 框的长度，来让下拉框响应式显示宽度
+ * @description 计算 input 框的长度，来让下拉框响应式显示宽度
  * @getSearchWidth 动态监听屏幕的宽度变化，来响应式改变弹层大小
  * - 在挂载页面前，添加监听方法
  * - 在挂载页面后，获取 input 框的宽度进行赋值（因为 resize 只有在改变页面大小时才会触发，所以一般情况下是不会调用的，此时则需要赋初值）
@@ -80,16 +80,33 @@ import { useEventListener } from '@/hooks/event/useEventListener'
 const searchRef = ref<HTMLElement>()
 const popoverWidth = ref<string | number>('250px')
 const getSearchWidth = () => {
-  popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+  return throttle(
+    () => {
+      popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+    },
+    500,
+    { trailing: true },
+  )
+  // popoverWidth.value = searchRef.value?.offsetWidth || '250px'
 }
-useEventListener({
-  el: window,
-  name: 'resize',
-  listener: () => {
-    getSearchWidth()
-  },
-  isDebounce: false,
-  wait: 500,
+// useEventListener({
+//   el: window,
+//   name: 'resize',
+//   listener: () => {
+//     getSearchWidth()
+//   },
+//   isDebounce: false,
+//   wait: 500,
+//   autoRemove: true,
+// })
+onBeforeMount(() => {
+  window.addEventListener('resize', getSearchWidth())
+})
+onMounted(() => {
+  popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', getSearchWidth())
 })
 
 /***

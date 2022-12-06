@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 18:03:55
+ * @ Modified time: 2022-12-06 18:14:42
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年12月6日18:14:24
+  - feat(views -> demo -> Lottery): 抽奖组件
 
 ## 2022年12月5日15:21:21
   - chore(pnpm i -S echarts): 引入数据可视化图表库

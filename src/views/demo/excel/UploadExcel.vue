@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-16 12:01:44
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-16 17:56:51
+ * @ Modified time: 2022-12-06 14:05:21
  * @ Description: 上传 eXCEL
  -->
 <template>
-  <el-card class="box-card">
-    <div style="text-align: left">
+  <el-card>
+    <div>
       <span>上传excel文件并预览场景</span>
       <el-divider></el-divider>
     </div>
