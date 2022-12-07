@@ -2,8 +2,9 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-05 17:22:53
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 18:03:14
+ * @ Modified time: 2022-12-07 13:19:18
  * @ Description: useEventListener 间断性事件监听
+ * @Tip 节流会缓存上次的函数来执行，所以如果要使用保存数据的功能，需要使用防抖
  */
 
 import { ref, unref, watch } from 'vue'
@@ -31,7 +32,7 @@ export function useEventListener ({
   el = window,
   name,
   listener,
-  options,
+  options = false,
   autoRemove = true,
   isDebounce = true,
   wait = 500,
@@ -78,7 +79,6 @@ export function useEventListener ({
 
   /** 移除事件 */
   const remove = () => {
-    /** 防止二次触发事件，先移除上次事件 */
     removeEventListener(element.value)
     removeWatch()
   }
