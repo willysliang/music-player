@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 18:02:16
+ * @ Modified time: 2022-12-07 18:54:20
  * @ Description: 九宫格抽奖
  -->
 
@@ -82,11 +82,9 @@ const startRoll = () => {
   ) {
     prizeState.timer && clearTimeout(prizeState.timer)
     const params = {
-      timer: null,
       speed: 200,
-      timeNum: 0,
+      currentRunCount: 0,
       totalRunCount: 50,
-      prizeIndex: -1,
       isClick: true,
     }
     Object.assign(prizeState, params)
@@ -100,8 +98,9 @@ const startRoll = () => {
     } else if (prizeState.currentRunCount === prizeState.totalRunCount) {
       /** 随机获得一个中奖位置 */
       prizeState.prizeIndex = Math.floor(
-        Math.random() * (prizeState.count - 1) + 0,
+        Math.random() * (prizeState.count - 1) || 0,
       )
+      if (prizeState.prizeIndex > 7) prizeState.prizeIndex = 7
     } else if (
       prizeState.currentRunCount > prizeState.totalRunCount + 10 &&
       ((prizeState.prizeIndex === 0 && prizeState.currentIndex === 7) ||
@@ -147,6 +146,12 @@ useEventListener({
   wait: 50,
   autoRemove: true,
 })
+
+/** 关闭弹层 */
+const hiddenToast = () => {
+  prizeState.isShowToast = false
+  prizeState.prizeIndex = -1
+}
 </script>
 
 <template>
@@ -209,6 +214,28 @@ useEventListener({
               >
                 {{ lotteryItem.title }}
               </span>
+            </div>
+          </div>
+
+          <!-- 中奖弹窗 -->
+          <!-- <div
+            v-if="prizeState.isShowToast"
+            class="w-full h-full absolute z-10 inset-0 bg-opacity-25 bg-gray-300"
+          ></div> -->
+          <div
+            v-if="prizeState.isShowToast"
+            class="w-full h-full absolute z-20 inset-0 bg-opacity-50 bg-blue-600 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-white"
+          >
+            <div class="text-3xl font-black">恭喜您</div>
+            <img :src="lotterylist[prizeState.prizeIndex].pic" alt="" />
+            <div class="text-xl font-bold">
+              获得{{ lotterylist[prizeState.prizeIndex].title }}
+            </div>
+            <div
+              class="toast-btn text-lg font-bold box-border py-1 w-1/3 text-center cursor-pointer rounded mt-7"
+              @click="hiddenToast"
+            >
+              确定
             </div>
           </div>
         </div>
@@ -352,5 +379,13 @@ useEventListener({
 		grid-column-end: 1;
 		grid-row-end: 4;
 	}
+}
+
+.toast-btn {
+	background: linear-gradient(
+		180deg,
+		rgb(213 60 63 / 100%) 0%,
+		rgb(201 20 24 / 100%) 100%
+	);
 }
 </style>
