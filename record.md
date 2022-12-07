@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 13:20:42
+ * @ Modified time: 2022-12-07 13:24:27
  * @ Description: 日志记录
  */
 
@@ -28,6 +28,7 @@
 
 ## 2022年12月7日13:19:45
   - fix(hooks -> event -> useEventListener): 解决监听函数中的数据缓存上次结果问题（必须限制使用防抖）
+  - feat(views -> demo -> Lottery -> CellLottery): 九宫格抽奖组件
 
 ## 2022年12月6日18:14:24
   - feat(views -> demo -> Lottery): 抽奖组件

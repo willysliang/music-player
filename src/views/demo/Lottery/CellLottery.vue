@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 17:57:32
+ * @ Modified time: 2022-12-07 17:57:50
  * @ Description: 九宫格抽奖
  -->
 
@@ -129,7 +129,9 @@ const lotteryRef = ref()
 const dotLen = ref<number>(20)
 const dotArr = computed(() => new Array(dotLen.value).fill(''))
 const getLotteryWidth = () => {
-  dotLen.value = Math.floor(Number.parseInt(lotteryRef.value?.offsetWidth || 500) / 32)
+  dotLen.value = Math.floor(
+    Number.parseInt(lotteryRef.value?.offsetWidth || 500) / 32,
+  )
   console.log(dotLen.value)
 }
 

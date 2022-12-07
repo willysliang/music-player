@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 11:59:45
+ * @ Modified time: 2022-12-07 13:26:50
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -18,6 +18,7 @@ import {
   Editor,
   WinkingFaceWithOpenEyes,
   DashboardCar,
+  CubeFour,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -97,6 +98,14 @@ export const demoPages = {
     title: '仪表盘',
     icon: DashboardCar,
     component: () => import('./Dashboard/index.vue')
+  },
+  LOTTERY: {
+    path: 'Lottery',
+    key: 'Lottery',
+    name: 'Lottery',
+    title: '抽奖',
+    icon: CubeFour,
+    component: () => import('./Lottery/index.vue')
   },
   TEST: {
     path: 'TEST',

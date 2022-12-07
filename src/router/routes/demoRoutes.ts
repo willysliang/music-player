@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-05 11:58:22
+ * @ Modified time: 2022-12-07 13:27:47
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -100,6 +100,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Dashboard/index.vue'),
     meta: {
       ...demoPages.DASHBOARD,
+    },
+  },
+  /** 抽奖 */
+  {
+    path: demoPages.LOTTERY.path,
+    name: demoPages.LOTTERY.name,
+    component: () => import('../../views/demo/Lottery/index.vue'),
+    meta: {
+      ...demoPages.LOTTERY,
     },
   },
 
