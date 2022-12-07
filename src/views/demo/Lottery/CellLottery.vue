@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 17:57:50
+ * @ Modified time: 2022-12-07 18:02:16
  * @ Description: 九宫格抽奖
  -->
 
@@ -112,9 +112,12 @@ const startRoll = () => {
       prizeState.speed += 20
     }
 
+    /** 防止速度切换过慢 */
     if (prizeState.speed < 40) {
       prizeState.speed = 40
     }
+
+    /** 因为还没打到抽奖的转动次数，需要继续转动一圈 */
     prizeState.timer = setTimeout(startRoll, prizeState.speed)
   }
 }
@@ -132,9 +135,8 @@ const getLotteryWidth = () => {
   dotLen.value = Math.floor(
     Number.parseInt(lotteryRef.value?.offsetWidth || 500) / 32,
   )
-  console.log(dotLen.value)
 }
-
+/** 监听抽奖div的宽度 */
 useEventListener({
   el: window,
   name: 'resize',
