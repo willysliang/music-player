@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 18:54:20
+ * @ Modified time: 2022-12-08 09:16:58
  * @ Description: 九宫格抽奖
  -->
 
@@ -294,7 +294,7 @@ const hiddenToast = () => {
 
 		&:nth-child(even) {
 			animation: twinkleEven 0.5s infinite linear;
-			animation-delay: 0.3s;
+			animation-delay: 0.1s;
 		}
 	}
 }

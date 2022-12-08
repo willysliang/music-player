@@ -2,17 +2,21 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 17:57:32
+ * @ Modified time: 2022-12-08 11:46:52
  * @ Description: 九宫格抽奖
  -->
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { demoLotteryItem1, demoLotteryItem2 } from '@/assets/images'
+import {
+  demoLotteryItem1,
+  demoLotteryItem2,
+  demoLotteryStart,
+} from '@/assets/images'
 import { useEventListener } from '@/hooks/event/useEventListener'
 
 const lotterylist = reactive([
-  { id: 1, pic: demoLotteryItem1, title: '谢谢参与' },
+  { id: 1, pic: '', title: '谢谢参与' },
   { id: 2, pic: demoLotteryItem2, title: '美女一个' },
   { id: 3, pic: demoLotteryItem1, title: '宝马一辆' },
   { id: 4, pic: demoLotteryItem2, title: '单车一辆' },
@@ -26,7 +30,7 @@ const lotterylist = reactive([
 const startBtn = {
   id: 0,
   title: '开始按钮',
-  pic: 'https://img2.baidu.com/it/u=1497996119,382735686&fm=253',
+  pic: demoLotteryStart,
 }
 
 interface IPrize {
@@ -129,7 +133,9 @@ const lotteryRef = ref()
 const dotLen = ref<number>(20)
 const dotArr = computed(() => new Array(dotLen.value).fill(''))
 const getLotteryWidth = () => {
-  dotLen.value = Math.floor(Number.parseInt(lotteryRef.value?.offsetWidth || 500) / 32)
+  dotLen.value = Math.floor(
+    Number.parseInt(lotteryRef.value?.offsetWidth || 500) / 32,
+  )
   console.log(dotLen.value)
 }
 
