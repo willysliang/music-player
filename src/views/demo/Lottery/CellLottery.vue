@@ -2,13 +2,17 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-07 10:58:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-08 09:16:58
+ * @ Modified time: 2022-12-08 11:47:37
  * @ Description: 九宫格抽奖
  -->
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { demoLotteryItem1, demoLotteryItem2 } from '@/assets/images'
+import {
+  demoLotteryItem1,
+  demoLotteryItem2,
+  demoLotteryStart,
+} from '@/assets/images'
 import { useEventListener } from '@/hooks/event/useEventListener'
 
 const lotterylist = reactive([
@@ -26,7 +30,7 @@ const lotterylist = reactive([
 const startBtn = {
   id: 0,
   title: '开始按钮',
-  pic: 'https://img2.baidu.com/it/u=1497996119,382735686&fm=253',
+  pic: demoLotteryStart,
 }
 
 interface IPrize {
