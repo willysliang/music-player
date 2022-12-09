@@ -1,14 +1,23 @@
 <!--
  * @ Author: willysliang
- * @ Create Time: 2022-10-31 17:15:11
+ * @ Create Time: 2022-12-09 15:26:12
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 15:23:40
- * @ Description: 测试组件
+ * @ Modified time: 2022-12-09 15:31:13
+ * @ Description: 图片滚动底部懒加载
  -->
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { systemNotfound, avactor, code } from '@/assets/images'
+import {
+  systemNotfound,
+  avactor,
+  code,
+  demoLotteryItem1,
+  demoLotteryItem2,
+  demoLotteryStart,
+  opticalDisk,
+  demoJpg,
+} from '@/assets/images'
 
 const imgRef = ref([])
 
@@ -25,6 +34,11 @@ const imgUrl = ref([
   'https://img2.baidu.com/it/u=3038223445,2416689412&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800',
   avactor,
   code,
+  demoLotteryItem1,
+  demoLotteryItem2,
+  demoLotteryStart,
+  opticalDisk,
+  demoJpg,
 ])
 
 onMounted(() => {

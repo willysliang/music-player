@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 13:26:50
+ * @ Modified time: 2022-12-09 15:28:46
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -19,6 +19,7 @@ import {
   WinkingFaceWithOpenEyes,
   DashboardCar,
   CubeFour,
+  HourglassFull,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -49,7 +50,7 @@ export const demoPages = {
     name: 'QRCODE',
     title: '生成二维码',
     icon: PayCodeOne,
-    component: () => import('./Qrcode/index.vue')
+    component: () => import('./Qrcode/index.vue'),
   },
   CROPPER: {
     path: 'CROPPER',
@@ -57,7 +58,7 @@ export const demoPages = {
     name: 'CROPPER',
     title: '图片裁剪',
     icon: Tailoring,
-    component: () => import('./Cropper/CropImage.vue')
+    component: () => import('./Cropper/CropImage.vue'),
   },
   DRAG: {
     path: 'DRAG',
@@ -65,7 +66,7 @@ export const demoPages = {
     name: 'DRAG',
     title: '拖拽组件',
     icon: HandDrag,
-    component: () => import('./Dragger/index.vue')
+    component: () => import('./Dragger/index.vue'),
   },
   BARRAGE: {
     path: 'Barrage',
@@ -73,7 +74,7 @@ export const demoPages = {
     name: 'Barrage',
     title: '视频 & 弹幕',
     icon: Comments,
-    component: () => import('./Barrage/index.vue')
+    component: () => import('./Barrage/index.vue'),
   },
   EDITOR: {
     path: 'EDITOR',
@@ -81,7 +82,7 @@ export const demoPages = {
     name: 'EDITOR',
     title: '富文本编辑器',
     icon: Editor,
-    component: () => import('./Editor/index.vue')
+    component: () => import('./Editor/index.vue'),
   },
   EMOJI: {
     path: 'EMOJI',
@@ -89,7 +90,7 @@ export const demoPages = {
     name: 'EMOJI',
     title: '表情包',
     icon: WinkingFaceWithOpenEyes,
-    component: () => import('./Emoji/index.vue')
+    component: () => import('./Emoji/index.vue'),
   },
   DASHBOARD: {
     path: 'Dashboard',
@@ -97,7 +98,7 @@ export const demoPages = {
     name: 'Dashboard',
     title: '仪表盘',
     icon: DashboardCar,
-    component: () => import('./Dashboard/index.vue')
+    component: () => import('./Dashboard/index.vue'),
   },
   LOTTERY: {
     path: 'Lottery',
@@ -105,7 +106,15 @@ export const demoPages = {
     name: 'Lottery',
     title: '抽奖',
     icon: CubeFour,
-    component: () => import('./Lottery/index.vue')
+    component: () => import('./Lottery/index.vue'),
+  },
+  LAZY_LOADING: {
+    path: 'lazyLoading',
+    key: 'lazyLoading',
+    name: 'lazyLoading',
+    title: '懒加载',
+    icon: HourglassFull,
+    component: () => import('./LazyLoading/index.vue'),
   },
   TEST: {
     path: 'TEST',

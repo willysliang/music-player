@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 13:27:47
+ * @ Modified time: 2022-12-09 15:27:29
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/views/demo/constant'
@@ -109,6 +109,15 @@ export const demoRoutes = [
     component: () => import('../../views/demo/Lottery/index.vue'),
     meta: {
       ...demoPages.LOTTERY,
+    },
+  },
+  /** 懒加载 */
+  {
+    path: demoPages.LAZY_LOADING.path,
+    name: demoPages.LAZY_LOADING.name,
+    component: () => import('../../views/demo/LazyLoading/index.vue'),
+    meta: {
+      ...demoPages.LAZY_LOADING,
     },
   },
 
