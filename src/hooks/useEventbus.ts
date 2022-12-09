@@ -2,8 +2,8 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-09 17:47:39
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 18:04:17
- * @ Description: 事件总线
+ * @ Modified time: 2022-12-09 18:10:05
+ * @ Description: 事件总线 - 兄弟组件间的传信
  */
 
 import { onUnmounted } from 'vue'
