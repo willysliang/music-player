@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 15:29:34
+ * @ Modified time: 2022-12-09 18:09:44
  * @ Description: 日志记录
  */
 
@@ -28,6 +28,8 @@
 
 ## 2022年12月9日15:28:58
   - feat(views -> demo -> LazyLoading): 图片滚动底部懒加载效果
+  - chore(pnpm i -S mitt): 引入事件总线
+  - feat(hooks -> useEventbus): 事件总线方法的封装
 
 ## 2022年12月7日13:19:45
   - fix(hooks -> event -> useEventListener): 解决监听函数中的数据缓存上次结果问题（必须限制使用防抖）
