@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 15:28:46
+ * @ Modified time: 2022-12-10 08:25:11
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -29,6 +29,7 @@ export const demoPages = {
     name: 'demoExcel',
     title: 'EXCEL表格',
     icon: Excel,
+    component: () => import('./excel/index.vue'),
   },
   ZIP: {
     path: 'demoZip',
@@ -36,6 +37,7 @@ export const demoPages = {
     name: 'demoZip',
     title: 'ZIP导出',
     icon: Zip,
+    component: () => import('./Zip/ExportZip.vue'),
   },
   COPY_TEXT: {
     path: 'copyText',
@@ -43,6 +45,7 @@ export const demoPages = {
     name: 'copyText',
     title: '复制文本',
     icon: CopyOne,
+    component: () => import('./copyText/index.vue'),
   },
   QRCODE: {
     path: 'QRCODE',
@@ -116,11 +119,20 @@ export const demoPages = {
     icon: HourglassFull,
     component: () => import('./LazyLoading/index.vue'),
   },
+  COMMUNICATION: {
+    path: 'Communication',
+    key: 'Communication',
+    name: 'Communication',
+    title: '组件通信',
+    icon: HourglassFull,
+    component: () => import('./Communication/index.vue'),
+  },
   TEST: {
     path: 'TEST',
     key: 'TEST',
     name: 'TEST',
     title: '测试',
     icon: TestTube,
+    component: () => import('./test/index.vue'),
   },
 } as const
