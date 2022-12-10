@@ -2,17 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-31 17:15:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 18:09:08
+ * @ Modified time: 2022-12-10 07:54:31
  * @ Description: 测试组件
  -->
 
 <script setup lang="ts">
 import { useEventbus } from '@/hooks'
 
-const { emitter } = useEventbus()
+const { emitter, customEmit } = useEventbus()
 
 const add = () => {
-  emitter.emit('test', "sasa")
+  emitter.emit('test', ["sasa", 'bbb', 'ccc'])
+  customEmit('demo', ['a', 'b', 'c'])
 }
 </script>
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-31 17:15:11
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-09 18:08:44
+ * @ Modified time: 2022-12-10 07:56:22
  * @ Description: 测试组件
  -->
 
@@ -10,11 +10,15 @@
 import { useEventbus } from '@/hooks'
 import { onMounted } from 'vue';
 
-const { emitter } = useEventbus()
+const { emitter, customOn } = useEventbus()
 
 onMounted(() => {
-  emitter.on('test', (res: any) => {
+  emitter.on('test', (res) => {
     console.log(res)
+  })
+
+  customOn('demo', (params) => {
+    console.log('params', params)
   })
 })
 </script>
