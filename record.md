@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-10 08:49:05
+ * @ Modified time: 2022-12-14 10:17:38
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,9 @@
 
 
 # 更新记录
+
+## 2022年12月14日10:17:14
+  - feat(views -> demo -> Lottery -> RoundLottery): 转盘抽奖
 
 ## 2022年12月10日08:48:28
   - feat(views -> demo -> Communication): 兄弟组件通信
