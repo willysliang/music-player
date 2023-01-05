@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-05 18:05:49
+ * @ Modified time: 2023-01-06 07:48:44
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月6日07:47:39
+  - feat(views -> demo -> CssEffects): Css特效 - 灯笼动画
 ## 2023年1月5日15:34:09
   - chore(pnpm i tslib): 引入 tslib 适配ES7装饰器Decorator 
   - feat(layout): 格子背景色、ts适配ES7装饰器Decorator 

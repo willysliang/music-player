@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-10 08:25:11
+ * @ Modified time: 2023-01-05 19:41:00
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -20,6 +20,7 @@ import {
   DashboardCar,
   CubeFour,
   HourglassFull,
+  Effects,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -126,6 +127,14 @@ export const demoPages = {
     title: '组件通信',
     icon: HourglassFull,
     component: () => import('./Communication/index.vue'),
+  },
+  CSSEFFECTS: {
+    path: 'CssEffects',
+    key: 'CssEffects',
+    name: 'CssEffects',
+    title: 'Css特效',
+    icon: Effects,
+    component: () => import('./CssEffects/index.vue'),
   },
   TEST: {
     path: 'TEST',
