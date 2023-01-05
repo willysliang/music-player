@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 13:18:18
+ * @ Modified time: 2022-12-28 13:22:26
  * @ Description: 头部搜索组件
  -->
 
@@ -62,7 +62,7 @@ import { Search } from '@element-plus/icons-vue'
 import SearchSuggestDOM from './SearchSuggest.vue'
 // import { ref, onBeforeMount, onMounted, onUnmounted } from 'vue'
 // import { debounce, throttle } from 'lodash'
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 import { debounce } from 'lodash'
 import type {
   SearchHotDetail,
@@ -105,9 +105,9 @@ useEventListener({
 // onBeforeMount(() => {
 //   window.addEventListener('resize', getSearchWidth())
 // })
-// onMounted(() => {
-//   popoverWidth.value = searchRef.value?.offsetWidth || '250px'
-// })
+onMounted(() => {
+  popoverWidth.value = searchRef.value?.offsetWidth || '250px'
+})
 // onUnmounted(() => {
 //   window.removeEventListener('resize', getSearchWidth())
 // })

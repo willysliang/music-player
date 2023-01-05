@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     // "allowJs": true, // 允许在ts中使用普通 JS 代码
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
     "noImplicitAny": false,
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
