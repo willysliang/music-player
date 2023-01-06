@@ -2,25 +2,25 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-05 21:31:42
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 00:01:53
+ * @ Modified time: 2023-01-06 09:23:34
  * @ Description: Lantern - 灯笼动画
  -->
 <script setup lang="ts"></script>
 
 <template>
   <div class="lantern-page">
-    <!-- 头部线条 -->
-    <span class="head-line"></span>
+		<!-- 头部线条 -->
+		<span class="head-line"></span>
 
     <!-- 灯笼主体 -->
     <div class="center">
       <div class="center-line">
         <span>春节快乐</span>
       </div>
-    </div>
 
-    <!-- 底部线条 -->
-    <span class="footer-line"></span>
+      <!-- 底部线条 -->
+      <span class="footer-line"></span>
+    </div>
   </div>
 </template>
 
@@ -35,6 +35,19 @@
 	width: 22rem;
 	height: 15rem;
 	position: relative;
+	animation: swing 8s infinite ease-in-out;
+
+	/* 左右摇摆动画 */
+	@keyframes swing {
+		0%,
+		100% {
+			transform: rotate(-10deg);
+		}
+
+		50% {
+			transform: rotate(10deg);
+		}
+	}
 
 	/* 头部线条 */
 	.head-line {
@@ -61,7 +74,7 @@
 		&::after {
 			content: '';
 			position: absolute;
-			bottom: -7.5rem;
+			bottom: -8rem;
 			left: 50%;
 			transform: translateX(-50%);
 			width: 1.6rem;
@@ -88,6 +101,8 @@
 		background: $bg;
 		border-radius: 11rem;
 		box-shadow: 0 0 8rem -1rem $bg;
+		animation: swing 3s infinite ease-in-out;
+		transform-origin: top center;
 
 		/* 灯笼头部盖 */
 		&::before {
@@ -98,7 +113,8 @@
 			border-radius: 0.5rem 0.5rem 0 0;
 			position: absolute;
 			top: -0.7rem;
-			left: calc(50% - 3.5rem);
+			left: 50%;
+			transform: translateX(-50%);
 			z-index: 2;
 		}
 
