@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 10:14:27
+ * @ Modified time: 2023-01-06 18:19:03
  * @ Description: 日志记录
  */
 
@@ -27,9 +27,11 @@
 # 更新记录
 
 
-## 2023年1月6日07:47:39
+## 2023年1月6日07:47:39、2023年1月6日18:18:07
   - feat(views -> demo -> CssEffects): Css特效 - Lantern 灯笼动画
   - feat(views -> demo -> CssEffects): HeartSwitch 心形开关
+  - chore(pnpm i -S gasp): 引入 H5 动画库
+  - feat(views -> demo -> ParticleAnimation): ParticlePicture 图片粒子化
 
 ## 2023年1月5日15:34:09
   - chore(pnpm i tslib): 引入 tslib 适配ES7装饰器Decorator 

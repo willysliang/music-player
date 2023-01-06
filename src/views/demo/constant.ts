@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-05 19:41:00
+ * @ Modified time: 2023-01-06 16:34:16
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -21,6 +21,7 @@ import {
   CubeFour,
   HourglassFull,
   Effects,
+  MagicWand,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -135,6 +136,14 @@ export const demoPages = {
     title: 'Css特效',
     icon: Effects,
     component: () => import('./CssEffects/index.vue'),
+  },
+  PARTICLE: {
+    path: 'ParticleAnimation',
+    key: 'ParticleAnimation',
+    name: 'ParticleAnimation',
+    title: '粒子动画',
+    icon: MagicWand,
+    component: () => import('./ParticleAnimation/ParticlePicture.vue'),
   },
   TEST: {
     path: 'TEST',

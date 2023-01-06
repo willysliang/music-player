@@ -38,6 +38,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-vue: ^9.4.0
   file-saver: ^2.0.5
+  gsap: ^3.11.4
   husky: ^8.0.1
   js-md5: ^0.7.3
   jszip: ^3.10.1
@@ -99,6 +100,7 @@ dependencies:
   echarts: 5.4.0
   element-plus: 2.2.16_vue@3.2.39
   file-saver: 2.0.5
+  gsap: 3.11.4
   js-md5: 0.7.3
   jszip: 3.10.1
   jszip-utils: 0.1.0
@@ -3767,6 +3769,10 @@ packages:
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
+
+  /gsap/3.11.4:
+    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
+    dev: false
 
   /hard-rejection/2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
