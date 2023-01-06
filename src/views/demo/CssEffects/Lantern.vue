@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-05 21:31:42
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 09:23:34
+ * @ Modified time: 2023-01-06 09:27:43
  * @ Description: Lantern - 灯笼动画
  -->
 <script setup lang="ts"></script>
@@ -30,8 +30,8 @@
 	$bg: #f00;
 	box-sizing: border-box;
 	margin: auto;
-	margin-top: 8rem;
-	margin-bottom: 25rem;
+	margin-top: 7rem;
+	margin-bottom: 13rem;
 	width: 22rem;
 	height: 15rem;
 	position: relative;
