@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-09 11:05:08
+ * @ Modified time: 2023-01-09 16:17:35
  * @ Description: 日志记录
  */
 
@@ -29,6 +29,8 @@
 
 ## 2023年1月9日11:05:06
   - feat(views -> demo -> ParticleAnimation): ParticlePicture 图片粒子化
+  - feat(views -> demo -> ParticleAnimation): ParticleCountdown 粒子动画倒计时
+      - 注意：在倒计时，本应是粒子化的倒计时，然后倒计时数字更新时会散开该聚合的数字，然后重新组合（但未成功实现）
 
 ## 2023年1月6日07:47:39、2023年1月6日18:18:07
   - feat(views -> demo -> CssEffects): Css特效 - Lantern 灯笼动画

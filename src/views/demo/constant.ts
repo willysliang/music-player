@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 16:34:16
+ * @ Modified time: 2023-01-09 13:45:04
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -143,7 +143,7 @@ export const demoPages = {
     name: 'ParticleAnimation',
     title: '粒子动画',
     icon: MagicWand,
-    component: () => import('./ParticleAnimation/ParticlePicture.vue'),
+    component: () => import('./ParticleAnimation/index.vue'),
   },
   TEST: {
     path: 'TEST',
