@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-08 18:41:13
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-09 09:37:35
+ * @ Modified time: 2023-01-08 15:07:10
  * @ Description: 推荐页存储的数据
  */
 import { useBanner, usePersonalizedSongList } from '@/api/module/discover'
@@ -17,7 +17,9 @@ export const useDiscoverStore = defineStore('discover', () => {
   const banners = ref<Banner[]>([]) // 轮播图数据
   const getBanners = async () => {
     if (banners.value.length > 0) return undefined
-    banners.value = await useBanner()
+    try {
+      banners.value = await useBanner()
+    } catch {}
   }
 
   /***

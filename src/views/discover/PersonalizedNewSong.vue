@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-10 17:48:36
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-10 18:03:02
+ * @ Modified time: 2023-01-08 14:32:01
  * @ Description: 推荐新音乐
  -->
 
@@ -20,7 +20,9 @@ const personalizedNewSong = ref<PersonalizedNewSong[]>(
 )
 const getPersonalizedNewSong = async () => {
   if (personalizedNewSong.value.length) return
-  personalizedNewSong.value = await usePersonalizedNewSong()
+  try {
+    personalizedNewSong.value = await usePersonalizedNewSong()
+  } catch {}
 }
 onBeforeMount(async () => {
   getPersonalizedNewSong()
