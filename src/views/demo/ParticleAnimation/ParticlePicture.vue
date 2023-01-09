@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-06 15:08:15
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 18:17:35
+ * @ Modified time: 2023-01-09 11:35:04
  * @ Description: ParticlePicture 图片粒子化
  -->
 <script setup lang="ts">
@@ -37,7 +37,10 @@ const constant = {
 }
 
 /**
- * 画布类
+ * @ParticleCanvas 画布类
+ * 记录目标画布、画布中的粒子数组和鼠标在画布中的位置
+ * @drwaCanvas 提供绘制画布方法
+ * @changImg 改变粒子数组方法
  */
 class ParticleCanvas {
   canvasEle: HTMLCanvasElement
@@ -54,7 +57,19 @@ class ParticleCanvas {
     this.width = targetEle.width
     this.height = targetEle.height
     this.ParticleArr = []
-    this.listenerMousemove()
+    // this.listenerMousemove()
+
+    // 监听鼠标移动
+    this.canvasEle.addEventListener('mousemove', (e) => {
+      const { left, top } = this.canvasEle.getBoundingClientRect()
+      const { clientX, clientY } = e
+      this.mouseX = clientX - left
+      this.mouseY = clientY - top
+    })
+    this.canvasEle.onmouseleave = () => {
+      this.mouseX = 0
+      this.mouseY = 0
+    }
   }
 
   /** 监听鼠标移动 */
@@ -146,6 +161,10 @@ const canvasRef = ref<HTMLCanvasElement>()
 
 /**
  * @Particle 粒子类
+ * 记录粒子位置、颜色、大小、动画耗时 和 x/y 方向上的移动速度
+ * @draw 绘制粒子方法
+ * @update 更新方法
+ * @change 替换方法
  */
 class Particle {
   x: number // 粒子x轴的初始位置
@@ -180,10 +199,59 @@ class Particle {
     canvas.context.fillRect(this.x, this.y, this.r * 2, this.r * 2)
     canvas.context.fill()
   }
+
+  /** 更新粒子
+   * @param {number} mouseX 鼠标X位置
+   * @param {number} mouseY 鼠标Y位置
+   */
+  update (mouseX?: number, mouseY?: number) {
+    // 设置粒子需要移动的距离
+    this.mx = this.totalX - this.x
+    this.my = this.totalY - this.y
+
+    // 设置粒子移动速度
+    this.vx = this.mx / this.time
+    this.vy = this.my / this.time
+
+    // 计算粒子与鼠标的距离
+    if (mouseX && mouseY) {
+      const dx = mouseX - this.x
+      const dy = mouseY - this.y
+      const distance = Math.sqrt(dx ** 2 + dy ** 2)
+
+      // 粒子相对鼠标距离的比例，判断受到的力度大小
+      let disPercent = constant.Radius / distance
+      // 设置阈值，避免粒子受到的斥力过大
+      disPercent = disPercent > 7 ? 7 : disPercent
+
+      // 获得夹角值、正弦值、余弦值
+      const angle = Math.atan2(dy, dx)
+      const cos = Math.cos(angle)
+      const sin = Math.sin(angle)
+
+      // 将力度转换为速度，并重新计算 vh、vy
+      const repX = cos * disPercent * -constant.Inten
+      const repY = sin * disPercent * -constant.Inten
+      this.vx += repX
+      this.vy += repY
+    }
+
+    this.x += this.vx
+    this.y += this.vy
+    if (this.opacity < 1) this.opacity += constant.opacityStep
+  }
+
+  /** 切换粒子 */
+  change (x: number, y: number, color: number[]) {
+    this.totalX = x
+    this.totalY = y
+    this.color = [...color]
+  }
 }
 
 /**
  * @LogoImg logo图片类
+ * 记录图片解析后的数组信息 particleData
  */
 class LogoImg {
   src: string
@@ -193,9 +261,57 @@ class LogoImg {
     this.src = src
     this.name = name
     this.particleData = []
-    this.imgOnload()
+    // this.imgOnload()
+
+    /** 图片加载后进行粒子化解析 */
+    const img = new Image()
+    img.crossOrigin = ''
+    img.src = this.src
+
+    // canvas 解析数据源获取粒子数据
+    img.onload = () => {
+      // 获取图片像素数据
+      const tempCanvas = document.createElement('canvas')
+      const tempCtx = tempCanvas.getContext('2d')
+      const imgW = constant.width
+      const imgH = ~~(imgW * (img.height / img.width))
+      tempCanvas.width = imgW
+      tempCanvas.height = imgH
+
+      // 将图片绘制到 canvas 中
+      tempCtx?.drawImage(img, 0, 0, imgW, imgH)
+
+      // 获取像素点数据
+      const imgData =
+        tempCtx?.getImageData(0, 0, imgW, imgH).data ||
+        ('' as unknown as Uint8ClampedArray)
+      tempCtx?.clearRect(0, 0, constant.width, constant.height)
+
+      // 筛选像素点
+      for (let y = 0; y < imgH; y += 5) {
+        for (let x = 0; x < imgW; x += 5) {
+          // 像素点的序号
+          const index = (x + y * imgW) * 4
+
+          // 在数组中对应的值
+          const r = imgData[index]
+          const g = imgData[index + 1]
+          const b = imgData[index + 2]
+          const a = imgData[index + 3]
+          const colors = [r, g, b, a]
+          const sum = r + g + b + a
+
+          // 筛选条件
+          if (sum > 100) {
+            const particle = new Particle(x, y, constant.animateTime, colors)
+            this.particleData.push(particle)
+          }
+        }
+      }
+    }
   }
 
+  /** 图片加载后进行粒子化解析 */
   imgOnload () {
     const img = new Image()
     img.crossOrigin = ''
@@ -215,7 +331,32 @@ class LogoImg {
       tempCtx?.drawImage(img, 0, 0, imgW, imgH)
 
       // 获取像素点数据
+      const imgData =
+        tempCtx?.getImageData(0, 0, imgW, imgH).data ||
+        ('' as unknown as Uint8ClampedArray)
       tempCtx?.clearRect(0, 0, constant.width, constant.height)
+
+      // 筛选像素点
+      for (let y = 0; y < imgH; y += 5) {
+        for (let x = 0; x < imgW; x += 5) {
+          // 像素点的序号
+          const index = (x + y * imgW) * 4
+
+          // 在数组中对应的值
+          const r = imgData[index]
+          const g = imgData[index + 1]
+          const b = imgData[index + 2]
+          const a = imgData[index + 3]
+          const colors = [r, g, b, a]
+          const sum = r + g + b + a
+
+          // 筛选条件
+          if (sum > 100) {
+            const particle = new Particle(x, y, constant.animateTime, colors)
+            this.particleData.push(particle)
+          }
+        }
+      }
     }
   }
 }
@@ -229,11 +370,16 @@ const logoImg = reactive({
 
 /** 激活logo */
 const handleLogoImg = (particleCanvas: ParticleCanvas, logoItem: LogoImg) => {
+  particleCanvas.changeImg(logoItem)
   logoImg.currentLogoItem = logoItem
-  canvas.particleCanvas = particleCanvas
 }
 
 onMounted(() => {
+  /** 将logo数据实例化为logoImg对象 */
+  for (const item of logolist) {
+    logoImg.list.push(new LogoImg(item.url, item.label))
+  }
+
   if (canvasRef.value) {
     canvas.context = canvasRef.value.getContext(
       '2d',
@@ -241,17 +387,12 @@ onMounted(() => {
     canvas.particleCanvas = new ParticleCanvas(canvasRef.value)
     canvas.particleCanvas.drawCanvas()
   }
-
-  /** 将logo数据实例化为logoImg对象 */
-  for (const item of logolist) {
-    logoImg.list.push(new LogoImg(item.url, item.label))
-  }
 })
 </script>
 
 <template>
   <div class="ParticlePicture-page">
-    <div class="canvas-container">
+    <div class="flex flex-col items-center justify-center">
       <canvas
         ref="canvasRef"
         :width="constant.width"
@@ -285,6 +426,7 @@ onMounted(() => {
 	background-color: #000;
 	box-sizing: border-box;
 	padding: 1rem 0;
+	cursor: url('src/assets/images/ParticlePicture_mouse.png') 4 4, default;
 
 	.active {
 		@apply bg-gray-500 rounded-2xl;

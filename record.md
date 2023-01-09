@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 18:19:03
+ * @ Modified time: 2023-01-09 11:05:08
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月9日11:05:06
+  - feat(views -> demo -> ParticleAnimation): ParticlePicture 图片粒子化
 
 ## 2023年1月6日07:47:39、2023年1月6日18:18:07
   - feat(views -> demo -> CssEffects): Css特效 - Lantern 灯笼动画
