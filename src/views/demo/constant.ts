@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-12 14:02:35
+ * @ Modified time: 2023-01-12 18:12:19
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -23,6 +23,7 @@ import {
   Effects,
   MagicWand,
   BabyFeet,
+  DatabaseNetwork,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -153,6 +154,14 @@ export const demoPages = {
     title: '页面水印',
     icon: BabyFeet,
     component: () => import('./WaterMark/index.vue'),
+  },
+  INDEXED_DB: {
+    path: 'IndexedDB',
+    key: 'IndexedDB',
+    name: 'IndexedDB',
+    title: '本地数据库',
+    icon: DatabaseNetwork,
+    component: () => import('./IndexedDB/index.vue'),
   },
   TEST: {
     path: 'TEST',

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-12 15:43:01
+ * @ Modified time: 2023-01-12 18:52:07
  * @ Description: 日志记录
  */
 
@@ -27,8 +27,10 @@
 # 更新记录
 
 
-## 2023年1月12日15:42:18
+## 2023年1月12日15:42:18、2023年1月12日18:51:32
   - feat(views -> demo -> WaterMark): 页面水印（可防删除水印）
+  - chore(pnpm i godb): 引入对 IndexedDB 的封装库
+  - feat(views -> demo -> IndexedDB): IndexedDB 本地数据库
 
 ## 2023年1月9日11:05:06
   - feat(views -> demo -> ParticleAnimation): ParticlePicture 图片粒子化

@@ -38,6 +38,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-vue: ^9.4.0
   file-saver: ^2.0.5
+  godb: ^0.6.2
   gsap: ^3.11.4
   husky: ^8.0.1
   js-md5: ^0.7.3
@@ -100,6 +101,7 @@ dependencies:
   echarts: 5.4.0
   element-plus: 2.2.16_vue@3.2.39
   file-saver: 2.0.5
+  godb: 0.6.2
   gsap: 3.11.4
   js-md5: 0.7.3
   jszip: 3.10.1
@@ -3756,6 +3758,10 @@ packages:
   /globjoin/0.1.4:
     resolution: {integrity: sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==}
     dev: true
+
+  /godb/0.6.2:
+    resolution: {integrity: sha512-641W5/CzvwWCCW8Z5ETT6Js6posF5XXbc93F8fwJNseTpuQsTuJPxRntZPe6iYtb9ExfNlGteK09cN3Sl2avXw==}
+    dev: false
 
   /good-listener/1.2.2:
     resolution: {integrity: sha512-goW1b+d9q/HIwbVYZzZ6SsTr4IgE+WA44A0GmPIQstuOrgsFcT7VEJ48nmr9GaRtNu0XTKacFLGnBPAM6Afouw==}
