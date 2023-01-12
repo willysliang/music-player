@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-09 16:17:35
+ * @ Modified time: 2023-01-12 15:43:01
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月12日15:42:18
+  - feat(views -> demo -> WaterMark): 页面水印（可防删除水印）
 
 ## 2023年1月9日11:05:06
   - feat(views -> demo -> ParticleAnimation): ParticlePicture 图片粒子化

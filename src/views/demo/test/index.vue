@@ -1,8 +1,10 @@
+<!-- eslint-disable @typescript-eslint/no-non-null-assertion -->
+<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!--
  * @ Author: willysliang
  * @ Create Time: 2022-10-31 17:15:11
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-05 17:46:28
+ * @ Modified time: 2023-01-12 15:41:55
  * @ Description: 测试组件
  -->
 
@@ -10,23 +12,14 @@
 import { onMounted } from 'vue'
 
 const test = () => {
-  // worker.value = new Worker('./1.js')
-  // worker.value.postMessage("hello world")
-  // worker.value.postMessage({ method: 'echo', args: ['Worker'] })
+  console.log('b')
 }
 
-onMounted(() => {
-  // 主线程
-  const worker = new Worker('./worker.js')
-  const uInt8Array = new Uint8Array(new ArrayBuffer(10))
-  for (let i = 0; i < uInt8Array.length; ++i) {
-    uInt8Array[i] = i * 2 // [0, 2, 4, 6, ...]
-  }
-  worker.postMessage(uInt8Array)
+const request = window.indexedDB.open('pku');
+console.log(request)
 
-  worker.onmessage = e => {
-    console.log(e.data)
-  }
+onMounted(() => {
+  console.log('a')
 })
 </script>
 

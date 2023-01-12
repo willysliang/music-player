@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-09 13:45:04
+ * @ Modified time: 2023-01-12 14:02:35
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -22,6 +22,7 @@ import {
   HourglassFull,
   Effects,
   MagicWand,
+  BabyFeet,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -144,6 +145,14 @@ export const demoPages = {
     title: '粒子动画',
     icon: MagicWand,
     component: () => import('./ParticleAnimation/index.vue'),
+  },
+  WaterMark: {
+    path: 'WaterMark',
+    key: 'WaterMark',
+    name: 'WaterMark',
+    title: '页面水印',
+    icon: BabyFeet,
+    component: () => import('./WaterMark/index.vue'),
   },
   TEST: {
     path: 'TEST',
