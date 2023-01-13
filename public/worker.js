@@ -2,8 +2,8 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-05 15:59:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-05 18:05:57
- * @ Description: 收发消息
+ * @ Modified time: 2023-01-13 10:30:10
+ * @ Description: webWorker 收发消息
  */
 
 self.addEventListener('message', function (event) {
