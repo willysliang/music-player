@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-12 18:52:07
+ * @ Modified time: 2023-01-13 15:24:09
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月13日15:23:32
+  - feat(public/serviceWorker、index.html): serviceWorker请求中转、缓存数据
 
 ## 2023年1月12日15:42:18、2023年1月12日18:51:32
   - feat(views -> demo -> WaterMark): 页面水印（可防删除水印）
