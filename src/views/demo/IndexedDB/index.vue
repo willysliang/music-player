@@ -2,10 +2,10 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-12 18:00:40
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-12 18:36:14
+ * @ Modified time: 2023-01-15 20:36:00
  * @ Description: IndexedDB 本地数据库
  -->
- <template>
+<template>
   <div class="px-8">
     <div class="flex justify-between py-8">
       <el-input
@@ -69,7 +69,15 @@ import { Plus, Edit, Delete, Search } from '@element-plus/icons-vue'
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { add, readAll, update, remove, searchByName } from './goDB'
-// import { add, read, readAll, update, remove, getDB , searchByName} from './indexedDB'
+/* import {
+  add,
+  // read,
+  readAll,
+  update,
+  remove,
+  // getDB,
+  searchByName,
+} from './indexedDB' */
 
 // table列
 const tableCol = [
@@ -99,7 +107,7 @@ const getList = async () => {
     tableData.value = [res]
   } else {
     const res = await readAll()
-    tableData.value = res
+    tableData.value = res as any[]
   }
 }
 
