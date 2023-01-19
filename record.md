@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-14 18:34:56
+ * @ Modified time: 2023-01-19 18:13:05
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月19日18:12:09
+  - feat(views -> demo -> PictureEffects): 图片特效：图片库、悬浮分割、饼图、多图嵌套
 
 ## 2023年1月14日18:33:52
   - feat(views -> demo -> FileChunkUpload): 文件切片上传

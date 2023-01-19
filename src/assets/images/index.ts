@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-06 16:36:18
+ * @ Modified time: 2023-01-19 17:00:00
  * @ Description: 图片收集导出
  */
 
@@ -29,6 +29,14 @@ import demoParticlePictureRhodes2 from './demo/ParticlePicture_rhodes2.png'
 import demoParticlePicture4 from './demo/ParticlePicture_victoria.png'
 import demoParticlePicture5 from './demo/ParticlePicture_yan.png'
 import demoParticlePictureMouse from './demo/ParticlePicture_mouse.png'
+import PictureLibrary1 from './demo/PictureLibrary1.jpg'
+import PictureLibrary2 from './demo/PictureLibrary2.jpg'
+import PictureLibrary3 from './demo/PictureLibrary3.jpg'
+import PictureLibrary4 from './demo/PictureLibrary4.jpg'
+import PictureLibrary5 from './demo/PictureLibrary5.jpg'
+import PictureLibrary6 from './demo/PictureLibrary6.jpg'
+import PictureLibrary7 from './demo/PictureLibrary7.jpeg'
+import PictureLibrary8 from './demo/PictureLibrary8.jpeg'
 
 export {
   opticalDisk,
@@ -48,4 +56,12 @@ export {
   demoParticlePicture5,
   demoParticlePictureRhodes2,
   demoParticlePictureMouse,
+  PictureLibrary1,
+  PictureLibrary2,
+  PictureLibrary3,
+  PictureLibrary4,
+  PictureLibrary5,
+  PictureLibrary6,
+  PictureLibrary7,
+  PictureLibrary8,
 }

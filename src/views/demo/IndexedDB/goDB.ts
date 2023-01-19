@@ -14,7 +14,7 @@ const schema = {
 }
 
 // 连接数据库
-const myDB = new GoDB('myDB', schema)
+const myDB = new GoDB('myGoDB', schema)
 // 建表
 const user = myDB.table('users')
 
