@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-19 18:13:05
+ * @ Modified time: 2023-01-24 14:31:17
  * @ Description: 日志记录
  */
 
@@ -26,6 +26,9 @@
 
 # 更新记录
 
+
+## 2023年1月24日14:30:53
+  - feat(views -> demo -> CssEffects): TextReflection 文字倒影
 
 ## 2023年1月19日18:12:09
   - feat(views -> demo -> PictureEffects): 图片特效：图片库、悬浮分割、饼图、多图嵌套
