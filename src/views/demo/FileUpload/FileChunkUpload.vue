@@ -1,15 +1,14 @@
-<!-- eslint-disable @typescript-eslint/no-non-null-assertion -->
-<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!--
+ * @ Author: willysliang
+ * @ Create Time: 2023-02-13 15:45:10
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-12 18:25:13
- * @ Modified by: willysliang
- * @ Modified time: 2023-02-13 15:06:47
- * @ Description: 测试组件
+ * @ Modified time: 2023-02-13 15:48:47
+ * @ Description: FileChunkUpload 文件切块上传
  -->
+
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
-import { onMounted, ref, reactive, computed, watch } from 'vue'
+import { reactive, computed, watch } from 'vue'
 
 const SIZE = 10 * 1024 * 1024
 const Status = {
@@ -143,10 +142,8 @@ const verifyUpload = async (
         fileHash,
       }),
     })
-    console.log(data)
     return data
   } catch (err) {
-    console.log('err', err)
     return { shouldUpload: false, uploadedList: [] }
   }
 }
@@ -236,8 +233,8 @@ const createFileChunk = (file: File, size = SIZE): IFileChunk[] => {
 const calculateHash = (fileChunkList: IFileChunk[]): Promise<string> =>
   new Promise((resolve) => {
     container.worker = new Worker('/hash.js')
-    container.worker!.postMessage({ fileChunkList })
-    container.worker!.onmessage = (e) => {
+    container.worker.postMessage({ fileChunkList })
+    container.worker.onmessage = (e) => {
       const { percentage, hash } = e.data
       state.hashPercentage = percentage
       if (hash) resolve(hash)
@@ -298,12 +295,12 @@ const handleUpload = async () => {
     </el-button>
     <el-button @click="handleDelete">delete</el-button>
   </div>
-  <div>
-    <div>
+  <div class="w-full">
+    <div class="w-full">
       <div>calculate chunk hash</div>
       <el-progress :percentage="state.hashPercentage"></el-progress>
     </div>
-    <div>
+    <div class="w-full">
       <div>percentage</div>
       <el-progress :percentage="state.fakeUploadPercentage"></el-progress>
     </div>

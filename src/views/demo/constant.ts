@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-17 11:50:43
+ * @ Modified time: 2023-02-13 15:44:25
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -25,6 +25,7 @@ import {
   BabyFeet,
   DatabaseNetwork,
   Magic,
+  InboxOut,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -43,6 +44,14 @@ export const demoPages = {
     title: 'ZIP导出',
     icon: Zip,
     component: () => import('./Zip/ExportZip.vue'),
+  },
+  FILE_UPLOAD: {
+    path: 'FileUpload',
+    key: 'FileUpload',
+    name: 'FileUpload',
+    title: '文件切块上传',
+    icon: InboxOut,
+    component: () => import('./FileUpload/index.vue'),
   },
   COPY_TEXT: {
     path: 'copyText',

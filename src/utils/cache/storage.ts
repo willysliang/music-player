@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-12 18:11:01
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-12 18:35:09
+ * @ Modified time: 2023-01-24 19:48:48
  * @ Description: 有效时长的缓存类
  * （包含 localStorage、sessionstorage、cookie）
  */
 
-/** 默认缓存市场为 7 天 */
+/** 默认缓存时间为 7 天 */
 export const DEFAULT_CACHE_TIME = 1000 * 60 * 60 * 24 * 7
 
 /**
