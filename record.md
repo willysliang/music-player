@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-20 11:30:39
+ * @ Modified time: 2023-02-22 16:40:21
  * @ Description: 日志记录
  */
 
@@ -25,6 +25,10 @@
 
 
 # 更新记录
+
+
+## 2023年2月22日16:39:34
+  - feat(demo -> virtualList -> VirtualList): Item固定高度的虚拟列表
 
 ## 2023年2月20日11:30:14
   - feat(demo -> IndexedDB): 封装 IndexedDB 数据库操作帮手 hooks

@@ -13,20 +13,20 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive, computed, watch } from 'vue'
 import { cloneDeep } from 'lodash'
+import VirtualList from '../virtualList/VirtualList.vue'
 
 const add = () => {
   console.log('add')
 }
 
-onMounted(() => {
-  console.log('a')
-})
-
-onMounted(() => {
-  console.log('b')
-})
+const list = ref(
+  new Array(268435)
+    .fill({ name: 'willy', id: 0 })
+    .map((item, i) => ({ name: `${item.name}${i}`, id: i })),
+)
 </script>
 
 <template>
-  <el-button @click="add">delete</el-button>
+  <!-- <el-button @click="add">delete</el-button> -->
+  <VirtualList :listdata="list" :item-size="100" />
 </template>

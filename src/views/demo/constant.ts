@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-13 15:44:25
+ * @ Modified time: 2023-02-22 16:10:29
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -26,6 +26,7 @@ import {
   DatabaseNetwork,
   Magic,
   InboxOut,
+  Form,
 } from '@icon-park/vue-next'
 
 export const demoPages = {
@@ -132,6 +133,14 @@ export const demoPages = {
     title: '懒加载',
     icon: HourglassFull,
     component: () => import('./LazyLoading/index.vue'),
+  },
+  VIRTUAL_LIST: {
+    path: 'virtualList',
+    key: 'virtualList',
+    name: 'virtualList',
+    title: '虚拟列表',
+    icon: Form,
+    component: () => import('./virtualList/index.vue'),
   },
   COMMUNICATION: {
     path: 'Communication',
