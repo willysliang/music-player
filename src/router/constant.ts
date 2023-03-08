@@ -10,7 +10,7 @@ import {
   PlayTwo,
 } from '@icon-park/vue-next'
 import { Icon } from '@icon-park/vue-next/lib/runtime'
-import { demoPages } from '@/views/demo/constant'
+import { demoPages } from '@/pages/constant'
 
 /** 路由数据约束定义 */
 export interface IPages {
