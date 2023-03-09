@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-08 14:58:30
+ * @ Modified time: 2023-03-09 19:22:12
  * @ Description: 日志记录
  */
 
@@ -27,6 +27,10 @@
 # 更新记录
 
 
+
+
+## 2023年3月9日19:21:54
+  - feat(demo -> virtualList -> VirtualList): Item不定高度的虚拟列表
 
 ## 2023年3月8日14:57:45
   - refactor(demo): 移至 pages

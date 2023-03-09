@@ -1,3 +1,4 @@
+<!-- eslint-disable prefer-const -->
 <!-- eslint-disable n/no-callback-literal -->
 <!-- eslint-disable no-unmodified-loop-condition -->
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
@@ -15,14 +16,12 @@
 import { onMounted, ref, reactive, computed, watch } from 'vue'
 import { cloneDeep } from 'lodash'
 // import VirtualList from './VirtualList.vue'
-import VirtualList from './virtual-list.vue'
 
 const add = () => {
   console.log('add')
 }
 
 const data = ref<Array<any>>([])
-
 for (let i = 1; i <= 1000000; i++) {
   data.value.push({
     id: i,
@@ -30,64 +29,65 @@ for (let i = 1; i <= 1000000; i++) {
   })
 }
 
-const list: any[] = Array.from({ length: 10000 })
-  .fill({ text: '元素' })
-  .map((item: any) => ({ ...item, height: 200 * (Math.random() * 0.5 + 0.5) }))
+const handleFetchQueue = (
+  urls: string[],
+  max: number,
+  callback: (_: any) => void,
+) => {
+  const urlCount = urls.length
+  const requestsQueue: Array<any> = []
+  const results: Array<any> = []
+  let i = 0
+  const handleRequest = (url) => {
+    const req = fetch(url)
+      .then((res) => {
+        console.log('当前并发：' + requestsQueue)
+        const len = results.push(res)
+        if (len < urlCount && i + 1 < urlCount) {
+          requestsQueue.shift()
+          handleRequest(urls[++i])
+        } else if (len === urlCount) {
+          typeof callback === 'function' && callback(results)
+        }
+      })
+      .catch((e) => {
+        results.push(e)
+      })
+    if (requestsQueue.push(req) < max) {
+      handleRequest(urls[++i])
+    }
+  }
+  handleRequest(urls[i])
+}
+
+const urls = Array.from({ length: 10 }, (v, k) => k.toString())
+
+const fetch = function (idx) {
+  return new Promise((resolve) => {
+    console.log(`start request ${idx}`)
+    const timeout = Number.parseInt((Math.random() * 1e4).toFixed(0))
+    setTimeout(() => {
+      console.log(`end request ${idx}`)
+      resolve(idx)
+    }, timeout)
+  })
+}
+
+const max = 4
+
+const callback = () => {
+  console.log('run callback')
+}
+
+handleFetchQueue(urls, max, callback)
 </script>
 
 <template>
-    <div class="fill">
-    <div class="list-wrapper">
-      <virtual-list :list="list">
-        <template
-          v-for="(item, index) in list"
-          :key="index"
-          #[`item${index}`]
-        >
-          <div class="real-list-item" :style="{ height: `${item.height}px` }">
-            <span>{{ item.text }}{{ index }}</span>
-          </div>
-        </template>
-        <template #skeleton>
-          <div class="skeleton">骨架</div>
-        </template>
-      </virtual-list>
-    </div>
-  </div>
+  <div class="fill"></div>
 
- <!--  <VirtualList :list-data="data">
+  <!--  <VirtualList :list-data="data">
     <template #default="{ listItem }">
       <div> <span class="text-red-600">{{ listItem.idx }}</span> {{ listItem.value }}</div>
     </template>
   </VirtualList> -->
 </template>
-
-<style lang="scss">
-
-.list-wrapper {
-	width: 100%;
-	height: 500px;
-}
-
-.real-list-item {
-	border: 1px solid #333;
-	box-sizing: border-box;
-	margin-top: 16px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.skeleton {
-	margin-top: 16px;
-	background-color: #ccc;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-</style>
