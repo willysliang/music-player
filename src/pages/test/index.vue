@@ -21,13 +21,13 @@ const add = () => {
   console.log('add')
 }
 
-const data = ref<Array<any>>([])
+/* const data = ref<Array<any>>([])
 for (let i = 1; i <= 1000000; i++) {
   data.value.push({
     id: i,
     value: '字符内容'.repeat(Math.random() * 100),
   })
-}
+} */
 
 const handleFetchQueue = (
   urls: string[],
@@ -83,7 +83,7 @@ handleFetchQueue(urls, max, callback)
 </script>
 
 <template>
-  <div class="fill"></div>
+  <div>按钮</div>
 
   <!--  <VirtualList :list-data="data">
     <template #default="{ listItem }">
