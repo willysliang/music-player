@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-17 10:05:58
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-01 11:31:57
+ * @ Modified time: 2023-03-10 14:06:02
  * @ Description: ZIP 下载压缩文件
  -->
 
 <script lang="ts" setup>
-import Wangeditor from '@/views/demo/Editor/Wangeditor.vue'
+import Wangeditor from '../Editor/Wangeditor.vue'
 import { ref, reactive } from 'vue'
 import { ElNotification } from 'element-plus'
 import JSZip from 'jszip'

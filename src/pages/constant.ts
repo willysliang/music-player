@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:25:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-09 19:20:54
+ * @ Modified time: 2023-03-10 10:03:06
  * @ Description: 路由配置 & 常量设定
  */
 
@@ -30,6 +30,14 @@ import {
 } from '@icon-park/vue-next'
 
 export const demoPages = {
+  TEST: {
+    path: 'TEST',
+    key: 'TEST',
+    name: 'TEST',
+    title: '测试',
+    icon: TestTube,
+    component: () => import('./test/index.vue'),
+  },
   EXCEL: {
     path: 'demoExcel',
     key: 'demoExcel',
@@ -189,13 +197,5 @@ export const demoPages = {
     title: '本地数据库',
     icon: DatabaseNetwork,
     component: () => import('./IndexedDB/index.vue'),
-  },
-  TEST: {
-    path: 'TEST',
-    key: 'TEST',
-    name: 'TEST',
-    title: '测试',
-    icon: TestTube,
-    component: () => import('./test/index.vue'),
   },
 } as const

@@ -19,6 +19,9 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // mockjs
 import { viteMockServe } from 'vite-plugin-mock'
 
+// vite 打包压缩 gzip
+import viteCompression from 'vite-plugin-compression'
+
 import server from './config/vite/server'
 
 export default defineConfig({
@@ -83,6 +86,14 @@ export default defineConfig({
        import { setupProdMockServer } from './mock/_createProdMockServer';
        setupProdMockServer();
        `,
+    }),
+    viteCompression({
+      verbose: true, // 默认即可
+      disable: false, // 开启压缩(不禁用)，默认即可
+      deleteOriginFile: false, // 删除源文件
+      threshold: 10240, // 压缩前最小文件大小
+      algorithm: 'gzip', // 压缩算法
+      ext: '.gz', // 文件类型
     }),
   ],
   css: {
