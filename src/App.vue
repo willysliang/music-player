@@ -10,6 +10,10 @@ const { getElLocale } = useLocaleHook()
 
 <template>
   <el-config-provider :locale="getElLocale">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </el-config-provider>
 </template>
