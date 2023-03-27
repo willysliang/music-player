@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-09-15 09:16:46
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-23 10:51:16
+ * @ Modified time: 2023-03-27 11:47:15
  * @ Description: 页面大框
  -->
 
@@ -11,11 +11,19 @@ import MyHeader from './header/index.vue'
 import MyMenu from './menu/index.vue'
 import MyMain from './main/index.vue'
 import MyFooter from './footer/index.vue'
-import { useThemeStore, useThemeInit } from '@store/app/theme'
 import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
+import { useThemeStore, useThemeInit } from '@store/app/theme'
+import { computed } from 'vue'
+import { demoPages } from '@/pages/constant'
 
 const { themeLayoutIsVertical } = storeToRefs(useThemeStore())
 useThemeInit()
+
+const route = useRoute()
+const isDemoRoute = computed(() =>
+  Object.values(demoPages).some((page) => `/${page.path}` === route.path),
+)
 </script>
 
 <template>
@@ -33,9 +41,9 @@ useThemeInit()
     <div
       class="overflow-hidden flex flex-row w-full h-full"
       :style="{
-        height: themeLayoutIsVertical
-          ? 'calc(100vh - 4.5rem - 3rem)'
-          : 'calc(100vh - 4.5rem)',
+        height: `calc(100vh ${isDemoRoute ? '' : '- 4.5rem'} ${
+          themeLayoutIsVertical ? '- 3rem' : ''
+        })`,
       }"
     >
       <!-- 左侧菜单栏 -->
@@ -62,7 +70,7 @@ useThemeInit()
     </div>
 
     <!-- 脚部 -->
-    <div class="footer">
+    <div v-if="!isDemoRoute" class="footer">
       <my-footer />
     </div>
   </div>

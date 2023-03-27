@@ -30,13 +30,25 @@ for (let i = 1; i <= 1000000; i++) {
     value: '字符内容'.repeat(Math.random() * 100),
   })
 } */
-const globalData = reactive({
-  eventDetailsObj: { a: '1' }
-})
 
-onBeforeMount(() => {
-  console.log(globalData.eventDetailsObj)
-})
+const ShellSort = function (arr: Array<number>) {
+  // 动态定义间隔序列
+  let gap = arr.length <= 2 ? 1 : Math.floor(arr.length / 2)
+  for (gap; gap > 0; gap = Math.floor(gap / 2)) {
+    for (let i = gap; i < arr.length; i++) {
+      const temp = arr[i]
+      let j = i - gap
+      for (j; j >= 0 && arr[j] > temp; j -= gap) {
+        arr[j + gap] = arr[j]
+      }
+      arr[j + gap] = temp
+    }
+  }
+  console.log(arr)
+  return arr
+}
+
+ShellSort([2, 5, 2, 1, 4, 7, 9, 4, 9, 3, 5, 8, 7])
 </script>
 
 <template>
