@@ -12,9 +12,11 @@
  * @ Modified time: 2023-02-14 13:40:32
  * @ Description: 测试组件
  -->
+
 <script setup lang="ts">
-import { onMounted, ref, reactive, computed, watch } from 'vue'
+import { onMounted, ref, reactive, computed, watch, onBeforeMount } from 'vue'
 import { cloneDeep } from 'lodash'
+import { useRouter } from 'vue-router';
 // import VirtualList from './VirtualList.vue'
 
 const add = () => {
@@ -28,7 +30,13 @@ for (let i = 1; i <= 1000000; i++) {
     value: '字符内容'.repeat(Math.random() * 100),
   })
 } */
+const globalData = reactive({
+  eventDetailsObj: { a: '1' }
+})
 
+onBeforeMount(() => {
+  console.log(globalData.eventDetailsObj)
+})
 </script>
 
 <template>

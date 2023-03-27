@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-02 17:59:14
+ * @ Modified time: 2023-03-27 09:38:30
  * @ Description: 路由配置
  */
 
@@ -217,6 +217,8 @@ const routes = [
           ...Pages.RECENTLY_MUSIC,
         },
       },
+
+      /** demo 相关 */
       ...demoRoutes,
     ],
   },

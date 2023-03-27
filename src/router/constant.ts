@@ -212,6 +212,19 @@ export const Pages = {
 
 /** 菜单列表 */
 export const menuList: IPages[] = [
+  /** demo相关 */
+  {
+    title: '案例',
+    name: 'demo',
+    key: 'demo',
+    path: 'demo',
+    icon: VideoOne,
+    children: [
+      ...Object.values(demoPages),
+    ],
+  },
+
+  /** 音乐 */
   {
     title: '在线音乐',
     name: 'onlineMusic',
@@ -231,16 +244,6 @@ export const menuList: IPages[] = [
       Pages.LOCAL_MUSIC,
       Pages.DOWNLOAD_MUSIC,
       Pages.RECENTLY_MUSIC,
-    ],
-  },
-  {
-    title: '案例',
-    name: 'demo',
-    key: 'demo',
-    path: 'demo',
-    icon: VideoOne,
-    children: [
-      ...Object.values(demoPages),
     ],
   },
 ]
