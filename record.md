@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-27 11:50:06
+ * @ Modified time: 2023-03-30 17:29:12
  * @ Description: 日志记录
  */
 
@@ -27,6 +27,9 @@
 # 更新记录
 
 
+
+## 2023年3月30日17:28:34
+  - chore(vite): 更新 vite 打包配置
 
 ## 2023年3月27日09:39:16
   - refactor(routes): 修改 demo 相关路由位置
