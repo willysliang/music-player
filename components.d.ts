@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     ChargeXiaomi: typeof import('./src/components/layout/header/lockscreen/ChargeXiaomi.vue')['default']
     Collapses: typeof import('./src/components/common/Collapses.vue')['default']
     Comments: typeof import('./src/components/songList/Comments.vue')['default']
+    ComponentCacheSetting: typeof import('./src/components/layout/header/headerThemeSetting/ComponentCacheSetting.vue')['default']
     CoverPlay: typeof import('./src/components/common/CoverPlay.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']

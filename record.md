@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-10 15:31:37
+ * @ Modified time: 2023-04-10 18:19:12
  * @ Description: 日志记录
  */
 
@@ -21,6 +21,7 @@
   - ci 持续集成
   - types 类型定义文件更改
   - wip 开发中
+  - bug 发现但未修复的bug
 
 
 
@@ -30,10 +31,16 @@
 
 
 
-## 2023年4月10日15:06:18
+## 2023年4月10日15:06:18、2023年4月10日16:43:59、2023年4月10日18:12:50
   - ci(pnpm i unplugin-vue-macros -D): 引入自定义组件名称插件
   - feat(pages): defineOptions 自定义组件名称
   - feat(pages): 修复类型约束报错问题
+  - feat(layout): 路由组件缓存
+  - feat(layout -> header -> themeSetting): 可手动设置需要缓存的路由组件 ComponentCacheSetting
+  - bug(src\hooks\useRouteCache.ts): 
+      - 问题描述：当前仅能设置一个缓存的数组，所以会导致一级路由与二级路由共用同一个记录
+      - 场景复现：可查看 (src\App.vue) 与 (src\components\layout\main\index.vue) 中的 getCache 是获取同一个记录
+      - 问题导致：会导致不合理的组件缓存增加（一级跟二级路由共用同一个数据）
 
 ## 2023年3月30日17:28:34
   - chore(vite): 更新 vite 打包配置

@@ -2,14 +2,15 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-19 08:48:17
  * @ Modified by: willysliang
- * @ Modified time: 2022-10-20 18:42:57
+ * @ Modified time: 2023-04-10 17:18:43
  * @ Description: 页面布局头部 - 设置 - 抽屉 - 主题设置
  -->
 
 <script setup lang="ts">
+import ComponentCacheSetting from './ComponentCacheSetting.vue';
+import { storeToRefs } from 'pinia'
 import { themeStyle, themeLayout, themeColors } from '@/config/constant/theme'
 import { useThemeStore } from '@store/app/theme'
-import { storeToRefs } from 'pinia'
 
 const { drawer, themeStyleCurrent, themeLayoutCurrent, themeColorsCurrent } =
   storeToRefs(useThemeStore())
@@ -95,5 +96,8 @@ const { changeThemeLayout, changeThemeStyle, changeThemeColor } =
         </el-icon>
       </div>
     </div>
+
+    <!-- 缓存页面 -->
+    <ComponentCacheSetting />
   </el-drawer>
 </template>

@@ -2,16 +2,22 @@
  * @ Author: willysliang
  * @ Create Time: 2023-04-10 14:01:22
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-10 14:06:41
+ * @ Modified time: 2023-04-10 18:09:35
  * @ Description: 路由缓存 hooks
  */
 
-import { ref, nextTick } from 'vue'
-
-const caches = ref<string[]>([])
+import { nextTick } from 'vue'
+import { Storage } from '@/utils/cache'
+import { COMP_CACHE_KEY } from '@/config/constant/cache'
+import { demoPages } from '@/pages/constant'
 
 /** 路由缓存 */
 export function useRouteCache () {
+  /** 获取缓存的记录信息列表 */
+  const getCache = (): string[] => {
+    return Storage.get(COMP_CACHE_KEY, [demoPages.TEST.name])
+  }
+
   /** 添加缓存的路由组件 */
   function addCache (componentName: string | string[]) {
     if (Array.isArray(componentName)) {
@@ -19,17 +25,19 @@ export function useRouteCache () {
       return
     }
 
-    if (!componentName || caches.value.includes(componentName)) return
+    if (!componentName || getCache().includes(componentName)) return
 
-    caches.value.push(componentName)
+    Storage.set(COMP_CACHE_KEY, [...getCache(), componentName])
   }
 
   /** 移除缓存的路由组件 */
-  function removeCache (componentName: string) {
-    const index = caches.value.indexOf(componentName)
+  function removeCache (componentName: string): boolean {
+    const index = getCache().indexOf(componentName)
     if (index > -1) {
-      return caches.value.splice(index, 1)
+      Storage.set(COMP_CACHE_KEY, [...getCache()].splice(index, 1))
+      return true
     }
+    return false
   }
 
   /** 移除缓存的路由组件的实例 */
@@ -40,10 +48,16 @@ export function useRouteCache () {
     }
   }
 
+  /** 主体设置的添加/修改缓存的路由组件 */
+  const themeAddCache = (componentNames: string[]) => {
+    Storage.set(COMP_CACHE_KEY, componentNames)
+  }
+
   return {
-    caches,
+    getCache,
     addCache,
     removeCache,
     removeCacheEntry,
+    themeAddCache,
   }
 }

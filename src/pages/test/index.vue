@@ -1,8 +1,8 @@
 <!-- eslint-disable prefer-const -->
 <!-- eslint-disable n/no-callback-literal -->
 <!-- eslint-disable no-unmodified-loop-condition -->
-<!-- eslint-disable @typescript-eslint/no-empty-function -->
-<!-- eslint-disable brace-style -->
+ * @ Modified by: willysliang
+ * @ Modified time: 2023-04-10 16:32:05
 <!-- eslint-disable @typescript-eslint/no-non-null-assertion -->
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!--
@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, reactive, computed, watch, onBeforeMount, onActivated } from 'vue'
+import { useRoute } from 'vue-router';
 import { demoPages } from '../constant';
 // import VirtualList from './VirtualList.vue'
 
@@ -39,6 +40,12 @@ for (let i = 1; i <= 1000000; i++) {
 onActivated(() => {
   console.log('aaa')
 })
+</script>
+
+<script lang="ts">
+// export default {
+//   name: 'Test',
+// }
 </script>
 
 <template>
