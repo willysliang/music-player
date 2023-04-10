@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-05 17:22:53
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-07 13:19:18
+ * @ Modified time: 2023-04-10 15:21:38
  * @ Description: useEventListener 间断性事件监听
  * @Tip 节流会缓存上次的函数来执行，所以如果要使用保存数据的功能，需要使用防抖
  */
@@ -38,7 +38,7 @@ export function useEventListener ({
   wait = 500,
 }: IUseEventParams): { removeEvent: () => void } {
   /** 事件所属节点 */
-  const element = ref<Element>(el)
+  const element = ref<any>(el)
 
   /** 是否已添加事件 */
   const isAddRef = ref(false)
@@ -66,11 +66,11 @@ export function useEventListener ({
     element,
     (v, _ov, cleanUp) => {
       if (v) {
-        !unref(isAddRef) && addEventListener(v)
+        !unref(isAddRef) && addEventListener(v as Element)
 
         // 如果为立即执行，则移除该事件
         cleanUp(() => {
-          autoRemove && removeEventListener(v)
+          autoRemove && removeEventListener(v as Element)
         })
       }
     },

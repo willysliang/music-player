@@ -14,10 +14,15 @@
  -->
 
 <script setup lang="ts">
-import { onMounted, ref, reactive, computed, watch, onBeforeMount } from 'vue'
-import { cloneDeep } from 'lodash'
-import { useRouter } from 'vue-router';
+import { onMounted, ref, reactive, computed, watch, onBeforeMount, onActivated } from 'vue'
+import { demoPages } from '../constant';
 // import VirtualList from './VirtualList.vue'
+
+// eslint-disable-next-line no-undef
+defineOptions({
+  name: demoPages.TEST.name,
+  inheritAttrs: false
+})
 
 const add = () => {
   console.log('add')
@@ -31,24 +36,9 @@ for (let i = 1; i <= 1000000; i++) {
   })
 } */
 
-const ShellSort = function (arr: Array<number>) {
-  // 动态定义间隔序列
-  let gap = arr.length <= 2 ? 1 : Math.floor(arr.length / 2)
-  for (gap; gap > 0; gap = Math.floor(gap / 2)) {
-    for (let i = gap; i < arr.length; i++) {
-      const temp = arr[i]
-      let j = i - gap
-      for (j; j >= 0 && arr[j] > temp; j -= gap) {
-        arr[j + gap] = arr[j]
-      }
-      arr[j + gap] = temp
-    }
-  }
-  console.log(arr)
-  return arr
-}
-
-ShellSort([2, 5, 2, 1, 4, 7, 9, 4, 9, 3, 5, 8, 7])
+onActivated(() => {
+  console.log('aaa')
+})
 </script>
 
 <template>

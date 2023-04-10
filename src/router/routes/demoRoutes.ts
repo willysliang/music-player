@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-11-15 09:39:34
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-10 09:56:51
+ * @ Modified time: 2023-04-10 13:57:37
  * @ Description: 案例路由配置
  */
 import { demoPages } from '@/pages/constant'
@@ -16,7 +16,7 @@ const getDemoRoutes = () => {
       path,
       name,
       component,
-      meta: value,
+      meta: Object.assign(value, { keepAlive: true }),
     })
   }
   return demoRoutes

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-30 17:29:12
+ * @ Modified time: 2023-04-10 15:31:37
  * @ Description: 日志记录
  */
 
@@ -27,6 +27,13 @@
 # 更新记录
 
 
+
+
+
+## 2023年4月10日15:06:18
+  - ci(pnpm i unplugin-vue-macros -D): 引入自定义组件名称插件
+  - feat(pages): defineOptions 自定义组件名称
+  - feat(pages): 修复类型约束报错问题
 
 ## 2023年3月30日17:28:34
   - chore(vite): 更新 vite 打包配置

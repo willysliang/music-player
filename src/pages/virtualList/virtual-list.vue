@@ -1,3 +1,11 @@
+<!--
+ * @ Author: willysliang
+ * @ Create Time: 2023-03-21 23:34:12
+ * @ Modified by: willysliang
+ * @ Modified time: 2023-04-10 15:26:59
+ * @ Description: 虚拟列表
+ -->
+
 <script lang="ts" setup>
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { onMounted, ref, getCurrentInstance, onUnmounted, watch } from 'vue'
@@ -42,7 +50,7 @@ const processToBeUpdatedItemQueue = (): void => {
 
 onMounted(() => {
   virtualList = new VirtualList({
-    listArea: listArea.value,
+    listArea: listArea.value as unknown as HTMLElement,
     listItemSelector: `.${V_LIST_ITEM_CLASS}`,
     rootMargin: '0px',
     threshold: 0,

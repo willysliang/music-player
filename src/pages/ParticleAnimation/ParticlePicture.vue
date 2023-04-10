@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-06 15:08:15
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-09 13:41:36
+ * @ Modified time: 2023-04-10 15:23:53
  * @ Description: ParticlePicture 图片粒子化
  -->
 
@@ -417,7 +417,7 @@ onMounted(() => {
         class="flex flex-col items-center justify-between w-1/6 box-border p-2"
         :class="{ 'bg-gray-500 rounded-2xl': logoImg.currentLogoItem === item }"
         data-cursor="pointer"
-        @click="handleLogoImg(canvas.particleCanvas, item)"
+        @click="handleLogoImg(canvas.particleCanvas as ParticleCanvas, item)"
       >
         <img :src="item.src" class="w-full" />
         <span class="text-gray-200">{{ item.name }}</span>

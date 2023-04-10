@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-25 16:53:47
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-09 09:08:34
+ * @ Modified time: 2023-04-10 13:43:44
  * @ Description: 路由守卫 routerGuards
  */
 import NProgress from 'nprogress' // 导入 nprogress模块
@@ -27,6 +27,10 @@ export function createRouterGuards (router: Router) {
       text: 'Loading',
       background: 'rgba(0, 0, 0, 0.7)',
     })
+
+    // 不使用TS扩展，这里将会得到 unkonw 类型
+    document.title = to.meta.title
+
     const token = Storage.get(USER_TOKEN, null)
     if (token) {
       if (to.path === Pages.LOGIN.path) {

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-12-28 13:22:26
+ * @ Modified time: 2023-04-10 15:15:51
  * @ Description: 头部搜索组件
  -->
 
@@ -92,20 +92,20 @@ const getSearchWidth = () => {
   popoverWidth.value = searchRef.value?.offsetWidth || '250px'
 }
 
-useEventListener({
-  el: window,
-  name: 'resize',
-  listener: () => {
-    getSearchWidth()
-  },
-  isDebounce: true,
-  wait: 200,
-  autoRemove: true,
-})
 // onBeforeMount(() => {
 //   window.addEventListener('resize', getSearchWidth())
 // })
 onMounted(() => {
+  useEventListener({
+    el: window,
+    name: 'resize',
+    listener: () => {
+      getSearchWidth()
+    },
+    isDebounce: true,
+    wait: 200,
+    autoRemove: true,
+  })
   popoverWidth.value = searchRef.value?.offsetWidth || '250px'
 })
 // onUnmounted(() => {

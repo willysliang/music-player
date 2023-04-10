@@ -2,16 +2,26 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-27 09:38:30
+ * @ Modified time: 2023-04-10 13:42:08
  * @ Description: 路由配置
  */
 
-import { createRouter, createWebHistory } from 'vue-router'
-import { Pages } from './constant'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { IPages, Pages } from './constant'
 import { createRouterGuards } from './routerGuards'
 import { demoRoutes } from './routes/demoRoutes'
 
-const routes = [
+// 如果不使用TS扩展 将会是unknow 类型
+declare module 'vue-router' {
+  interface RouteMeta extends IPages {
+    title: string
+    keepAlive?: boolean
+    requireAuth?: boolean
+  }
+}
+
+/** 路由 */
+const routes: Array<RouteRecordRaw> = [
   {
     path: Pages.LOGIN.path,
     name: Pages.LOGIN.name,
