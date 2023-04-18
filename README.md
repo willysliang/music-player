@@ -1,3 +1,6 @@
+# Music Player
+该项目主要是基于 Vue3 + Vite + TypeScript + Pinia 实现一个音乐播放器，以及对一些涉及 Vue3 API 的案例实现。
+
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
