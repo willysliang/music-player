@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-10 18:19:12
+ * @ Modified time: 2023-04-18 10:33:37
  * @ Description: 日志记录
  */
 
@@ -29,7 +29,8 @@
 
 
 
-
+## 2023年4月18日10:32:58
+  - feat(router): 更改默认显示的路由
 
 ## 2023年4月10日15:06:18、2023年4月10日16:43:59、2023年4月10日18:12:50
   - ci(pnpm i unplugin-vue-macros -D): 引入自定义组件名称插件

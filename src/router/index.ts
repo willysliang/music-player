@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-10 13:42:08
+ * @ Modified time: 2023-04-18 10:32:29
  * @ Description: 路由配置
  */
 
@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true,
       requireAuth: true,
     },
-    redirect: { name: Pages.DISCOVER.name },
+    redirect: { name: demoRoutes.TEST.name },
     component: () => import('../views/system/root.vue'),
     children: [
       /**
