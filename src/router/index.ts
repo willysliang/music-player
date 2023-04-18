@@ -2,10 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-18 10:32:29
+ * @ Modified time: 2023-04-18 11:38:30
  * @ Description: 路由配置
  */
 
+import { demoPages } from '@/pages/constant'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { IPages, Pages } from './constant'
 import { createRouterGuards } from './routerGuards'
@@ -40,7 +41,7 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true,
       requireAuth: true,
     },
-    redirect: { name: demoRoutes.TEST.name },
+    redirect: { name: demoPages.TEST.name },
     component: () => import('../views/system/root.vue'),
     children: [
       /**
