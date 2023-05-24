@@ -1,3 +1,6 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": ["Vue.volar"],
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2, // 重新设定tabsize
 }

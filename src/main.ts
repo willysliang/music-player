@@ -13,7 +13,12 @@ import router from './router'
 
 import 'element-plus/dist/index.css'
 import { setupI18n } from './locales'
-import { setupAssets, setupElementUI, setupCustomComponents, setupGlobalMethods } from '@/config/plugins'
+import {
+  setupAssets,
+  setupElementUI,
+  setupCustomComponents,
+  setupGlobalMethods,
+} from '@/config/plugins'
 
 const app = createApp(App)
 

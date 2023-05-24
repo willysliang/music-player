@@ -1,10 +1,10 @@
-/**
+---
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
  * @ Modified time: 2023-04-18 10:33:37
  * @ Description: 日志记录
- */
+---
 
 # 更新规则
 
@@ -28,6 +28,8 @@
 # 更新记录
 
 
+## 2023年5月24日20点56分
+  - feat(hooks -> tracker): 前端监控埋点hooks
 
 ## 2023年4月18日10:32:58
   - feat(router): 更改默认显示的路由

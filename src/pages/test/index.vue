@@ -47,6 +47,7 @@ for (let i = 1; i <= 1000000; i++) {
 
 <template>
   <div>按钮</div>
+  <button target-key="btn">添加target-key的按钮</button>
 
   <!--  <VirtualList :list-data="data">
     <template #default="{ listItem }">
