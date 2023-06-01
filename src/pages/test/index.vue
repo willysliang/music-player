@@ -15,7 +15,6 @@
 import {
   onMounted,
   ref,
-  reactive,
   computed,
   watch,
   onBeforeMount,
@@ -42,7 +41,6 @@ for (let i = 1; i <= 1000000; i++) {
     value: '字符内容'.repeat(Math.random() * 100),
   })
 } */
-
 </script>
 
 <template>

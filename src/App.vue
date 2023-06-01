@@ -7,12 +7,17 @@
  -->
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { usePlayerInit } from '@/store/player'
 import { useLocaleHook } from '@/locales/useLocaleHook'
 import { useRouteCache } from '@/hooks/useRouteCache'
 import { Pages } from './router/constant'
+
+/** 埋点 */
 import { Tracker } from './hooks/tracker/core'
-import { onMounted } from 'vue'
+
+/** core */
+import { reactive as MyReactive } from '@/hooks/core/reactive'
 
 /** 音乐播放初始化 */
 usePlayerInit()
@@ -36,6 +41,8 @@ onMounted(() => {
     resourceTracker: true, // 开启资源加载监控上报
   })
 })
+
+MyReactive({ name: 'willy' })
 </script>
 
 <template>

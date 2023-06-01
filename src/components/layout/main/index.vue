@@ -15,7 +15,7 @@ const { getCache } = useRouteCache()
 </script>
 
 <template>
-  <div class="container mx-auto py-5 px-4 box-border w-full h-full my-main">
+  <div class="mx-auto py-5 px-4 box-border w-full h-full my-main">
     <router-view v-slot="{ Component }">
       <transition name="fade" :duration="{ enter: 500, leave: 800 }">
         <el-scrollbar class="w-full h-full">

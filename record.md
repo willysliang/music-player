@@ -28,6 +28,9 @@
 # 更新记录
 
 
+## 2023年6月1日10点22分
+  - feat(hooks/core/reactive): VUE3 reactive 响应式原理
+
 ## 2023年5月26日12点55分
   - bug(husky): 无法在提交时进行信息限制，并在 eslint 触发错误时不进行提交
 
