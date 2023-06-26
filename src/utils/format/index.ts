@@ -131,3 +131,27 @@ export const formatDuring = (during: number) => {
 
   return `${ii}:${ss}`
 }
+
+/**
+ * @hexoToRGB 16进制颜色值转 RGB
+ * @param {String} hex 16进制颜色字符串
+ * @return {String} RGB颜色字符
+ */
+export function hexoToRGB (hex: string) {
+  const tranHex: any = hex.replace('#', '0x')
+  const r = tranHex >> 16
+  const g = tranHex >> 8 & 0xff
+  const b = tranHex & 0xff
+  return `rgb(${r}, ${g}, ${b})`
+}
+
+/**
+ * @RGBToHex 16进制颜色值转 RGB
+ * @param {String} rgb RGB颜色字符串
+ * @return {String} 16进制颜色字符串
+ */
+export function RGBToHex (rgb) {
+  const rgbArr = rgb.split(/[^\d]+/)
+  const color = rgbArr[1] << 16 | rgbArr[2] << 8 | rgbArr[3]
+  return `#${color.toString(16)}`
+}
