@@ -28,6 +28,10 @@
 # 更新记录
 
 
+## 2023年6月26日10点43分
+  - feat(hooks/core/immer): React Immer 核心原理
+  - feat(utils): 16进制颜色值 和 RGB 互转
+
 ## 2023年6月1日10点22分
   - feat(hooks/core/reactive): VUE3 reactive 响应式原理
   - bug(hooks/tracker): 会多次触发事件(需要优化,限制执行次数)
