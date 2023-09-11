@@ -28,6 +28,9 @@
 # 更新记录
 
 
+## 2023年9月11日12点51分
+  - chore(rollup-plugin-visualizer): 包分析
+
 ## 2023年6月26日10点43分
   - feat(hooks/core/immer): React Immer 核心原理
   - feat(utils): 16进制颜色值 和 RGB 互转

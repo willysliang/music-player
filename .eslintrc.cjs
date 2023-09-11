@@ -40,11 +40,12 @@ module.exports = {
     'comma-dangle': ['off', 'always'],
     quotes: 'off',
     semi: 'off',
-    "no-tabs": 0,
-    "@typescript-eslint/no-explicit-any": ["off"],
-    "vue/no-v-html": "off", // 关闭 v-html 的校验
+    'no-tabs': 0,
+    '@typescript-eslint/no-explicit-any': ['off'],
+    'vue/no-v-html': 'off', // 关闭 v-html 的校验
     'no-extend-native': 'off', // 原型中可添加属性
     'func-call-spacing': 'off', // 函数存在意外空格
+    'space-before-function-paren': 'off',
     // '@typescript-eslint/no-non-null-assertion': 'off', // 可使用断言
     // '@typescript-eslint/no-var-requires': 'off', // 可使用 require
   },

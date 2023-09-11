@@ -24,6 +24,9 @@ import viteCompression from 'vite-plugin-compression'
 
 import server from './config/vite/server'
 
+/** 包分析 */
+import { visualizer } from 'rollup-plugin-visualizer'
+
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   // cacheDir: 'node_modules/.pnpm/.vite', // 存储缓存文件的目录。此目录下会存储预打包的依赖项或 vite
@@ -35,16 +38,18 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
-      // 打包时把所有的模块都区分开
-      /*  manualChunks (id) {
-        if (id.includes('node_modules')) {
-          return id
-            .toString()
-            .split('node_modules/.pnpm/')[1]
-            .split('/')[0]
-            .toString()
-        }
-      }, */
+      output: {
+        // 打包时把所有的模块都区分开
+        /* manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id
+              .toString()
+              .split('node_modules/.pnpm/')[1]
+              .split('/')[0]
+              .toString()
+          }
+        }, */
+      },
     },
     outDir: 'dist', // 指定输出路径
     assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
@@ -123,6 +128,8 @@ export default defineConfig({
       algorithm: 'gzip', // 压缩算法
       ext: '.gz', // 文件类型
     }),
+    /** 包分析 */
+    visualizer({ open: true }),
   ],
   css: {
     preprocessorOptions: {
