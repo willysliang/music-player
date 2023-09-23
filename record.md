@@ -28,6 +28,9 @@
 # 更新记录
 
 
+## 2023年9月23日17点34分
+  - feat(hooks/core/vuex): VUEX 原理
+
 ## 2023年9月11日12点51分
   - chore(rollup-plugin-visualizer): 包分析
 
