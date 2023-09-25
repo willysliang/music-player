@@ -1,7 +1,16 @@
+/**
+ * @ Author: willy
+ * @ Create Time: 2023-06-25 19:21:38
+ * @ Modifier by: willy
+ * @ Modifier time: 2023-09-23 21:51:23
+ * @ Description: vitets 构建文件
+ */
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import * as path from 'path'
+import * as fs from 'fs'
 
 /** 自定义组件name属性 */
 import DefineOptions from 'unplugin-vue-define-options/vite'
@@ -25,32 +34,32 @@ import viteCompression from 'vite-plugin-compression'
 import server from './config/vite/server'
 
 /** 包分析 */
-import { visualizer } from 'rollup-plugin-visualizer'
+// import { visualizer } from 'rollup-plugin-visualizer'
+
+/**
+ * 读取指定目录下的所有 HTML 文件，并将它们的文件名作为键，文件路径作为值，存储到一个名为 pages 的对象中。
+ */
+function getEntries(): { [entryAlias: string]: string } {
+  const pages = {}
+  const pageDir = path.join(__dirname, './')
+  fs.readdirSync(pageDir).forEach((file) => {
+    if (file.endsWith('.html')) {
+      const name = file.replace(/\.html$/, '')
+      const filePath = path.join(pageDir, file)
+      console.log(filePath)
+      pages[name] = filePath
+    }
+  })
+  return pages
+}
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? './' : '/',
+  base: process.env.NODE_ENV === 'production' ? './' : './',
+  // root: path.resolve(__dirname, 'src'),
+  root: '.',
   // cacheDir: 'node_modules/.pnpm/.vite', // 存储缓存文件的目录。此目录下会存储预打包的依赖项或 vite
   build: {
-    // es2020 支持 import.meta 语法
-    target: 'es2020',
-    // 自定义底层的 Rollup 打包配置
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-      },
-      output: {
-        // 打包时把所有的模块都区分开
-        /* manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id
-              .toString()
-              .split('node_modules/.pnpm/')[1]
-              .split('/')[0]
-              .toString()
-          }
-        }, */
-      },
-    },
+    target: 'es2020', // es2020 支持 import.meta 语法
     outDir: 'dist', // 指定输出路径
     assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
     cssCodeSplit: true, // 启用 CSS 代码拆分
@@ -66,6 +75,13 @@ export default defineConfig({
     // brotliSize: true, // 启用 brotli 压缩大小报告
     chunkSizeWarningLimit: 500, // chunk 大小警告的限制
     watch: null, // 设置为 {} 则会启用 rollup 的监听器
+    // 自定义底层的 Rollup 打包配置
+    rollupOptions: {
+      // input: {
+      //   main: path.resolve(__dirname, 'index.html'),
+      // },
+      input: getEntries(),
+    },
   },
   resolve: {
     // 设置别名
@@ -79,7 +95,8 @@ export default defineConfig({
       '@api': path.resolve(__dirname, 'src/api/module'),
       '@util': path.resolve(__dirname, 'src/utils'),
     },
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'], //  默认：['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']导入时想要忽略的扩展名列表 导入时想要省略的扩展名列表。不建议忽略自定义导入类型的扩展名（例如：.vue），因为它会影响 IDE 和类型支持
+    //  默认：['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']导入时想要忽略的扩展名列表 导入时想要省略的扩展名列表。不建议忽略自定义导入类型的扩展名（例如：.vue），因为它会影响 IDE 和类型支持
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
   },
   plugins: [
     vue(),
@@ -129,7 +146,7 @@ export default defineConfig({
       ext: '.gz', // 文件类型
     }),
     /** 包分析 */
-    visualizer({ open: true }),
+    // visualizer({ open: true }),
   ],
   css: {
     preprocessorOptions: {
